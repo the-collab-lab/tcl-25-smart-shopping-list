@@ -9,5 +9,6 @@ Add yourself as a contributor to this project as a Markdown link that links your
 ## Mentors
 
 - [Julia Undeutsch](https://github.com/YuriDevAT) :bowtie:
+- [Golfo Vasiliou](https://github.com/faysvas) 🤖
 
 ## Code of Conduct Contacts
