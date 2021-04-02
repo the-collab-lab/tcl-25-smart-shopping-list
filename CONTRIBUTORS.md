@@ -3,6 +3,7 @@
 Add yourself as a contributor to this project as a Markdown link that links your name to your GitHub profile and shows your favorite emoji, as in the following example:
 
     - [Ibrahim Olalekan](https://github.com/lamilekan263) 💅
+    - [Katia Utochkina](https://github.com/katia-utochkina) 🌸
 
 ## Cohort Participants
 
