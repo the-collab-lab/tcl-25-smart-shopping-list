@@ -7,6 +7,7 @@ Add yourself as a contributor to this project as a Markdown link that links your
 ## Cohort Participants
 
 - [Katia Utochkina](https://github.com/katia-utochkina) 🌸
+- [Cynthia Iradukunda](https://github.com/ciradu2204)❤
 
 ## Mentors
 
