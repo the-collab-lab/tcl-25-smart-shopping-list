@@ -6,6 +6,8 @@ Add yourself as a contributor to this project as a Markdown link that links your
 
 ## Cohort Participants
 
+- [Cynthia Iradukunda](https://github.com/ciradu2204)
+
 ## Mentors
 
 - [Julia Undeutsch](https://github.com/YuriDevAT) :bowtie:
