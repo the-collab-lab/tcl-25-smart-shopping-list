@@ -18,4 +18,4 @@ Add yourself as a contributor to this project as a Markdown link that links your
 
 ## Code of Conduct Contacts
 
-- Stacie Taylor
+- [Stacie Taylor](https://twitter.com/the_real_stacie) 🌺
