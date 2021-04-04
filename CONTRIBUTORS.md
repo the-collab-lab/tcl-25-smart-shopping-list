@@ -14,5 +14,8 @@ Add yourself as a contributor to this project as a Markdown link that links your
 
 - [Julia Undeutsch](https://github.com/YuriDevAT) :bowtie:
 - [Golfo Vasiliou](https://github.com/faysvas) 🤖
+- [Alex Morton](https://github.com/alexlsalt) ✨
 
 ## Code of Conduct Contacts
+
+- Stacie Taylor
