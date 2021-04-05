@@ -9,6 +9,9 @@ const Counter = () => {
 
   const handleClick = () => {
     setCounter((c) => c + 1);
+    db.collection('counters').add({
+      value: counter,
+    });
   };
 
   return (
