@@ -23,8 +23,14 @@ const Counter = () => {
 
   return (
     <Fragment>
+      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {loading && <span>Collection: Loading...</span>}
       <button onClick={handleClick}>Increment</button>
-      <p>0</p>
+      <p>{counter}</p>
+      {countersCollection &&
+        countersCollection.map((counter) => (
+          <li key={counter.id}>{counter.value}</li>
+        ))}
     </Fragment>
   );
 };
