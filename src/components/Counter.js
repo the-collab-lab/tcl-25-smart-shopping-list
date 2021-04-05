@@ -3,7 +3,9 @@ import React, { useState, Fragment } from 'react';
 const Counter = () => {
   const [counter, setCounter] = useState(0);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    setCounter((c) => c + 1);
+  };
 
   return (
     <Fragment>
