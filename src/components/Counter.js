@@ -2,9 +2,12 @@ import React, { useState, Fragment } from 'react';
 
 const Counter = () => {
   const [counter, setCounter] = useState(0);
+
+  const handleClick = () => {};
+
   return (
     <Fragment>
-      <button>Increment</button>
+      <button onClick={handleClick}>Increment</button>
       <p>0</p>
     </Fragment>
   );
