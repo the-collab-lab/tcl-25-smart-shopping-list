@@ -1,5 +1,7 @@
 import React, { useState, Fragment } from 'react';
 
+import { db } from '../lib/firebase';
+
 const Counter = () => {
   const [counter, setCounter] = useState(0);
 
