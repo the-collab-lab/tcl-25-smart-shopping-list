@@ -9,6 +9,7 @@ Add yourself as a contributor to this project as a Markdown link that links your
 - [Katia Utochkina](https://github.com/katia-utochkina) 🌸
 - [Cynthia Iradukunda](https://github.com/ciradu2204)❤
 - [Ibrahim Olalekan](https://github.com/lamilekan263) 💅
+- [Chenemi Zekeri](https://github.com/C-Zekeri) ✨
 
 ## Mentors
 
