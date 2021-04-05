@@ -2,6 +2,8 @@ import React, { useState, Fragment } from 'react';
 
 import { db } from '../lib/firebase';
 
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
 const Counter = () => {
   const [counter, setCounter] = useState(0);
 
