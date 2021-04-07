@@ -1,18 +1,21 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useEffect } from 'react';
 
 import { db } from '../lib/firebase';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Counter = () => {
-  const [counter, setCounter] = useState(0);
-
-  const [countersCollection, loading, error] = useCollectionData(
-    db.collection('counters'),
-    {
-      idField: 'id',
-    },
+  const [counter, setCounter] = useState(
+    JSON.parse(localStorage.getItem('counter')) || 1,
   );
+
+  const [countersCollection] = useCollectionData(db.collection('counters'), {
+    idField: 'id',
+  });
+
+  useEffect(() => {
+    localStorage.setItem('counter', JSON.stringify(counter));
+  }, [counter]);
 
   const sortedCollection =
     countersCollection &&
