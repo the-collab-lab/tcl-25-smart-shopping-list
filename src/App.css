@@ -1,18 +1,41 @@
-.align-center {
-  display: grid;
-  place-content: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
   min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.65;
+  padding: 2rem;
+  background-color: #f5f2f7;
+  color: #29344b;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
+    helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+li {
+  list-style: none;
 }
 
 button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 10ch;
-  min-height: 44px;
+  height: 44px;
   padding: 0.25em 0.75em;
   border-radius: 8px;
-  background-color: #3e68ff;
+  background-color: #e0d4f6;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
   color: #fff;
   font-family: inherit;
@@ -23,20 +46,34 @@ button {
   transition: 220ms all ease-in-out;
 }
 
-.button-container__content {
-  margin-left: 2.5rem;
-}
-
-.button-container__inner {
-  display: flex;
-}
-
 button:hover,
 button:active {
-  background-color: #0037fe;
+  background-color: powderblue;
 }
 
 button:focus {
   outline-style: solid;
   outline-color: transparent;
+}
+
+.button-container {
+  --min: 20ch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min), 2rem));
+}
+
+.button-container__list {
+  padding: 0;
+  margin: 0 0 0 2em;
+}
+
+.button-container__list li + li {
+  margin-top: 0.5em;
+}
+
+[class*='button'] {
+  color: #675883;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.15em;
 }
