@@ -14,6 +14,10 @@ const Counter = () => {
     },
   );
 
+  const sortedCollection =
+    countersCollection &&
+    [...countersCollection].sort((a, b) => a.value - b.value);
+
   const handleClick = () => {
     setCounter((c) => c + 1);
     db.collection('counters').add({
@@ -23,17 +27,14 @@ const Counter = () => {
 
   return (
     <Fragment>
-      {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loading && <span className="align-center">Loading...</span>}
-      <div className="button-container align-center">
-        <div className="button-container__inner">
-          <button onClick={handleClick} className="btn">
-            Increment
-          </button>
-          {countersCollection && (
-            <p className="button-container__content">{counter}</p>
-          )}
-        </div>
+      <div className="button-container">
+        <button onClick={handleClick} className="button">
+          Add
+        </button>
+        <ul className="button-container__list">
+          {sortedCollection &&
+            sortedCollection.map((item) => <li key={item.id}>{item.value}</li>)}
+        </ul>
       </div>
     </Fragment>
   );
