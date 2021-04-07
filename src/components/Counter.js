@@ -24,9 +24,17 @@ const Counter = () => {
   return (
     <Fragment>
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loading && <span>Collection: Loading...</span>}
-      <button onClick={handleClick}>Increment</button>
-      <p>{counter}</p>
+      {loading && <span className="align-center">Loading...</span>}
+      <div className="button-container align-center">
+        <div className="button-container__inner">
+          <button onClick={handleClick} className="btn">
+            Increment
+          </button>
+          {countersCollection && (
+            <p className="button-container__content">{counter}</p>
+          )}
+        </div>
+      </div>
     </Fragment>
   );
 };
