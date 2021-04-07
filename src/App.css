@@ -1,22 +1,42 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+.align-center {
+  display: grid;
+  place-content: center;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+}
+
+button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-width: 10ch;
+  min-height: 44px;
+  padding: 0.25em 0.75em;
+  border-radius: 8px;
+  background-color: #3e68ff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  text-align: center;
+  cursor: pointer;
+  transition: 220ms all ease-in-out;
 }
 
-.App-link {
-  color: #09d3ac;
+.button-container__content {
+  margin-left: 2.5rem;
+}
+
+.button-container__inner {
+  display: flex;
+}
+
+button:hover,
+button:active {
+  background-color: #0037fe;
+}
+
+button:focus {
+  outline-style: solid;
+  outline-color: transparent;
 }
