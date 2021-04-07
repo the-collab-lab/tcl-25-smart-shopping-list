@@ -27,10 +27,6 @@ const Counter = () => {
       {loading && <span>Collection: Loading...</span>}
       <button onClick={handleClick}>Increment</button>
       <p>{counter}</p>
-      {countersCollection &&
-        countersCollection.map((counter) => (
-          <li key={counter.id}>{counter.value}</li>
-        ))}
     </Fragment>
   );
 };
