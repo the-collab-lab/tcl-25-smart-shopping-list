@@ -20,40 +20,40 @@ Pairings will go as follows:
 
 #### Week 1, April 4 - 10
 
-1. Cynthia & Katia
-2. Olalekan & Chenemi
+1. Katia & Olalekan
+2. Cynthia & Chenemi
 
 #### Week 2, April 11 - 17
 
-1. Chenemi & Cynthia
-2. Katia & Olalekan
+1. Chenemi & Katia
+2. Olalekan & Cynthia
 
 #### Week 3, April 18 - 24
 
-1. Olalekan & Cynthia
-2. Katia & Chenemi
+1. Cynthia & Katia
+2. Chenemi & Olalekan
 
 #### Week 4, April 25 - May 1
 
-1. Cynthia & Katia
-2. Olalekan & Chenemi
+1. Katia & Olalekan
+2. Cynthia & Chenemi
 
 #### Week 5, May 2 - 8
 
-1. Chenemi & Cynthia
-2. Katia & Olalekan
+1. Chenemi & Katia
+2. Olalekan & Cynthia
 
 #### Week 6, May 9 - 15
 
-1. Olalekan & Cynthia
-2. Katia & Chenemi
+1. Cynthia & Katia
+2. Chenemi & Olalekan
 
 #### Week 7, May 16 - 22
 
-1. Cynthia & Katia
-2. Olalekan & Chenemi
+1. Katia & Olalekan
+2. Cynthia & Chenemi
 
 #### Week 8, May 23 - 29
 
-1. Chenemi & Cynthia
-2. Katia & Olalekan
+1. Chenemi & Katia
+2. Olalekan & Cynthia
