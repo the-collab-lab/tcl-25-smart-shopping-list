@@ -4,14 +4,14 @@ import './Navigation.css';
 
 const Navigation = () => {
   return (
-    <div className="navigation">
+    <nav>
       <NavLink activeClassName="active" to="/add-view">
         Add Item
       </NavLink>
       <NavLink activeClassName="active" to="/list-view">
         View List
       </NavLink>
-    </div>
+    </nav>
   );
 };
 
