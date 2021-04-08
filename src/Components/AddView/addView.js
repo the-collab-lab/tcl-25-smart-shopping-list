@@ -5,7 +5,6 @@ const AddView = () => {
   return (
     <main>
       <h1>Add Item</h1>
-      <Navigation />
     </main>
   );
 };

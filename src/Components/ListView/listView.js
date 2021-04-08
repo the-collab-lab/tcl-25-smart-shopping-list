@@ -5,7 +5,6 @@ const ListView = () => {
   return (
     <main>
       <h1>List View</h1>
-      <Navigation />
     </main>
   );
 };
