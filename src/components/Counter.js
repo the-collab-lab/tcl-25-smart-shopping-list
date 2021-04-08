@@ -30,11 +30,13 @@ const Counter = () => {
 
   return (
     <Fragment>
-      <div className="button-container">
-        <button onClick={handleClick} className="button">
-          Add
-        </button>
-        <ul className="button-container__list">
+      <div className="wrapper">
+        <div className="wrapper__button">
+          <button onClick={handleClick} className="button">
+            Add
+          </button>
+        </div>
+        <ul className="wrapper__collection">
           {sortedCollection &&
             sortedCollection.map((item) => <li key={item.id}>{item.value}</li>)}
         </ul>
