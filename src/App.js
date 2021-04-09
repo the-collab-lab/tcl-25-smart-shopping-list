@@ -5,7 +5,7 @@ import ListView from './components/ListView';
 import Navigation from './components/Navigation';
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -15,6 +15,6 @@ function App() {
       <Navigation />
     </BrowserRouter>
   );
-}
+};
 
 export default App;
