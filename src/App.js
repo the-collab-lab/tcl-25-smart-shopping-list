@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import AddView from './Components/AddView/addView';
-import ListView from './Components/ListView/listView';
-import Navigation from './Components/Navigation/Navigation';
-import './index';
+import AddView from './components/AddView';
+import ListView from './components/ListView';
+import './App.css';
 
 function App() {
   return (
