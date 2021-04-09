@@ -5,17 +5,11 @@ import { db } from '../lib/firebase';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const Counter = () => {
-  const [counter, setCounter] = useState(
-    JSON.parse(localStorage.getItem('counter')) || 1,
-  );
+  const [counter, setCounter] = useState(1);
 
   const [countersCollection] = useCollectionData(db.collection('counters'), {
     idField: 'id',
   });
-
-  useEffect(() => {
-    localStorage.setItem('counter', JSON.stringify(counter));
-  }, [counter]);
 
   const sortedCollection =
     countersCollection &&
