@@ -7,15 +7,13 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Switch>
-          <Route path="/add-view" component={AddView} exact />
-          <Route path="/list-view" component={ListView} exact />
-        </Switch>
-        <Navigation />
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        <Route path="/add-view" component={AddView} exact />
+        <Route path="/list-view" component={ListView} exact />
+      </Switch>
+      <Navigation />
+    </BrowserRouter>
   );
 }
 
