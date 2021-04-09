@@ -2,11 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\Components",
-    "\\src\\Components\\AddView",
-    "\\src\\Components\\ListView",
-    "\\src\\Components\\Navigation"
+    "\\src\\Components"
   ],
-  "SelectedNode": "\\src\\Components\\AddView\\addView.js",
+  "SelectedNode": "\\src\\App.js",
   "PreviewInSolutionExplorer": false
 }
