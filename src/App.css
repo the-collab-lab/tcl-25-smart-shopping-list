@@ -24,8 +24,35 @@ p {
   margin: 0;
 }
 
+main > * {
+  text-align: center;
+}
+
 li {
   list-style: none;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+nav {
+  position: absolute;
+  bottom: 2rem;
+}
+
+a {
+  text-decoration: none;
+  margin: 1rem;
+}
+
+a:visited {
+  color: black;
+}
+
+.active {
+  font-weight: bold;
 }
 
 .wrapper__button {
@@ -38,10 +65,8 @@ button {
   justify-content: center;
   height: 44px;
   padding: 0.25em 0.75em;
-  border-radius: 8px;
   background-color: #e0d4f6;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-  color: #fff;
   font-family: inherit;
   font-size: 1.5rem;
   line-height: 1.1;
