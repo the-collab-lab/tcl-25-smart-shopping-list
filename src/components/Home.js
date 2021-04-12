@@ -7,6 +7,10 @@ const Home = () => {
     JSON.parse(localStorage.getItem('token' || '')),
   );
 
+  useEffect(() => {
+    localStorage.setItem('token', JSON.stringify(token));
+  }, [token]);
+
   return (
     <main>
       <button className="button">Create a Shopping List</button>
