@@ -24,7 +24,7 @@ p {
   margin: 0;
 }
 
-main > * {
+main {
   text-align: center;
 }
 
