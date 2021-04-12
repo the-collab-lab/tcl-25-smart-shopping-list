@@ -15,7 +15,7 @@ const Home = () => {
       history.push('/list-view');
     }
     localStorage.setItem('token', JSON.stringify(token));
-  }, [token]);
+  }, [token, history]);
 
   const handleClick = () => {
     if (!token) {
