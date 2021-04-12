@@ -8,6 +8,8 @@ const Home = () => {
     JSON.parse(localStorage.getItem('token' || '')),
   );
 
+  const history = useHistory();
+
   useEffect(() => {
     localStorage.setItem('token', JSON.stringify(token));
   }, [token]);
