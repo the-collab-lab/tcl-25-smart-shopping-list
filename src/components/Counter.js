@@ -15,7 +15,7 @@ const Counter = () => {
     countersCollection &&
     [...countersCollection].sort((a, b) => a.value - b.value);
 
-  const handleClick = () => {
+  const handleAdd = () => {
     setCounter((c) => c + 1);
     db.collection('counters').add({
       value: counter,
@@ -26,7 +26,7 @@ const Counter = () => {
     <Fragment>
       <div className="wrapper">
         <div className="wrapper__button">
-          <button onClick={handleClick} className="button">
+          <button onClick={handleAdd} className="button">
             Add
           </button>
         </div>
