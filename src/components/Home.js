@@ -11,9 +11,13 @@ const Home = () => {
     localStorage.setItem('token', JSON.stringify(token));
   }, [token]);
 
+  const handleClick = () => {};
+
   return (
     <main>
-      <button className="button">Create a Shopping List</button>
+      <button onClick={handleClick} className="button">
+        Create a Shopping List
+      </button>
     </main>
   );
 };
