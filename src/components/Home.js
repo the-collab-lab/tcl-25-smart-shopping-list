@@ -11,7 +11,11 @@ const Home = () => {
     localStorage.setItem('token', JSON.stringify(token));
   }, [token]);
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    if (!token) {
+      setToken(getToken());
+    }
+  };
 
   return (
     <main>
