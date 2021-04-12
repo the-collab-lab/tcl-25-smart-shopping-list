@@ -11,6 +11,9 @@ const Home = () => {
   const history = useHistory();
 
   useEffect(() => {
+    if (token) {
+      history.push('/list-view');
+    }
     localStorage.setItem('token', JSON.stringify(token));
   }, [token]);
 
