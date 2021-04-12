@@ -12,8 +12,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/add-view" component={AddView} exact />
-        <Route path="/list-view" component={ListView} exact />
+        <Route path="/add-view" component={AddView} />
+        <Route path="/list-view" component={ListView} />
       </Switch>
       <Navigation />
     </BrowserRouter>
