@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { db } from '../lib/firebase';
 
 const AddView = () => {
   const [state, setState] = useState({
@@ -14,9 +15,35 @@ const AddView = () => {
     });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (state.purchaseItem.trim()) {
+      db.collection('LA')
+        .add({
+          purchaseItem: state.purchaseItem,
+          howSoon: state.howSoon,
+          lastPurchaseDate: state.lastPurchaseDate,
+        })
+        .then(() => {
+          alert('Purchase Item has been recorded');
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+
+      setState({
+        purchaseItem: '',
+        howSoon: '7',
+        lastPurchaseDate: null,
+      });
+    } else {
+      alert('Please write an item');
+    }
+  };
+
   return (
     <>
-      <form className="form-container">
+      <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="purchaseItem">Purchase Item Name:</label>
         <input
           type="text"
