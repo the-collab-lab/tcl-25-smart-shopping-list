@@ -118,3 +118,9 @@ button:focus {
   display: inline-block;
   font-size: 16px;
 }
+
+.lists {
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 10px;
+}
