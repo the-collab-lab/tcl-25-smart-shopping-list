@@ -3,7 +3,8 @@ import { db } from '../lib/firebase';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const ListView = () => {
-  const [purchaseItemCollection] = useCollectionData(db.collection('LA'), {
+  let token = localStorage.length !== 0 ? localStorage.getItem('token') : 'LA';
+  const [purchaseItemCollection] = useCollectionData(db.collection(token), {
     idField: 'id',
   });
   return (

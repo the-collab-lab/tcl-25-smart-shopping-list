@@ -18,7 +18,9 @@ const AddView = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (state.purchaseItem.trim()) {
-      db.collection('LA')
+      let token =
+        localStorage.length !== 0 ? localStorage.getItem('token') : 'LA';
+      db.collection(token)
         .add({
           purchaseItem: state.purchaseItem,
           howSoon: state.howSoon,
