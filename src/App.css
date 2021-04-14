@@ -37,6 +37,7 @@ li {
   flex-direction: column;
   align-items: center;
 }
+
 nav {
   position: absolute;
   bottom: 2rem;
