@@ -60,32 +60,6 @@ a:visited {
   text-align: center;
 }
 
-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  padding: 0.25em 0.75em;
-  background-color: #e0d4f6;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-  font-family: inherit;
-  font-size: 1.5rem;
-  line-height: 1.1;
-  text-align: center;
-  cursor: pointer;
-  transition: 220ms all ease-in-out;
-}
-
-button:hover,
-button:active {
-  background-color: powderblue;
-}
-
-button:focus {
-  outline-style: solid;
-  outline-color: transparent;
-}
-
 [class*='button'] {
   color: #675883;
   font-weight: bold;
@@ -109,7 +83,7 @@ button:focus {
 
 .add-button {
   margin-top: 30px;
-  background-color: #4caf50; /* Green */
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 15px 32px;
