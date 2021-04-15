@@ -59,7 +59,13 @@ a:visited {
   text-align: center;
 }
 
-button {
+.wrapper__collection {
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #675883;
+}
+button.button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -72,27 +78,17 @@ button {
   text-align: center;
   cursor: pointer;
   transition: 220ms all ease-in-out;
-}
-
-button:hover,
-button:active {
-  background-color: powderblue;
-}
-
-button:focus {
-  outline-style: solid;
-  outline-color: transparent;
-}
-
-[class*='button'] {
   color: #675883;
   font-weight: bold;
   border-radius: 0.15em;
 }
 
-.wrapper__collection {
-  padding: 20px;
-  text-align: center;
-  font-weight: bold;
-  color: #675883;
+button.button:hover,
+button.button:active {
+  background-color: powderblue;
+}
+
+button.button:focus {
+  outline-style: solid;
+  outline-color: transparent;
 }
