@@ -18,9 +18,7 @@ const Home = () => {
   }, [token, history]);
 
   const handleClick = () => {
-    if (!token) {
-      setToken(getToken());
-    }
+    setToken(getToken());
   };
 
   return (
