@@ -13,7 +13,6 @@ const App = () => {
       <Switch>
         <Route path="/add-view" component={AddView} exact />
         <Route path="/list-view" component={ListView} exact />
-        <Counter />
       </Switch>
       <Navigation />
     </BrowserRouter>
