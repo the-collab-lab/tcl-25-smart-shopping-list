@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <main>
-      <button onClick={handleClick} className="button">
+      <button onClick={handleClick} className="button__home">
         Create a Shopping List
       </button>
     </main>
