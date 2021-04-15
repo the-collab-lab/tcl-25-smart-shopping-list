@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import AddView from './components/AddView';
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
-import Counter from './components/Counter';
 import './App.css';
 
 const App = () => {
