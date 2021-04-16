@@ -8,7 +8,6 @@ const Home = ({ token, handleTokenCreation }) => {
     if (token) {
       history.push('/list-view');
     }
-    //localStorage.setItem('token', JSON.stringify(token));
     localStorage.setItem('token', token);
   }, [token, history]);
 
