@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ListView = () => {
+const ListView = ({ token }) => {
   return (
     <main>
       <h1>List View</h1>
