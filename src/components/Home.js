@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-const Home = ({ token }) => {
+const Home = ({ token, handleTokenCreation }) => {
   const history = useHistory();
 
   useEffect(() => {
