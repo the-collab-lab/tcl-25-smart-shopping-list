@@ -25,7 +25,9 @@ const App = () => {
         </Route>
 
         <Route path="/add-view" component={AddView} />
-        <Route path="/list-view" component={ListView} />
+        <Route path="/list-view">
+          <ListView token={token} />
+        </Route>
       </Switch>
       <Navigation />
     </BrowserRouter>
