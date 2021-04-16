@@ -13,7 +13,9 @@ const Home = ({ token, handleTokenCreation }) => {
 
   return (
     <main>
-      <button className="button__home">Create a Shopping List</button>
+      <button onClick={handleTokenCreation} className="button__home">
+        Create a Shopping List
+      </button>
     </main>
   );
 };
