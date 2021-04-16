@@ -1,13 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import getToken from '../lib/tokens';
-
-const Home = () => {
-  const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem('token' || '')),
-  );
-
+const Home = ({ token }) => {
   const history = useHistory();
 
   useEffect(() => {
@@ -17,15 +11,9 @@ const Home = () => {
     localStorage.setItem('token', JSON.stringify(token));
   }, [token, history]);
 
-  const handleClick = () => {
-    setToken(getToken());
-  };
-
   return (
     <main>
-      <button onClick={handleClick} className="button__home">
-        Create a Shopping List
-      </button>
+      <button className="button__home">Create a Shopping List</button>
     </main>
   );
 };
