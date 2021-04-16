@@ -56,7 +56,7 @@ const AddView = () => {
         />
 
         <label htmlFor="howSoon">
-          How soon are you likely to buy it again?:<br></br>
+          How soon are you likely to buy it again?:
         </label>
         <select
           id="howSoon"
