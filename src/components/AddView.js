@@ -2,29 +2,29 @@ import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 
 const AddView = () => {
-  const [state, setState] = useState({
-    purchaseItem: '',
+  const [item, setItem] = useState({
+    name: '',
     howSoon: '7',
-    lastPurchaseDate: null,
+    lastPurchasedDate: null,
   });
 
   const handleChange = (e) => {
-    setState({
-      ...state,
+    setItem({
+      ...item,
       [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (state.purchaseItem.trim()) {
+    if (item.name.trim()) {
       let token =
         localStorage.length !== 0 ? localStorage.getItem('token') : 'LA';
       db.collection(token)
         .add({
-          purchaseItem: state.purchaseItem,
-          howSoon: state.howSoon,
-          lastPurchaseDate: state.lastPurchaseDate,
+          purchaseItem: item.name,
+          howSoon: item.howSoon,
+          lastPurchaseDate: item.lastPurchasedDate,
         })
         .then(() => {
           alert('Purchase Item has been recorded');
@@ -33,10 +33,10 @@ const AddView = () => {
           alert(error.message);
         });
 
-      setState({
-        purchaseItem: '',
+      setItem({
+        name: '',
         howSoon: '7',
-        lastPurchaseDate: null,
+        lastPurchasedDate: null,
       });
     } else {
       alert('Please write an item');
@@ -46,12 +46,12 @@ const AddView = () => {
   return (
     <>
       <form className="form-container" onSubmit={handleSubmit}>
-        <label htmlFor="purchaseItem">Purchase Item Name:</label>
+        <label htmlFor="name">Purchase Item Name:</label>
         <input
-          id="purchaseItem"
+          id="name"
           type="text"
-          name="purchaseItem"
-          value={state.purchaseItem}
+          name="name"
+          value={item.name}
           onChange={handleChange}
         />
 
@@ -61,7 +61,7 @@ const AddView = () => {
         <select
           id="howSoon"
           name="howSoon"
-          value={state.howSoon}
+          value={item.howSoon}
           onBlur={handleChange}
           onChange={handleChange}
         >
