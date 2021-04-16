@@ -13,6 +13,10 @@ const App = () => {
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem('token' || '')),
   );
+
+  const handleTokenCreation = () => {
+    setToken(getToken());
+  };
   return (
     <BrowserRouter>
       <Switch>
