@@ -10,9 +10,7 @@ import getToken from './lib/tokens';
 import './App.css';
 
 const App = () => {
-  const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem('token' || '')),
-  );
+  const [token, setToken] = useState(localStorage.getItem('token' || ''));
 
   const handleTokenCreation = () => {
     setToken(getToken());
