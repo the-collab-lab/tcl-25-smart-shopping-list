@@ -48,6 +48,7 @@ const AddView = () => {
       <form className="form-container" onSubmit={handleSubmit}>
         <label htmlFor="purchaseItem">Purchase Item Name:</label>
         <input
+          id="purchaseItem"
           type="text"
           name="purchaseItem"
           value={state.purchaseItem}
@@ -58,6 +59,7 @@ const AddView = () => {
           How soon are you likely to buy it again?:<br></br>
         </label>
         <select
+          id="howSoon"
           name="howSoon"
           value={state.howSoon}
           onBlur={handleChange}
