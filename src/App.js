@@ -21,7 +21,7 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/">
-          <Home token={token} />
+          <Home token={token} handleTokenCreation={handleTokenCreation} />
         </Route>
 
         <Route path="/add-view" component={AddView} />
