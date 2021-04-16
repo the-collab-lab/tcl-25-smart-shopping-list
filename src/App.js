@@ -23,7 +23,6 @@ const App = () => {
         <Route exact path="/">
           <Home token={token} handleTokenCreation={handleTokenCreation} />
         </Route>
-
         <Route path="/add-view" component={AddView} />
         <Route path="/list-view">
           <ListView token={token} />
