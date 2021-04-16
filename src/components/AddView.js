@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 
-const AddView = () => {
+const AddView = ({ token }) => {
   const [item, setItem] = useState({
     name: '',
     howSoon: '7',
@@ -18,9 +18,8 @@ const AddView = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (item.name.trim()) {
-      let token =
-        localStorage.length !== 0 ? localStorage.getItem('token') : 'LA';
-      db.collection(token)
+      let tokenValue = token ? token : 'LA';
+      db.collection(tokenValue)
         .add({
           purchaseItem: item.name,
           howSoon: item.howSoon,
