@@ -3,7 +3,7 @@ import { db } from '../lib/firebase';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 const ListView = ({ token }) => {
-  let tokenValue = token ? token : 'LA';
+  let tokenValue = token ? token : 'purchase-Items';
   const [purchaseItemCollection] = useCollectionData(
     db.collection(tokenValue),
     {

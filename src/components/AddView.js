@@ -18,7 +18,7 @@ const AddView = ({ token }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (item.name.trim()) {
-      let tokenValue = token ? token : 'LA';
+      let tokenValue = token ? token : 'purchase-Items';
       db.collection(tokenValue)
         .add({
           purchaseItem: item.name,
