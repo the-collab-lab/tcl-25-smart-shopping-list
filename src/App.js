@@ -10,10 +10,16 @@ import getToken from './lib/tokens';
 import './App.css';
 
 const App = () => {
+  const [token, setToken] = useState(
+    JSON.parse(localStorage.getItem('token' || '')),
+  );
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/">
+          <Home token={token} />
+        </Route>
+
         <Route path="/add-view" component={AddView} />
         <Route path="/list-view" component={ListView} />
       </Switch>
