@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
+import firebase from 'firebase';
+import getToken from '../lib/tokens';
 
-const AddView = ({ token }) => {
+const AddView = () => {
+  const token = getToken;
   const [item, setItem] = useState({
     name: '',
     howSoon: '7',
@@ -17,19 +20,32 @@ const AddView = ({ token }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let docAvailable = false;
     if (item.name.trim()) {
-      let tokenValue = token ? token : 'purchase-Items';
-      db.collection(tokenValue)
-        .add({
-          purchaseItem: item.name,
-          howSoon: item.howSoon,
-          lastPurchaseDate: item.lastPurchasedDate,
-        })
-        .then(() => {
-          alert('Purchase Item has been recorded');
-        })
-        .catch((error) => {
-          alert(error.message);
+      const newItem = {
+        name: item.name,
+        lastPurchasedDate: item.lastPurchasedDate,
+        howSoon: item.howSoon,
+      };
+      db.collection('shoppinglist')
+        .get()
+        .then((querySnapshot) => {
+          querySnapshot.forEach((doc) => {
+            if (doc.data().token === token) {
+              docAvailable = true;
+              console.log(docAvailable + 'last section');
+              doc.ref.update({
+                items: firebase.firestore.FieldValue.arrayUnion(newItem),
+              });
+            }
+          });
+          if (docAvailable === false) {
+            console.log(docAvailable);
+            db.collection('shoppinglist').add({
+              items: [newItem],
+              token: token,
+            });
+          }
         });
 
       setItem({
