@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddView = ({ token }) => {
+const AddView = () => {
   return (
     <main>
       <h1>Add Item</h1>
