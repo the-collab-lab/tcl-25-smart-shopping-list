@@ -22,10 +22,10 @@ const App = () => {
           <Home token={token} handleTokenCreation={handleTokenCreation} />
         </Route>
         <Route path="/add-view">
-          <AddView token={token} />
+          <AddView />
         </Route>
         <Route path="/list-view">
-          <ListView token={token} />
+          <ListView />
         </Route>
       </Switch>
       <Navigation />
