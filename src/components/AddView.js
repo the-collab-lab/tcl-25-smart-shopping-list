@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 import firebase from 'firebase';
-import getToken from '../lib/tokens';
 
-const AddView = () => {
-  const token = getToken;
+const AddView = ({ token }) => {
   const [item, setItem] = useState({
     name: '',
     howSoon: '7',
