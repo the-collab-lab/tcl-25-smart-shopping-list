@@ -31,14 +31,12 @@ const AddView = ({ token }) => {
           querySnapshot.forEach((doc) => {
             if (doc.data().token === token) {
               docAvailable = true;
-              console.log(docAvailable + 'last section');
               doc.ref.update({
                 items: firebase.firestore.FieldValue.arrayUnion(newItem),
               });
             }
           });
           if (docAvailable === false) {
-            console.log(docAvailable);
             db.collection('shoppinglist').add({
               items: [newItem],
               token: token,
