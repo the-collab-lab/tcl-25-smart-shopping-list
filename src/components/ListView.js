@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { v4 as uuidv4 } from 'uuid';
 
 const ListView = ({ token }) => {
-  let tokenValue = token ? token : 'purchase-Items';
-  const [purchaseItemCollection] = useCollectionData(
-    db.collection(tokenValue),
-    {
-      idField: 'id',
-    },
-  );
+  const [purchaseItemCollection, setpurchaseItemCollection] = useState([]);
+
+  useEffect(() => {
+    db.collection('shoppinglist')
+      .where('token', '==', token)
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          setpurchaseItemCollection(doc.data().items);
+        });
+      });
+  });
+
   return (
     <ul className="lists">
       {purchaseItemCollection &&
         purchaseItemCollection.map((item) => (
-          <li key={item.id}>{item.purchaseItem}</li>
+          <li key={uuidv4()}>{item.name}</li>
         ))}
     </ul>
   );
