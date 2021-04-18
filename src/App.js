@@ -25,7 +25,7 @@ const App = () => {
   };
   return token ? (
     <BrowserRouter>
-      {token.length > 0 && <Redirect to="/list-view" />}
+      <Redirect to="/list-view" />
       <Switch>
         <Route path="/add-view" component={AddView} exact />
         <Route path="/list-view" component={ListView} exact />
@@ -33,7 +33,7 @@ const App = () => {
       <Navigation />
     </BrowserRouter>
   ) : (
-    <Home setToken={setToken} handleTokenCreation={handleTokenCreation} />
+    <Home handleTokenCreation={handleTokenCreation} />
   );
 };
 
