@@ -23,20 +23,18 @@ const App = () => {
   const handleTokenCreation = () => {
     setToken(getToken());
   };
-  return (
+  return token ? (
     <BrowserRouter>
+      {token.length > 0 && <Redirect to="/list-view" />}
       <Switch>
-        <Route exact path="/">
-          <Home token={token} handleTokenCreation={handleTokenCreation} />
-        </Route>
-        <Route path="/add-view">
-          <AddView />
-        </Route>
-        <Route path="/list-view">
-          <ListView />
-        </Route>
+        <Route path="/add-view" component={AddView} exact />
+        <Route path="/list-view" component={ListView} exact />
       </Switch>
       <Navigation />
     </BrowserRouter>
+  ) : (
+    <Home setToken={setToken} handleTokenCreation={handleTokenCreation} />
   );
 };
+
+export default App;
