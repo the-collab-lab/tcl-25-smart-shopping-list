@@ -56,23 +56,6 @@ a:visited {
   font-weight: bold;
 }
 
-.wrapper__button {
-  text-align: center;
-}
-
-[class*='button'] {
-  color: #675883;
-  font-weight: bold;
-  border-radius: 0.15em;
-}
-
-.wrapper__collection {
-  padding: 20px;
-  text-align: center;
-  font-weight: bold;
-  color: #675883;
-}
-
 .form-container {
   display: grid;
   grid-template-rows: auto auto auto auto;
