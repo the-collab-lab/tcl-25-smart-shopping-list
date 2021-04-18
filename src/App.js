@@ -16,6 +16,10 @@ const App = () => {
 
   const [token, setToken] = useState(initialToken);
 
+  useEffect(() => {
+    localStorage.setItem('token', token);
+  }, [token]);
+
   const handleTokenCreation = () => {
     setToken(getToken());
   };
