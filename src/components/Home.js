@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
 const Home = (props) => {
+  //temporary
+  const err = false;
+
   const [value, setValue] = useState('');
+  const [message, setMessage] = useState('');
   const setToken = props.setToken;
 
   const handleChange = (e) => setValue(e.target.value);
@@ -14,6 +18,11 @@ const Home = (props) => {
     setToken(value);
 
     //handle error
+    if (err === true) {
+      setMessage(
+        'Token does not exist. Please try entering another token or creating a new list.',
+      );
+    }
   };
 
   return (
@@ -36,6 +45,7 @@ const Home = (props) => {
             Join an existing list
           </button>
         </form>
+        <p>{message}</p>
       </section>
     </main>
   );
