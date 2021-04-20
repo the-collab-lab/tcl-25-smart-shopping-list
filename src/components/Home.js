@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import { db } from '../lib/firebase';
+import firebase from 'firebase';
 
 const Home = (props) => {
-  //temporary
-  const err = false;
-
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
   const setToken = props.setToken;
@@ -13,16 +12,25 @@ const Home = (props) => {
   const joinList = (e) => {
     e.preventDefault();
     //verify token
-
-    //setToken as input value
-    setToken(value);
-
-    //handle error
-    if (err === true) {
-      setMessage(
-        'Token does not exist. Please try entering another token or creating a new list.',
-      );
-    }
+    const ref = db.collection('shoppinglist');
+    const query = ref
+      .where('token', '==', value)
+      .get()
+      .then(() => {
+        if (!query.empty) {
+          console.log(query);
+          //setToken as input value
+          setToken(value);
+        } else {
+          //display error message
+          setMessage(
+            'Token does not exist. Please try entering another token or creating a new list.',
+          );
+        }
+      })
+      .catch((err) => {
+        setMessage(err);
+      });
   };
 
   return (
