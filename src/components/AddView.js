@@ -24,7 +24,7 @@ const AddView = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleAdd = (e) => {
     e.preventDefault();
     let docAvailable = false;
     if (item.name.trim()) {
@@ -64,7 +64,7 @@ const AddView = () => {
 
   return (
     <>
-      <form className="form-container" onSubmit={handleSubmit}>
+      <form className="form-container" onSubmit={handleAdd}>
         <label htmlFor="name">Purchase Item Name:</label>
         <input
           id="name"
