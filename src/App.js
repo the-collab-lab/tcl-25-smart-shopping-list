@@ -14,6 +14,10 @@ import './App.css';
 
 const App = () => {
   const [token, setToken] = useLocalStorageState('token', '');
+  const [collectionId, setCollectionId] = useLocalStorageState(
+    'collectionId',
+    [],
+  );
 
   const handleTokenCreation = () => {
     setToken(getToken());
