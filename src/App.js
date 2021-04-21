@@ -8,7 +8,7 @@ import Home from './components/Home';
 import AddView from './components/AddView';
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
-
+import Context from './Context';
 import './App.css';
 
 const App = () => {
