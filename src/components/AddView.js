@@ -17,6 +17,7 @@ const AddView = () => {
   const { shoppingList, token, collectionId } = useContext(Context);
 
   const handleChange = (e) => {
+    setHasError(false);
     setItem({
       ...item,
       [e.target.name]: e.target.value,
