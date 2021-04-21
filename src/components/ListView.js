@@ -1,13 +1,11 @@
 import React, { useContext } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
-
 import ListItem from '../components/ListItem';
 import Context from '../Context';
 
 const ListView = () => {
   const { shoppingList, loading, error } = useContext(Context);
-
   return (
     <>
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
