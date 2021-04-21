@@ -11,21 +11,22 @@ const Home = (props) => {
 
   const joinList = (e) => {
     e.preventDefault();
-    //verify token
+    //stringify input value
+    const userToken = JSON.stringify(value);
+    //check if token exists
     const ref = db.collection('shoppinglist');
-    const query = ref
-      .where('token', '==', value)
+    ref
+      .where('token', '==', userToken)
       .get()
-      .then(() => {
-        if (!query.empty) {
-          console.log(query);
-          //setToken as input value
-          setToken(value);
-        } else {
-          //display error message
+      .then((querySnapshot) => {
+        if (querySnapshot.empty) {
+          //display error message if it doesn't
           setMessage(
             'Token does not exist. Please try entering another token or creating a new list.',
           );
+        } else {
+          //setToken as input value if it does
+          setToken(userToken);
         }
       })
       .catch((err) => {
