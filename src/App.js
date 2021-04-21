@@ -22,12 +22,8 @@ const App = () => {
     <BrowserRouter>
       <Redirect to="/list-view" />
       <Switch>
-        <Route path="/add-view" exact>
-          <AddView token={token} />
-        </Route>
-        <Route path="/list-view" exact>
-          <ListView token={token} />
-        </Route>
+        <Route path="/add-view" component={AddView} />
+        <Route path="/list-view" component={ListView} />
       </Switch>
       <Navigation />
     </BrowserRouter>
