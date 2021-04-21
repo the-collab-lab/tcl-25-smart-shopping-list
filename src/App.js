@@ -19,6 +19,13 @@ const App = () => {
     [],
   );
 
+  const addListItem = async (token) => {
+    return await db.collection('lists').add({
+      items: [],
+      token,
+    });
+  };
+
   const handleTokenCreation = () => {
     setToken(getToken());
   };
