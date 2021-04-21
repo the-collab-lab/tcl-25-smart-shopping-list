@@ -12,6 +12,8 @@ const DEFAULT_ITEM = {
 
 const AddView = () => {
   const [item, setItem] = useState(DEFAULT_ITEM);
+  const [hasError, setHasError] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const { shoppingList, token, collectionId } = useContext(Context);
 
   const handleChange = (e) => {
