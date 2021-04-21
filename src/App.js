@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import getToken from './lib/tokens';
 import { db } from './lib/firebase';
+import useLocalStorageState from './hooks/useLocalStorageState';
 
 import Home from './components/Home';
 import AddView from './components/AddView';
@@ -12,15 +13,7 @@ import Context from './Context';
 import './App.css';
 
 const App = () => {
-  const initialToken = localStorage.getItem('token')
-    ? localStorage.getItem('token')
-    : '';
-
-  const [token, setToken] = useState(initialToken);
-
-  useEffect(() => {
-    localStorage.setItem('token', token);
-  }, [token]);
+  const [token, setToken] = useLocalStorageState('token', '');
 
   const handleTokenCreation = () => {
     setToken(getToken());
