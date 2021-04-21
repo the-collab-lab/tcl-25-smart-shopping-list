@@ -4,6 +4,12 @@ import Context from '../Context';
 import firebase from 'firebase';
 import transformUserInput from '../lib/utils';
 
+const DEFAULT_ITEM = {
+  name: '',
+  howSoon: '7',
+  lastPurchasedDate: null,
+};
+
 const AddView = ({ token }) => {
   const [item, setItem] = useState({
     name: '',
