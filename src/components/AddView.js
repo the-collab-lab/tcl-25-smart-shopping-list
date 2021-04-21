@@ -24,41 +24,48 @@ const AddView = () => {
     });
   };
 
-  const handleAdd = (e) => {
-    e.preventDefault();
-    let docAvailable = false;
-    if (item.name.trim()) {
-      const newItem = {
-        name: item.name,
-        lastPurchasedDate: item.lastPurchasedDate,
-        howSoon: item.howSoon,
-      };
-      db.collection('shoppinglist')
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            if (doc.data().token === token) {
-              docAvailable = true;
-              doc.ref.update({
-                items: firebase.firestore.FieldValue.arrayUnion(newItem),
-              });
-            }
-          });
-          if (docAvailable === false) {
-            db.collection('shoppinglist').add({
-              items: [newItem],
-              token: token,
-            });
-          }
-        });
-
-      setItem({
-        name: '',
-        howSoon: '7',
-        lastPurchasedDate: null,
+  const handleAdd = async (e) => {
+    try {
+      e.preventDefault();
+      item.name = transformUserInput(item.name).toLowerCase();
+      const currentItems = shoppingList[0].items.map((item) => {
+        return item.name;
       });
-    } else {
-      alert('Please write an item');
+
+      if (currentItems.includes(item.name)) {
+        setHasError(true);
+        return;
+      }
+
+      if (item.name === '') {
+        return;
+      }
+      setSubmitting(true);
+      await addListItem(item, collectionId);
+      setItem(DEFAULT_ITEM);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const addListItem = async (item, collectionId) => {
+    let { name, howSoon, lastPurchasedDate } = item;
+    try {
+      db.collection('lists')
+        .doc(collectionId)
+        .update({
+          items: firebase.firestore.FieldValue.arrayUnion({
+            howSoon,
+            name,
+            lastPurchasedDate,
+          }),
+          token,
+        });
+    } catch (error) {
+      console.error(error);
+      throw new Error(error);
     }
   };
 
