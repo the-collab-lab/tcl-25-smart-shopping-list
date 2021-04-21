@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { db } from '../lib/firebase';
+import Context from '../Context';
 import firebase from 'firebase';
+import transformUserInput from '../lib/utils';
 
 const AddView = ({ token }) => {
   const [item, setItem] = useState({
