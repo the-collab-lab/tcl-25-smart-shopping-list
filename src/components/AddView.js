@@ -10,12 +10,9 @@ const DEFAULT_ITEM = {
   lastPurchasedDate: null,
 };
 
-const AddView = ({ token }) => {
-  const [item, setItem] = useState({
-    name: '',
-    howSoon: '7',
-    lastPurchasedDate: null,
-  });
+const AddView = () => {
+  const [item, setItem] = useState(DEFAULT_ITEM);
+  const { shoppingList, token, collectionId } = useContext(Context);
 
   const handleChange = (e) => {
     setItem({
