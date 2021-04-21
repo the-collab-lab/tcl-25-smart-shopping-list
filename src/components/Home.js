@@ -39,13 +39,13 @@ const Home = (props) => {
         Create a Shopping List
       </button>
 
-      <section className="form-container_token">
+      <section>
         <p>Join an existing shopping list by entering a token.</p>
-        <form action="">
-          <label htmlFor="existingToken">Share Token</label>
+        <form action="" className="form-container">
+          <label htmlFor="existing-token">Share Token</label>
           <input
             type="text"
-            id="existingToken"
+            id="existing-token"
             placeholder="Enter three word token"
             value={value}
             onChange={handleChange}
