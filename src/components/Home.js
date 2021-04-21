@@ -39,10 +39,12 @@ const Home = (props) => {
         Create a Shopping List
       </button>
 
-      <section>
+      <section className="join-list_container">
         <p>Join an existing shopping list by entering a token.</p>
         <form action="" className="form-container">
-          <label htmlFor="existing-token">Share Token</label>
+          <label htmlFor="existing-token">
+            <b>Share Token</b>
+          </label>
           <input
             type="text"
             id="existing-token"
