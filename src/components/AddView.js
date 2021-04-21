@@ -71,34 +71,48 @@ const AddView = () => {
 
   return (
     <>
-      <form className="form-container" onSubmit={handleAdd}>
-        <label htmlFor="name">Purchase Item Name:</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          value={item.name}
-          onChange={handleChange}
-        />
-
-        <label htmlFor="howSoon">
-          How soon are you likely to buy it again?:
-        </label>
-        <select
-          id="howSoon"
-          name="howSoon"
-          value={item.howSoon}
-          onBlur={handleChange}
-          onChange={handleChange}
-        >
-          <option value="7">Soon (in the next 7 days)</option>
-          <option value="14">Kind of soon (in the next 14 days)</option>
-          <option value="30">Not soon (in the next 30 days)</option>
-        </select>
-
-        <button type="submit" className="add-button">
-          Add
-        </button>
+      <form className="form" onSubmit={handleAdd}>
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="name">Purchase Item Name:</label>
+            <input
+              className="form-field"
+              id="name"
+              type="text"
+              name="name"
+              value={item.name}
+              onChange={handleChange}
+              placeholder={hasError ? 'Add an item' : ''}
+            />
+          </div>
+        </div>
+        {hasError ? (
+          <div className="field-error">Already on the list</div>
+        ) : null}
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="howSoon">
+              How soon are you likely to buy it again?:
+            </label>
+            <select
+              className="form-field"
+              id="howSoon"
+              name="howSoon"
+              value={item.howSoon}
+              onBlur={handleChange}
+              onChange={handleChange}
+            >
+              <option value="7">Soon (in the next 7 days)</option>
+              <option value="14">Kind of soon (in the next 14 days)</option>
+              <option value="30">Not soon (in the next 30 days)</option>
+            </select>
+          </div>
+        </div>
+        <div className="form-row">
+          <button type="submit" className="add-button">
+            {submitting ? 'Adding...' : 'Add'}
+          </button>
+        </div>
       </form>
     </>
   );
