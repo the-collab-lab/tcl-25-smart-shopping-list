@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
-import firebase from 'firebase';
 
 const Home = (props) => {
   const [value, setValue] = useState('');
