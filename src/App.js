@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
+import getToken from './lib/tokens';
+import { db } from './lib/firebase';
+
+import Home from './components/Home';
 import AddView from './components/AddView';
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
-import Home from './components/Home'
-import getToken from './lib/tokens';
+
 import './App.css';
 
 const App = () => {
