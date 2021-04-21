@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import getToken from './lib/tokens';
 import { db } from './lib/firebase';
@@ -26,18 +27,34 @@ const App = () => {
     });
   };
 
-  const handleTokenCreation = () => {
-    setToken(getToken());
+  const handleTokenCreation = async () => {
+    const token = getToken();
+    setToken(token);
+    const { id } = await addListItem(token);
+    setCollectionId(id);
   };
+
+  const [shoppingList, loading, error] = useCollectionData(
+    db.collection('lists').where('token', '==', token),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true },
+      idField: 'id',
+    },
+  );
+
   return token ? (
-    <BrowserRouter>
-      <Redirect to="/list-view" />
-      <Switch>
-        <Route path="/add-view" component={AddView} />
-        <Route path="/list-view" component={ListView} />
-      </Switch>
-      <Navigation />
-    </BrowserRouter>
+    <Context.Provider
+      value={{ token, shoppingList, loading, error, collectionId }}
+    >
+      <BrowserRouter>
+        <Redirect to="/list-view" />
+        <Switch>
+          <Route path="/add-view" component={AddView} />
+          <Route path="/list-view" component={ListView} />
+        </Switch>
+        <Navigation />
+      </BrowserRouter>
+    </Context.Provider>
   ) : (
     <Home handleTokenCreation={handleTokenCreation} />
   );
