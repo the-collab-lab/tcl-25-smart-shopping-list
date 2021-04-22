@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { db } from '../lib/firebase';
-import Context from '../Context';
 import firebase from 'firebase';
 import transformUserInput from '../lib/utils';
 
@@ -10,59 +9,56 @@ const DEFAULT_ITEM = {
   lastPurchasedDate: null,
 };
 
-const AddView = () => {
+const AddView = ({ shoppingList, token, collectionId }) => {
   const [item, setItem] = useState(DEFAULT_ITEM);
-  const [errors, setError] = useState({});
-  const [submitting, setSubmitting] = useState(false);
-  const { shoppingList, token, collectionId } = useContext(Context);
+  const [hasDuplicates, setHasDuplicates] = useState(false);
+  const [isNameFieldEmpty, setIsNameFieldEmpty] = useState(false);
+  const [isFrequencyFieldEmpty, setIsFrequencyFieldEmpty] = useState(false);
 
   const handleChange = (e) => {
+    setHasDuplicates(false);
+    setIsNameFieldEmpty(false);
+    setIsFrequencyFieldEmpty(false);
     setItem({
       ...item,
       [e.target.name]: e.target.value,
     });
   };
 
-  const handleValidation = () => {
-    let errors = {};
-    let formValid = true;
-    item.name = transformUserInput(item.name).toLowerCase();
-    const currentItems = shoppingList.map((list) => {
-      return list.items.map((item) => item.name);
-    });
-
-    if (currentItems[0].includes(item.name)) {
-      formValid = false;
-      errors['sameName'] = 'The name is already there';
-    }
-
-    if (item.name === '') {
-      formValid = false;
-      errors['emptyName'] = 'The name is required';
-    }
-
-    if (item.howSoon === '') {
-      formValid = false;
-      errors['frequency'] = 'Frequency is required';
-    }
-    setError(errors);
-    return formValid;
-  };
-
   const handleAdd = async (e) => {
     try {
       e.preventDefault();
+      item.name = transformUserInput(item.name).toLowerCase();
 
-      if (handleValidation()) {
-        setSubmitting(true);
-        await addListItem(item, collectionId);
-        setItem(DEFAULT_ITEM);
+      const currentItems = shoppingList.map((list) => {
+        return list.items.map((item) => item.name);
+      });
+
+      if (currentItems[0].includes(item.name)) {
+        setHasDuplicates(true);
+        return;
       }
-      console.log(errors);
+
+      if (item.name === '' && item.howSoon === '') {
+        setIsNameFieldEmpty(true);
+        setIsFrequencyFieldEmpty(true);
+        return;
+      }
+
+      if (item.name === '') {
+        setIsNameFieldEmpty(true);
+        return;
+      }
+
+      if (item.howSoon === '') {
+        setIsFrequencyFieldEmpty(true);
+        return;
+      }
+
+      await addListItem(item, collectionId);
+      setItem(DEFAULT_ITEM);
     } catch (error) {
       console.error(error);
-    } finally {
-      setSubmitting(false);
     }
   };
 
@@ -81,65 +77,64 @@ const AddView = () => {
         });
     } catch (error) {
       console.error(error);
-      throw new error(error);
+      throw new Error(error);
     }
   };
 
   return (
-    <>
-      <form className="form" onSubmit={handleAdd}>
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="name">Purchase Item Name:</label>
-            <input
-              className="form-field"
-              id="name"
-              type="text"
-              name="name"
-              value={item.name}
-              onChange={handleChange}
-            />
-          </div>
+    <form className="form" onSubmit={handleAdd}>
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="name">Purchase Item Name:</label>
+          <input
+            className="form-field"
+            id="name"
+            type="text"
+            name="name"
+            value={item.name}
+            onChange={handleChange}
+            placeholder={!isNameFieldEmpty ? 'Add an item' : ''}
+          />
         </div>
+      </div>
+      {hasDuplicates ? (
+        <div className="field-error">Item is already on the list</div>
+      ) : null}
+      {isNameFieldEmpty ? (
+        <div className="field-error">This field is required</div>
+      ) : null}
 
-        {errors['sameName'] || errors['emptyName'] ? (
-          <div className="field-error">
-            {errors['sameName'] || errors['emptyName']}
-          </div>
-        ) : null}
-
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="howSoon">
-              How soon are you likely to buy it again?:
-            </label>
-            <select
-              className="form-field"
-              id="howSoon"
-              name="howSoon"
-              value={item.howSoon}
-              onBlur={handleChange}
-              onChange={handleChange}
-            >
-              <option value="">How soon?</option>
-              <option value="7">Soon (in the next 7 days)</option>
-              <option value="14">Kind of soon (in the next 14 days)</option>
-              <option value="30">Not soon (in the next 30 days)</option>
-            </select>
-          </div>
+      <div className="form-row">
+        <div className="form-group">
+          <label htmlFor="howSoon">
+            How soon are you likely to buy it again?:
+          </label>
+          <select
+            className="form-field"
+            id="howSoon"
+            name="howSoon"
+            value={item.howSoon}
+            onBlur={handleChange}
+            onChange={handleChange}
+          >
+            <option value=""></option>
+            <option value="Option 1">Soon (in the next 7 days)</option>
+            <option value="Option 2">Kind of soon (in the next 14 days)</option>
+            <option value="Option 3">Not soon (in the next 30 days)</option>
+          </select>
         </div>
+      </div>
 
-        {errors['frequency'] ? (
-          <div className="field-error">{errors['frequency']}</div>
-        ) : null}
+      {isFrequencyFieldEmpty ? (
+        <div className="field-error">This field is required</div>
+      ) : null}
 
-        <div className="form-row">
-          <button type="submit" className="add-button">
-            {submitting ? 'Adding...' : 'Add'}
-          </button>
-        </div>
-      </form>
-    </>
+      <div className="form-row">
+        <button type="submit" className="add-button">
+          Add
+        </button>
+      </div>
+    </form>
   );
 };
 
