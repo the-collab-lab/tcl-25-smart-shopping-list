@@ -10,7 +10,6 @@ import Home from './components/Home';
 import AddView from './components/AddView';
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
-import Context from './Context';
 import './App.css';
 
 const App = () => {
@@ -43,18 +42,26 @@ const App = () => {
   );
 
   return token ? (
-    <Context.Provider
-      value={{ token, shoppingList, loading, error, collectionId }}
-    >
-      <BrowserRouter>
-        <Redirect to="/list-view" />
-        <Switch>
-          <Route path="/add-view" component={AddView} />
-          <Route path="/list-view" component={ListView} />
-        </Switch>
-        <Navigation />
-      </BrowserRouter>
-    </Context.Provider>
+    <BrowserRouter>
+      <Redirect to="/list-view" />
+      <Switch>
+        <Route path="/add-view" exact>
+          <AddView
+            token={token}
+            shoppingList={shoppingList}
+            collectionId={collectionId}
+          />
+        </Route>
+        <Route path="/list-view" exact>
+          <ListView
+            shoppingList={shoppingList}
+            loading={loading}
+            error={error}
+          />
+        </Route>
+      </Switch>
+      <Navigation />
+    </BrowserRouter>
   ) : (
     <Home handleTokenCreation={handleTokenCreation} />
   );
