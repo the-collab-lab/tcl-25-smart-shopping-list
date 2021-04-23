@@ -85,7 +85,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
     <form className="form" onSubmit={handleAdd}>
       <div className="form-row">
         <div className="form-group">
-          <label htmlFor="name">Purchase Item Name:</label>
+          <label htmlFor="name">Purchase Item Name</label>
           <input
             className="form-field"
             id="name"
@@ -106,7 +106,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
       <div className="form-row">
         <div className="form-group">
           <label htmlFor="howSoon">
-            How soon are you likely to buy it again?:
+            How soon are you likely to buy it again?
           </label>
           <select
             className="form-field"
