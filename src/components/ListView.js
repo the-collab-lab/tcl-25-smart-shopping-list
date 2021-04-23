@@ -8,7 +8,13 @@ const ListView = ({ shoppingList, loading, error }) => {
   return (
     <>
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loading && <span>Loading...</span>}
+      {loading && (
+        <div className="bouncing-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
       <ul className="list">
         {shoppingList &&
           shoppingList.map((list) =>
