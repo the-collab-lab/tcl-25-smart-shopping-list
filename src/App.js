@@ -41,29 +41,38 @@ const App = () => {
     },
   );
 
-  return token ? (
+  return (
     <BrowserRouter>
-      <Redirect to="/list-view" />
-      <Switch>
-        <Route path="/add-view" exact>
-          <AddView
-            token={token}
-            shoppingList={shoppingList}
-            collectionId={collectionId}
-          />
-        </Route>
-        <Route path="/list-view" exact>
-          <ListView
-            shoppingList={shoppingList}
-            loading={loading}
-            error={error}
-          />
-        </Route>
-      </Switch>
-      <Navigation />
+      {token ? (
+        <>
+          <Redirect to="/list-view" />
+          <Switch>
+            <Route path="/add-view" exact>
+              <AddView
+                token={token}
+                shoppingList={shoppingList}
+                collectionId={collectionId}
+              />
+            </Route>
+            <Route path="/list-view" exact>
+              <ListView
+                shoppingList={shoppingList}
+                loading={loading}
+                error={error}
+              />
+            </Route>
+          </Switch>
+
+          <Navigation />
+        </>
+      ) : (
+        <Home
+          handleTokenCreation={handleTokenCreation}
+          token={token}
+          collectionId={collectionId}
+        />
+      )}
     </BrowserRouter>
-  ) : (
-    <Home handleTokenCreation={handleTokenCreation} />
   );
 };
 
