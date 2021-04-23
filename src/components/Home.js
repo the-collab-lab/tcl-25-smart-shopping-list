@@ -10,7 +10,7 @@ const Home = ({ handleTokenCreation, setToken }) => {
   const joinList = (e) => {
     e.preventDefault();
     //check if token exists
-    const ref = db.collection('shoppinglist');
+    const ref = db.collection('lists');
     ref
       .where('token', '==', value)
       .get()
