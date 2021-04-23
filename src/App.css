@@ -117,6 +117,10 @@ a:visited {
   grid-row-gap: 10px;
 }
 
+.list__item {
+  text-transform: capitalize;
+}
+
 .form {
   display: grid;
   place-content: center;
