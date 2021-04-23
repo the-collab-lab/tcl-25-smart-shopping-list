@@ -118,9 +118,9 @@ const AddView = ({ shoppingList, token, collectionId }) => {
             onChange={handleChange}
           >
             <option value=""></option>
-            <option value="Option 1">Soon (in the next 7 days)</option>
-            <option value="Option 2">Kind of soon (in the next 14 days)</option>
-            <option value="Option 3">Not soon (in the next 30 days)</option>
+            <option value="7">Soon (in the next 7 days)</option>
+            <option value="14">Kind of soon (in the next 14 days)</option>
+            <option value="30">Not soon (in the next 30 days)</option>
           </select>
         </div>
       </div>
