@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 
-const Home = (props) => {
+const Home = ({ handleTokenCreation, setToken }) => {
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
-  const setToken = props.setToken;
 
   const handleChange = (e) => setValue(e.target.value);
 
@@ -33,7 +32,7 @@ const Home = (props) => {
 
   return (
     <main>
-      <button onClick={props.handleTokenCreation} className="button-home">
+      <button onClick={handleTokenCreation} className="button-home">
         Create a Shopping List
       </button>
 
