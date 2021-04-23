@@ -47,14 +47,14 @@ const App = () => {
         <>
           <Redirect to="/list-view" />
           <Switch>
-            <Route path="/add-view" exact>
+            <Route path="/add-view">
               <AddView
                 token={token}
                 shoppingList={shoppingList}
                 collectionId={collectionId}
               />
             </Route>
-            <Route path="/list-view" exact>
+            <Route path="/list-view">
               <ListView
                 shoppingList={shoppingList}
                 loading={loading}
