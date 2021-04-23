@@ -9,7 +9,6 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.65;
   padding: 2rem;
-  background-color: #f5f2f7;
   color: #29344b;
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir,
     helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
@@ -93,28 +92,23 @@ a:visited {
 }
 
 .add-button {
-  margin-top: 30px;
-  background-color: #4caf50;
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: 1.33rem;
+  box-sizing: border-box;
   display: inline-block;
-  font-size: 1.2rem;
-  width: 120px;
-  padding: 0.25em 0.75em;
-}
-
-.add-button {
-  margin-top: 0.125rem;
-  padding: 16px;
-  border: 2px solid transparent;
+  padding: 0.5rem 2rem;
+  background: #fe9476;
+  color: #263147;
+  border: 2px solid;
+  text-transform: uppercase;
+  text-decoration: none;
   text-align: center;
-  font-weight: 700;
-  line-height: 1.125rem;
-  color: #fff;
-  cursor: pointer;
+  font-family: 'Red Hat Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  font-weight: 900;
+  margin-top: 1.77rem;
+  border-radius: 0.25rem;
 }
 
 .list {
@@ -127,18 +121,21 @@ a:visited {
   display: grid;
   place-content: center;
   color: #404040;
-
   font-size: 1rem;
   line-height: 1.375rem;
   text-align: left;
 }
+
+.form-group label {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier;
+}
+
 .form-row {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
   margin: 0;
   padding: 0;
   color: #404040;
-  font-family: Helvetica, Arial, sans-serif;
   list-style: none;
   direction: ltr;
   font-size: 1rem;
@@ -146,26 +143,31 @@ a:visited {
   text-align: left;
   box-sizing: inherit;
 }
+
 .form-row + .form-row {
   margin-top: 1.5rem;
 }
 
 .field-error {
-  max-width: 60ch;
+  display: block;
   padding: 0.25rem;
-  border: 1px solid transparent;
+  border: 0 solid;
+  font-family: inherit;
+  font-weight: 400;
+  font-style: italic;
+  color: inherit;
   line-height: 1.375rem;
-  text-align: left;
-  background-color: #e4134f;
-  color: #fff;
 }
 
 .form-field {
   display: block;
-  margin: 0;
-  margin-top: 0.125rem;
-  border: 1px solid;
   width: 100%;
   max-width: 60ch;
-  padding: 0.25rem;
+  margin-top: 0.125rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  font-size: 1rem;
+  line-height: 1;
 }
