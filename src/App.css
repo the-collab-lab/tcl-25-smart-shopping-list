@@ -111,16 +111,6 @@ a:visited {
   border-radius: 0.25rem;
 }
 
-.list {
-  display: grid;
-  justify-content: center;
-  grid-row-gap: 10px;
-}
-
-.list__item {
-  text-transform: capitalize;
-}
-
 .form {
   display: grid;
   place-content: center;
@@ -128,10 +118,6 @@ a:visited {
   font-size: 1rem;
   line-height: 1.375rem;
   text-align: left;
-}
-
-.form-group label {
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier;
 }
 
 .form-row {
@@ -152,6 +138,32 @@ a:visited {
   margin-top: 1.5rem;
 }
 
+.form-group label {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier;
+}
+
+.form-field {
+  display: block;
+  width: 100%;
+  max-width: 60ch;
+  margin-top: 0.125rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid;
+  background: none;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+  -webkit-transition-delay: 9999s;
+}
+
 .field-error {
   display: block;
   padding: 0.25rem;
@@ -163,15 +175,41 @@ a:visited {
   line-height: 1.375rem;
 }
 
-.form-field {
-  display: block;
-  width: 100%;
-  max-width: 60ch;
-  margin-top: 0.125rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid;
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
-    monospace;
-  font-size: 1rem;
-  line-height: 1;
+.list {
+  display: grid;
+  justify-content: center;
+  grid-row-gap: 10px;
+}
+
+.list__item {
+  text-transform: capitalize;
+}
+
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translate3d(0, -16px, 0);
+  }
+}
+
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 8px;
+  height: 8px;
+  margin: 3rem 0.2rem;
+  background: #8385aa;
+  border-radius: 50%;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
 }
