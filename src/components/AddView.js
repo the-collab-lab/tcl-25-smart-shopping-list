@@ -103,7 +103,6 @@ const AddView = ({ shoppingList, token, collectionId }) => {
       {isNameFieldEmpty ? (
         <div className="field-error">This field is required</div>
       ) : null}
-
       <div className="form-row">
         <div className="form-group">
           <label htmlFor="howSoon">
@@ -124,11 +123,9 @@ const AddView = ({ shoppingList, token, collectionId }) => {
           </select>
         </div>
       </div>
-
       {isFrequencyFieldEmpty ? (
         <div className="field-error">This field is required</div>
       ) : null}
-
       <div className="form-row">
         <button type="submit" className="add-button">
           Add
