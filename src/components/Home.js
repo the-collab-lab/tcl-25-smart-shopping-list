@@ -10,12 +10,10 @@ const Home = (props) => {
 
   const joinList = (e) => {
     e.preventDefault();
-    //stringify input value
-    const userToken = JSON.stringify(value);
     //check if token exists
     const ref = db.collection('shoppinglist');
     ref
-      .where('token', '==', userToken)
+      .where('token', '==', value)
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.empty) {
@@ -25,7 +23,7 @@ const Home = (props) => {
           );
         } else {
           //setToken as input value if it does
-          setToken(userToken);
+          setToken(value);
         }
       })
       .catch((err) => {
