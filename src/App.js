@@ -16,7 +16,7 @@ const App = () => {
   const [token, setToken] = useLocalStorageState('token', '');
   const [collectionId, setCollectionId] = useLocalStorageState(
     'collectionId',
-    [],
+    '',
   );
 
   const addListItem = async (token) => {
