@@ -32,7 +32,7 @@ const Home = ({ handleTokenCreation, setToken }) => {
 
   return (
     <main>
-      <button onClick={handleTokenCreation} className="button-home">
+      <button onClick={handleTokenCreation} className="button__home">
         Create a Shopping List
       </button>
 
