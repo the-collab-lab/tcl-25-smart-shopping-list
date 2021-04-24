@@ -5,7 +5,7 @@ const Home = ({ handleTokenCreation, setToken }) => {
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleChange = (e) => setValue(e.target.value);
+  const handleChange = (e) => setValue(e.target.value.trim());
 
   const joinList = (e) => {
     e.preventDefault();
@@ -49,7 +49,12 @@ const Home = ({ handleTokenCreation, setToken }) => {
             value={value}
             onChange={handleChange}
           />
-          <button type="submit" onClick={joinList} className="button-join">
+          <button
+            type="submit"
+            onClick={joinList}
+            className="button-join"
+            disabled={value.length < 1}
+          >
             Join an existing list
           </button>
         </form>
