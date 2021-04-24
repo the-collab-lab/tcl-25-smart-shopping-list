@@ -74,12 +74,12 @@ a:visited {
   border-radius: 0.15em;
 }
 
-.button__home:hover,
-.button__home:active {
+.button-home:hover,
+.button-home:active {
   background-color: powderblue;
 }
 
-.button__home:focus {
+.button-home:focus {
   outline-style: solid;
   outline-color: transparent;
 }
