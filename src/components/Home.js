@@ -5,14 +5,14 @@ const Home = ({ handleTokenCreation, setToken }) => {
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleChange = (e) => setValue(e.target.value.trim());
+  const handleChange = (e) => setValue(e.target.value);
 
   const joinList = (e) => {
     e.preventDefault();
     //check if token exists
     const ref = db.collection('lists');
     ref
-      .where('token', '==', value)
+      .where('token', '==', value.trim())
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.empty) {
@@ -22,7 +22,7 @@ const Home = ({ handleTokenCreation, setToken }) => {
           );
         } else {
           //setToken as input value if it does
-          setToken(value);
+          setToken(value.trim());
         }
       })
       .catch((err) => {
