@@ -28,7 +28,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
   const handleAdd = async (e) => {
     try {
       e.preventDefault();
-      item.name = transformUserInput(item.name).toLowerCase();
+      item.name = transformUserInput(item.name);
 
       const currentItems = shoppingList.map((list) => {
         return list.items.map((item) => item.name);
@@ -70,7 +70,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
         .update({
           items: firebase.firestore.FieldValue.arrayUnion({
             howSoon,
-            name: name.trim(),
+            name,
             lastPurchasedDate,
           }),
           token,
