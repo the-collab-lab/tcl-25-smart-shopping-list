@@ -18,9 +18,7 @@ const ListView = ({ shoppingList, loading, error }) => {
       <ul className="list">
         {shoppingList &&
           shoppingList.map((list) =>
-            list.items
-              .map((item) => item)
-              .map((val) => <ListItem key={uuidv4()} item={val} />),
+            list.items.map((item) => <ListItem key={uuidv4()} item={item} />),
           )}
       </ul>
     </>
