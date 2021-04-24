@@ -70,7 +70,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
         .update({
           items: firebase.firestore.FieldValue.arrayUnion({
             howSoon,
-            name,
+            name: name.trim(),
             lastPurchasedDate,
           }),
           token,
