@@ -114,3 +114,8 @@ a:visited {
   justify-content: center;
   grid-row-gap: 10px;
 }
+
+#name,
+#howSoon {
+  padding: 10px;
+}
