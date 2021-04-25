@@ -29,34 +29,41 @@ const Home = ({ handleTokenCreation, setToken }) => {
 
   return (
     <main>
-      <button onClick={handleTokenCreation} className="button-home">
+      <button onClick={handleTokenCreation} className="add-button">
         Create a Shopping List
       </button>
 
-      <section className="join-list_container">
-        <p>Join an existing shopping list by entering a token.</p>
-        <form action="" className="form-container">
-          <label htmlFor="existing-token">
-            <b>Share Token</b>
-          </label>
-          <input
-            type="text"
-            id="existing-token"
-            placeholder="Enter three word token"
-            value={value}
-            onChange={handleChange}
-          />
+      <div>
+        <h1>Join an existing shopping list by entering a token</h1>
+      </div>
+
+      <form className="form">
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="existing-token">Share Token</label>
+            <input
+              type="text"
+              id="existing-token"
+              className="form-field"
+              placeholder="Enter three word token"
+              value={value}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className="form-row">
           <button
             type="submit"
             onClick={joinList}
-            className="button-join"
+            className="join-button"
             disabled={value.length < 1}
           >
             Join an existing list
           </button>
-        </form>
-        <p>{message}</p>
-      </section>
+        </div>
+      </form>
+
+      <p>{message}</p>
     </main>
   );
 };
