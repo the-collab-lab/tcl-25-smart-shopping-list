@@ -19,7 +19,7 @@ const App = () => {
     '',
   );
 
-  const addListItem = async (token) => {
+  const createList = async (token) => {
     return await db.collection('lists').add({
       items: [],
       token,
@@ -29,7 +29,7 @@ const App = () => {
   const handleTokenCreation = async () => {
     const token = getToken();
     setToken(token);
-    const { id } = await addListItem(token);
+    const { id } = await createList(token);
     setCollectionId(id);
   };
 
