@@ -27,19 +27,12 @@ main {
   text-align: center;
 }
 
+main > * + * {
+  margin-top: 2.125rem;
+}
+
 li {
   list-style: none;
-}
-
-.nav-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-nav {
-  position: absolute;
-  bottom: 2rem;
 }
 
 a {
@@ -51,48 +44,12 @@ a:visited {
   color: black;
 }
 
-.active {
-  font-weight: bold;
-}
-
-.button-home {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25em 0.75em;
-  background-color: #e0d4f6;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-  font-family: inherit;
-  font-size: 1.5rem;
-  line-height: 1.1;
-  text-align: center;
-  cursor: pointer;
-  transition: 220ms all ease-in-out;
-  color: #675883;
-  font-weight: bold;
-  border-radius: 0.15em;
-}
-
-.button-home:hover,
-.button-home:active {
-  background-color: powderblue;
-}
-
-.button-home:focus {
-  outline-style: solid;
-  outline-color: transparent;
-}
-
-.join-list_container {
-  margin: 1rem;
-}
-
-.form-container {
-  display: grid;
-  grid-template-rows: auto auto auto auto;
-  grid-template-columns: auto;
-  justify-content: center;
-  grid-row-gap: 10px;
+h1 {
+  font-size: 1.33rem;
+  line-height: 1.65;
+  color: #29344b;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
 }
 
 .add-button {
@@ -121,7 +78,6 @@ a:visited {
 }
 
 .form-row {
-  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeSpeed;
   margin: 0;
   padding: 0;
@@ -156,14 +112,6 @@ a:visited {
   line-height: 1;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
-  -webkit-transition-delay: 9999s;
-}
-
 .field-error {
   display: block;
   padding: 0.25rem;
@@ -172,6 +120,45 @@ input:-webkit-autofill:active {
   font-weight: 400;
   font-style: italic;
   line-height: 1.375rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+  -webkit-transition-delay: 9999s;
+}
+
+.join-button {
+  margin-top: 1.77rem;
+  padding: 0.8rem 2.5rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  font-family: 'Red Hat Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+  font-weight: 900;
+  background: #1c2334;
+  color: #f3eee4;
+  font-size: 1.25rem;
+  line-height: 1;
+  letter-spacing: 0.05ch;
+  cursor: pointer;
+}
+
+nav {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.active {
+  font-weight: bold;
 }
 
 .list {
