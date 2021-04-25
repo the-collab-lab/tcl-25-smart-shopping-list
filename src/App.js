@@ -65,11 +65,7 @@ const App = () => {
           <Navigation />
         </>
       ) : (
-        <Home
-          handleTokenCreation={handleTokenCreation}
-          token={token}
-          collectionId={collectionId}
-        />
+        <Home handleTokenCreation={handleTokenCreation} setToken={setToken} />
       )}
     </BrowserRouter>
   );
