@@ -92,23 +92,19 @@ a:visited {
 }
 
 .add-button {
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-  font-size: 1.33rem;
-  box-sizing: border-box;
-  display: inline-block;
   padding: 0.5rem 2rem;
+  border: 2px solid;
+  border-radius: 0.25rem;
   background: #fe9476;
   color: #263147;
-  border: 2px solid;
-  text-transform: uppercase;
-  text-decoration: none;
   text-align: center;
+  text-transform: uppercase;
   font-family: 'Red Hat Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
     sans-serif;
+  font-size: 1.33rem;
   font-weight: 900;
-  margin-top: 1.77rem;
-  border-radius: 0.25rem;
+  line-height: 1.5;
+  cursor: pointer;
 }
 
 .form {
