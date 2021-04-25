@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { db } from '../lib/firebase';
+import React from 'react';
+
 import { v4 as uuidv4 } from 'uuid';
 
-const ListView = ({ token }) => {
-  const [purchaseItemCollection, setpurchaseItemCollection] = useState([]);
+import ListItem from '../components/ListItem';
 
-  useEffect(() => {
-    db.collection('shoppinglist')
-      .where('token', '==', token)
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          setpurchaseItemCollection(doc.data().items);
-        });
-      });
-  });
-
+const ListView = ({ shoppingList, loading, error }) => {
   return (
-    <ul className="lists">
-      {purchaseItemCollection &&
-        purchaseItemCollection.map((item) => (
-          <li key={uuidv4()}>{item.name}</li>
-        ))}
-    </ul>
+    <>
+      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {loading && (
+        <div className="bouncing-loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      )}
+      <ul className="list">
+        {shoppingList &&
+          shoppingList.map((list) =>
+            list.items.map((item) => <ListItem key={uuidv4()} item={item} />),
+          )}
+      </ul>
+    </>
   );
 };
 

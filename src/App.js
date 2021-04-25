@@ -1,41 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+import getToken from './lib/tokens';
+import { db } from './lib/firebase';
+import useLocalStorageState from './hooks/useLocalStorageState';
+
+import Home from './components/Home';
 import AddView from './components/AddView';
 import ListView from './components/ListView';
 import Navigation from './components/Navigation';
-import Home from './components/Home';
-import getToken from './lib/tokens';
 import './App.css';
 
 const App = () => {
-  const initialToken = localStorage.getItem('token')
-    ? localStorage.getItem('token')
-    : '';
+  const [token, setToken] = useLocalStorageState('token', '');
+  const [collectionId, setCollectionId] = useLocalStorageState(
+    'collectionId',
+    '',
+  );
 
-  const [token, setToken] = useState(initialToken);
-
-  useEffect(() => {
-    localStorage.setItem('token', token);
-  }, [token]);
-
-  const handleTokenCreation = () => {
-    setToken(getToken());
+  const createList = async (token) => {
+    return await db.collection('lists').add({
+      items: [],
+      token,
+    });
   };
-  return token ? (
+
+  const handleTokenCreation = async () => {
+    const token = getToken();
+    setToken(token);
+    const { id } = await createList(token);
+    setCollectionId(id);
+  };
+
+  const [shoppingList, loading, error] = useCollectionData(
+    db.collection('lists').where('token', '==', token),
+    {
+      snapshotListenOptions: { includeMetadataChanges: true },
+      idField: 'id',
+    },
+  );
+
+  return (
     <BrowserRouter>
-      <Redirect to="/list-view" />
-      <Switch>
-        <Route path="/add-view" exact>
-          <AddView token={token} />
-        </Route>
-        <Route path="/list-view" exact>
-          <ListView token={token} />
-        </Route>
-      </Switch>
-      <Navigation />
+      {token ? (
+        <>
+          <Redirect to="/list-view" />
+          <Switch>
+            <Route path="/add-view">
+              <AddView
+                token={token}
+                shoppingList={shoppingList}
+                collectionId={collectionId}
+              />
+            </Route>
+            <Route path="/list-view">
+              <ListView
+                shoppingList={shoppingList}
+                loading={loading}
+                error={error}
+              />
+            </Route>
+          </Switch>
+          <Navigation />
+        </>
+      ) : (
+        <Home handleTokenCreation={handleTokenCreation} setToken={setToken} />
+      )}
     </BrowserRouter>
-  ) : (
-    <Home handleTokenCreation={handleTokenCreation} setToken={setToken} />
   );
 };
 
