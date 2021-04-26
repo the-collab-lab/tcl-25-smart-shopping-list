@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -6,9 +6,13 @@ import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
-  if (shoppingList[0].items.length >= 1) {
-    setShoppingListEmpty(false);
-  }
+  const length = shoppingList[0].items.length;
+
+  useEffect(() => {
+    if (length >= 1) {
+      setShoppingListEmpty(false);
+    }
+  }, [length]);
 
   return shoppingListEmpty ? (
     <div>
