@@ -6,8 +6,7 @@ import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
-
-  if (shoppingList.items.length >= 1) {
+  if (shoppingList[0].items.length >= 1) {
     setShoppingListEmpty(false);
   }
 
