@@ -6,22 +6,21 @@ import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
-  const length = 0;
-  //console.log(shoppingList[0].items.length)
 
   useEffect(() => {
+    const length = shoppingList[0].items.length;
     if (length >= 1) {
       setShoppingListEmpty(false);
+    } else {
+      setShoppingListEmpty(true);
     }
-    //eslint-disable-next-line
-  }, [length]);
+  }, [shoppingList]);
 
   return shoppingListEmpty ? (
     <div>
       <h1>No Item Added</h1>
       <Link to="/add-view" className="add-button">
-        {' '}
-        Add Item{' '}
+        Add Item
       </Link>
     </div>
   ) : (
