@@ -6,15 +6,19 @@ import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
+  const [length, setLength] = useState(0);
 
   useEffect(() => {
-    const length = shoppingList[0].items.length;
+    if (loading === false && shoppingList[0] !== undefined) {
+      setLength(shoppingList[0].items.length);
+    }
+
     if (length >= 1) {
       setShoppingListEmpty(false);
     } else {
       setShoppingListEmpty(true);
     }
-  }, [shoppingList]);
+  }, [length, loading, shoppingList]);
 
   return shoppingListEmpty ? (
     <div>
