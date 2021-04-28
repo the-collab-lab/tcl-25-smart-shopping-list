@@ -199,3 +199,12 @@ nav {
 .bouncing-loader > div:nth-child(3) {
   animation-delay: 0.4s;
 }
+
+.prompt {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-row-gap: 20px;
+  text-align: center;
+  justify-content: center;
+}

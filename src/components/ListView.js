@@ -21,7 +21,7 @@ const ListView = ({ shoppingList, loading, error }) => {
   }, [length, loading, shoppingList]);
 
   return shoppingListEmpty ? (
-    <div>
+    <div className="prompt">
       <h1>No Item Added</h1>
       <Link to="/add-view" className="add-button">
         Add Item
