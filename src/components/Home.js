@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 
-const Home = ({ handleTokenCreation, setToken }) => {
+const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
 
