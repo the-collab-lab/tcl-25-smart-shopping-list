@@ -7,6 +7,12 @@ const Checkbox = ({ item, shoppingList }) => {
 
   const { name, id, lastPurchasedDate } = item;
 
+  const isExpired = (date) => {
+    const expiryDate = item.lastPurchasedDate + 60 * 60 * 24;
+    const now = new Date().getTime();
+    return expiryDate < now;
+  };
+
   const tickCheckBox = async (e) => {
     if (e.target.checked) {
       setChecked(true);
