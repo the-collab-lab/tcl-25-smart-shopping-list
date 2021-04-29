@@ -7,7 +7,21 @@ const Checkbox = ({ item, shoppingList }) => {
 
   const { name, id, lastPurchasedDate } = item;
 
-  return <div></div>;
+  return (
+    <>
+      <input
+        type="checkbox"
+        name={name}
+        id={name}
+        className="list__item__input"
+        value={name}
+      />
+
+      <label htmlFor={name} className="list__item__label">
+        {name}
+      </label>
+    </>
+  );
 };
 
 export default Checkbox;
