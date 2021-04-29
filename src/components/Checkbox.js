@@ -17,6 +17,8 @@ const Checkbox = ({ item, shoppingList }) => {
         id={name}
         className="list__item__input"
         value={name}
+        onChange={tickCheckBox}
+        checked={checked}
       />
 
       <label htmlFor={name} className="list__item__label">
