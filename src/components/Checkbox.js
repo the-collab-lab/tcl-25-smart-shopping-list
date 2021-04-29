@@ -7,6 +7,8 @@ const Checkbox = ({ item, shoppingList }) => {
 
   const { name, id, lastPurchasedDate } = item;
 
+  const tickCheckBox = async (e) => {};
+
   return (
     <>
       <input
