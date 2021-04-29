@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { db } from '../lib/firebase';
 
 const Checkbox = () => {
   return <div></div>;
