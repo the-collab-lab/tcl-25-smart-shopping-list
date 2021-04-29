@@ -7,7 +7,17 @@ const Checkbox = ({ item, shoppingList }) => {
 
   const { name, id, lastPurchasedDate } = item;
 
-  const tickCheckBox = async (e) => {};
+  const tickCheckBox = async (e) => {
+    if (e.target.checked) {
+      setChecked(true);
+      let item = shoppingList[0].items.find((entry) => entry.id === id);
+      item.lastPurchasedDate = new Date().getTime();
+      await db
+        .collection('lists')
+        .doc(shoppingList[0].id)
+        .set({ items: shoppingList[0].items }, { merge: true });
+    }
+  };
 
   return (
     <>
