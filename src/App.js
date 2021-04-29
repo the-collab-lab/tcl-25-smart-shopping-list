@@ -65,7 +65,11 @@ const App = () => {
           <Navigation />
         </>
       ) : (
-        <Home handleTokenCreation={handleTokenCreation} setToken={setToken} />
+        <Home
+          handleTokenCreation={handleTokenCreation}
+          setToken={setToken}
+          setCollectionId={setCollectionId}
+        />
       )}
     </BrowserRouter>
   );
