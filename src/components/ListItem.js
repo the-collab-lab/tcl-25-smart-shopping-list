@@ -1,8 +1,10 @@
 import React from 'react';
 import Checkbox from '../components/Checkbox';
 
-const ListItem = ({ item, shoppingList }) => {
-  return <li className="list__item"></li>;
-};
+const ListItem = ({ item, shoppingList }) => (
+  <li className="list__item">
+    <Checkbox item={item} shoppingList={shoppingList} />
+  </li>
+);
 
 export default ListItem;
