@@ -14,7 +14,14 @@ const Checkbox = ({ item, shoppingList }) => {
   };
 
   useEffect(() => {
-    setChecked(lastPurchasedDate === null || isExpired(lastPurchasedDate));
+    if (lastPurchasedDate === null) {
+      setChecked(false);
+    }
+    if (isExpired(lastPurchasedDate)) {
+      setChecked(false);
+    } else {
+      setChecked(true);
+    }
   }, [lastPurchasedDate]);
 
   const tickCheckBox = async (e) => {
