@@ -19,6 +19,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
             'Token does not exist. Please try entering another token or creating a new list.',
           );
         } else {
+          setCollectionId(querySnapshot.docs[0].id);
           setToken(value.trim());
         }
       })
