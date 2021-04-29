@@ -75,6 +75,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
             howSoon,
             name,
             lastPurchasedDate,
+            id: uuidv4(),
           }),
           token,
         });
