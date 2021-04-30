@@ -22,7 +22,7 @@ const Checkbox = ({ item, shoppingList }) => {
     } else {
       setChecked(true);
     }
-  }, [lastPurchasedDate]);
+  }, [lastPurchasedDate, isExpired]);
 
   const tickCheckBox = async (e) => {
     if (e.target.checked) {
