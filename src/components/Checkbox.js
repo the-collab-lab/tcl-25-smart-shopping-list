@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { db } from '../lib/firebase';
 
@@ -7,11 +7,11 @@ const Checkbox = ({ item, shoppingList }) => {
 
   const { name, id, lastPurchasedDate } = item;
 
-  const isExpired = (date) => {
-    const expiryDate = date + 60 * 60 * 24;
+  const isExpired = useCallback((lastPurchasedDate) => {
+    const expiryDate = lastPurchasedDate + 60 * 60 * 24 * 1000;
     const now = new Date().getTime();
     return expiryDate < now;
-  };
+  }, []);
 
   useEffect(() => {
     if (lastPurchasedDate === null) {
