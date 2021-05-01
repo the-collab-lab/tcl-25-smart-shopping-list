@@ -237,6 +237,7 @@ nav {
 .list__item__label {
   cursor: pointer;
 }
+
 .list__item__label::before {
   display: inline-block;
   position: absolute;
@@ -247,4 +248,13 @@ nav {
   height: 32px;
   width: 32px;
   border: 2px solid rgb(33, 33, 33);
+}
+
+.prompt {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: auto;
+  grid-row-gap: 20px;
+  text-align: center;
+  justify-content: center;
 }
