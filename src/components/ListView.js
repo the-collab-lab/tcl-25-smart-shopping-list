@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { v4 as uuidv4 } from 'uuid';
-
 import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
@@ -17,9 +15,10 @@ const ListView = ({ shoppingList, loading, error }) => {
       )}
       <ul className="list">
         {shoppingList &&
-          shoppingList.map((list) =>
-            list.items.map((item) => <ListItem key={uuidv4()} item={item} />),
-          )}
+          shoppingList[0] &&
+          shoppingList[0].items.map((item) => (
+            <ListItem key={item.id} item={item} shoppingList={shoppingList} />
+          ))}
       </ul>
     </>
   );

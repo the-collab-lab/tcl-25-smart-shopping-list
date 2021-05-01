@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 
-const Home = ({ handleTokenCreation, setToken }) => {
+const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
   const [value, setValue] = useState('');
   const [message, setMessage] = useState('');
 
@@ -19,6 +19,7 @@ const Home = ({ handleTokenCreation, setToken }) => {
             'Token does not exist. Please try entering another token or creating a new list.',
           );
         } else {
+          setCollectionId(querySnapshot.docs[0].id);
           setToken(value.trim());
         }
       })
