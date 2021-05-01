@@ -14,10 +14,7 @@ const Checkbox = ({ item, shoppingList }) => {
   }, []);
 
   useEffect(() => {
-    if (lastPurchasedDate === null) {
-      setChecked(false);
-    }
-    if (isExpired(lastPurchasedDate)) {
+    if (lastPurchasedDate === null || isExpired(lastPurchasedDate)) {
       setChecked(false);
     } else {
       setChecked(true);
