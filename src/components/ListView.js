@@ -6,6 +6,9 @@ import ListItem from '../components/ListItem';
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
   const [length, setLength] = useState(0);
+  const [value, setValue] = useState('');
+
+  const handleChange = (e) => setValue(e.target.value);
 
   useEffect(() => {
     if (loading === false && shoppingList[0] !== undefined) {
@@ -36,13 +39,23 @@ const ListView = ({ shoppingList, loading, error }) => {
           <div></div>
         </div>
       )}
-      <ul className="list">
-        {shoppingList &&
-          shoppingList[0] &&
-          shoppingList[0].items.map((item) => (
-            <ListItem key={item.id} item={item} shoppingList={shoppingList} />
-          ))}
-      </ul>
+
+      <main>
+        <input
+          type="text"
+          placeholder="Search list for item"
+          value={value}
+          onChange={handleChange}
+        />
+
+        <ul className="list">
+          {shoppingList &&
+            shoppingList[0] &&
+            shoppingList[0].items.map((item) => (
+              <ListItem key={item.id} item={item} shoppingList={shoppingList} />
+            ))}
+        </ul>
+      </main>
     </>
   );
 };
