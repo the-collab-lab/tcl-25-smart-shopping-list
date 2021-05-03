@@ -8,13 +8,11 @@ const ListView = ({ shoppingList, loading, error }) => {
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
 
+  const handleChange = (e) => setValue(e.target.value);
+
   const handleClick = (e) => {
     e.preventDefault();
     setValue('');
-  };
-
-  const handleChange = (e) => {
-    setValue(e.target.value);
   };
 
   useEffect(() => {
@@ -46,27 +44,39 @@ const ListView = ({ shoppingList, loading, error }) => {
           <div></div>
         </div>
       )}
+      {!loading && (
+        <main>
+          <form className="search-box">
+            <input
+              type="text"
+              placeholder="Search list for item"
+              aria-label="search-box"
+              value={value}
+              onChange={handleChange}
+            />
+            <button onClick={handleClick}>X</button>
+          </form>
 
-      <main>
-        <form className="search-box">
-          <input
-            type="text"
-            placeholder="Search list for item"
-            aria-label="search-box"
-            value={value}
-            onChange={handleChange}
-          />
-          <button onClick={handleClick}>X</button>
-        </form>
-
-        <ul className="list">
-          {shoppingList &&
-            shoppingList[0] &&
-            shoppingList[0].items.map((item) => (
-              <ListItem key={item.id} item={item} shoppingList={shoppingList} />
-            ))}
-        </ul>
-      </main>
+          <ul className="list">
+            {shoppingList &&
+              shoppingList[0] &&
+              shoppingList[0].items.map((item) => {
+                const searchResult = item.name.includes(
+                  value.toLowerCase().trim(),
+                );
+                return (
+                  searchResult && (
+                    <ListItem
+                      key={item.id}
+                      item={item}
+                      shoppingList={shoppingList}
+                    />
+                  )
+                );
+              })}
+          </ul>
+        </main>
+      )}
     </>
   );
 };
