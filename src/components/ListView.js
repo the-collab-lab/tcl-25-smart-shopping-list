@@ -55,9 +55,11 @@ const ListView = ({ shoppingList, loading, error }) => {
               value={value}
               onChange={handleChange}
             />
-            <button onClick={handleClick} className="search-button">
-              x
-            </button>
+            {value.length >= 1 && (
+              <button onClick={handleClick} className="search-button">
+                x
+              </button>
+            )}
           </form>
 
           <ul className="list">
