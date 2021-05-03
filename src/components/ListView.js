@@ -8,10 +8,13 @@ const ListView = ({ shoppingList, loading, error }) => {
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => setValue(e.target.value);
-
   const handleClick = (e) => {
     e.preventDefault();
+    setValue('');
+  };
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
   };
 
   useEffect(() => {
@@ -53,9 +56,7 @@ const ListView = ({ shoppingList, loading, error }) => {
             value={value}
             onChange={handleChange}
           />
-          <button type="submit" onClick={handleClick}>
-            Search
-          </button>
+          <button onClick={handleClick}>X</button>
         </form>
 
         <ul className="list">
