@@ -10,6 +10,10 @@ const ListView = ({ shoppingList, loading, error }) => {
 
   const handleChange = (e) => setValue(e.target.value);
 
+  const handleClick = (e) => {
+    e.preventDefault();
+  };
+
   useEffect(() => {
     if (loading === false && shoppingList[0] !== undefined) {
       setLength(shoppingList[0].items.length);
@@ -41,12 +45,18 @@ const ListView = ({ shoppingList, loading, error }) => {
       )}
 
       <main>
-        <input
-          type="text"
-          placeholder="Search list for item"
-          value={value}
-          onChange={handleChange}
-        />
+        <form className="search-box">
+          <input
+            type="text"
+            placeholder="Search list for item"
+            aria-label="search-box"
+            value={value}
+            onChange={handleChange}
+          />
+          <button type="submit" onClick={handleClick}>
+            Search
+          </button>
+        </form>
 
         <ul className="list">
           {shoppingList &&
