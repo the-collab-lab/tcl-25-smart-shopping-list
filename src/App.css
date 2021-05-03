@@ -112,6 +112,23 @@ h1 {
   line-height: 1;
 }
 
+.search-box {
+  display: unset;
+  width: unset;
+}
+
+.search-button {
+  background-color: white;
+  border: 1px solid;
+  border-left: none;
+  padding: 1.07rem;
+}
+
+.search-button:hover {
+  background-color: red;
+  color: white;
+}
+
 .field-error {
   display: block;
   padding: 0.25rem;

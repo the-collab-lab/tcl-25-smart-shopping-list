@@ -51,10 +51,13 @@ const ListView = ({ shoppingList, loading, error }) => {
               type="text"
               placeholder="Search list for item"
               aria-label="search-box"
+              className="form-field search-box"
               value={value}
               onChange={handleChange}
             />
-            <button onClick={handleClick}>X</button>
+            <button onClick={handleClick} className="search-button">
+              x
+            </button>
           </form>
 
           <ul className="list">
