@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const DEFAULT_ITEM = {
   name: '',
-  howSoon: '',
+  daysLeftForNextPurchase: '',
   lastPurchasedDate: null,
 };
 
@@ -40,7 +40,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
         return;
       }
 
-      if (item.name === '' && item.howSoon === '') {
+      if (item.name === '' && item.daysLeftForNextPurchase === '') {
         setIsNameFieldEmpty(true);
         setIsFrequencyFieldEmpty(true);
         return;
@@ -51,7 +51,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
         return;
       }
 
-      if (item.howSoon === '') {
+      if (item.daysLeftForNextPurchase === '') {
         setIsFrequencyFieldEmpty(true);
         return;
       }
@@ -64,13 +64,13 @@ const AddView = ({ shoppingList, token, collectionId }) => {
   };
 
   const addListItem = async (item, collectionId) => {
-    let { name, howSoon, lastPurchasedDate } = item;
+    let { name, daysLeftForNextPurchase, lastPurchasedDate } = item;
     try {
       db.collection('lists')
         .doc(collectionId)
         .update({
           items: firebase.firestore.FieldValue.arrayUnion({
-            howSoon,
+            daysLeftForNextPurchase,
             name,
             lastPurchasedDate,
             id: uuidv4(),
@@ -114,8 +114,8 @@ const AddView = ({ shoppingList, token, collectionId }) => {
           <select
             className="form-field"
             id="howSoon"
-            name="howSoon"
-            value={item.howSoon}
+            name="daysLeftForNextPurchase"
+            value={item.daysLeftForNextPurchase}
             onBlur={handleChange}
             onChange={handleChange}
           >
