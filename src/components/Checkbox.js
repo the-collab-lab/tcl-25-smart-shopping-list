@@ -26,6 +26,7 @@ const Checkbox = ({ item, shoppingList }) => {
       setChecked(true);
       let item = shoppingList[0].items.find((entry) => entry.id === id);
       item.lastPurchasedDate = new Date().getTime();
+      item.numberOfPurchases++;
       await db
         .collection('lists')
         .doc(shoppingList[0].id)

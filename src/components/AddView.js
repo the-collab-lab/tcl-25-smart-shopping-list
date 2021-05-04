@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { db } from '../lib/firebase';
 import firebase from 'firebase';
 import transformUserInput from '../lib/utils';
-
 import { v4 as uuidv4 } from 'uuid';
 
 const DEFAULT_ITEM = {
@@ -17,7 +16,6 @@ const AddView = ({ shoppingList, token, collectionId }) => {
   const [hasDuplicates, setHasDuplicates] = useState(false);
   const [isNameFieldEmpty, setIsNameFieldEmpty] = useState(false);
   const [isFrequencyFieldEmpty, setIsFrequencyFieldEmpty] = useState(false);
-
   const handleChange = (e) => {
     setHasDuplicates(false);
     setIsNameFieldEmpty(false);
@@ -76,6 +74,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
             name,
             lastPurchasedDate,
             id: uuidv4(),
+            numberOfPurchases: 0,
           }),
           token,
         });
