@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import calculateEstimate from '../lib/estimates';
 
 import { db } from '../lib/firebase';
 
 const Checkbox = ({ item, shoppingList }) => {
   const [checked, setChecked] = useState(false);
 
-  const { name, id, lastPurchasedDate } = item;
+  const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
 
   const isExpired = useCallback((lastPurchasedDate) => {
     const expiryDate = lastPurchasedDate + 60 * 60 * 24 * 1000;
@@ -27,11 +28,29 @@ const Checkbox = ({ item, shoppingList }) => {
       let item = shoppingList[0].items.find((entry) => entry.id === id);
       item.lastPurchasedDate = new Date().getTime();
       item.numberOfPurchases++;
+      item.daysLeftForNextPurchase = estimateDaysLeft();
       await db
         .collection('lists')
         .doc(shoppingList[0].id)
         .set({ items: shoppingList[0].items }, { merge: true });
     }
+  };
+
+  const estimateDaysLeft = () => {
+    let lastEstimate = daysLeftForNextPurchase;
+    let lastestInterval =
+      lastPurchasedDate != null
+        ? Math.floor(
+            (new Date().getTime() - lastPurchasedDate) / (60 * 60 * 24 * 1000),
+          )
+        : lastEstimate;
+    let purchaseNumber = item.numberOfPurchases;
+    let estimatedInterval = calculateEstimate(
+      lastEstimate,
+      lastestInterval,
+      purchaseNumber,
+    );
+    return estimatedInterval;
   };
 
   return (
