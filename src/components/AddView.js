@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const DEFAULT_ITEM = {
   name: '',
-  daysLeftForNextPurchase: '',
+  daysLeftForNextPurchase: null,
   lastPurchasedDate: null,
 };
 
@@ -70,7 +70,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
         .doc(collectionId)
         .update({
           items: firebase.firestore.FieldValue.arrayUnion({
-            daysLeftForNextPurchase,
+            daysLeftForNextPurchase: parseInt(daysLeftForNextPurchase),
             name,
             lastPurchasedDate,
             id: uuidv4(),
