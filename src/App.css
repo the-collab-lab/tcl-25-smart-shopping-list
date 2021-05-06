@@ -114,7 +114,7 @@ h1 {
 
 .search-box {
   display: unset;
-  width: unset;
+  width: 15rem;
 }
 
 .field-error {
