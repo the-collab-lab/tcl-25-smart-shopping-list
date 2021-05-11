@@ -18,6 +18,10 @@ const ListItem = ({ item, shoppingList }) => {
     setDialogOpen(false);
   };
 
+  const handleRemove = async () => {
+    console.log('handleRemove');
+  };
+
   return (
     <li className="list__item">
       <Checkbox item={item} shoppingList={shoppingList} />
@@ -28,7 +32,9 @@ const ListItem = ({ item, shoppingList }) => {
       >
         <BinIcon />
       </button>
-      {dialogOpen ? <Dialog onCancel={handleCancel} /> : null}
+      {dialogOpen ? (
+        <Dialog onCancel={handleCancel} onDelete={handleRemove} />
+      ) : null}
     </li>
   );
 };
