@@ -1,4 +1,4 @@
 const transformUserInput = (item) =>
-  item.replace(/[\W_]/g, '').toLowerCase().trim();
+  item.replace(/[^a-zA-Z ]/g, '').replace(/\s\s+/g, ' ');
 
 export default transformUserInput;
