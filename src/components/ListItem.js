@@ -14,6 +14,10 @@ const ListItem = ({ item, shoppingList }) => {
     setDialogOpen(true);
   };
 
+  const handleCancel = () => {
+    setDialogOpen(false);
+  };
+
   return (
     <li className="list__item">
       <Checkbox item={item} shoppingList={shoppingList} />
