@@ -7,7 +7,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const DEFAULT_ITEM = {
   name: '',
-  daysLeftForNextPurchase: null,
+  daysLeftForNextPurchase: '',
   lastPurchasedDate: null,
 };
 
