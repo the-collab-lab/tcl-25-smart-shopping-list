@@ -205,7 +205,7 @@ nav {
   animation-delay: 0.4s;
 }
 
-.list__item {
+li {
   position: relative;
   margin: 0px;
   margin-bottom: 15px;
@@ -262,4 +262,20 @@ nav {
   grid-row-gap: 20px;
   text-align: center;
   justify-content: center;
+}
+
+.soon {
+  background-color: red;
+}
+
+.kind-of-soon {
+  background-color: pink;
+}
+
+.not-soon {
+  background-color: green;
+}
+
+.inactive {
+  background-color: grey;
 }
