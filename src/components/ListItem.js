@@ -28,6 +28,7 @@ const ListItem = ({ item, shoppingList }) => {
       >
         <BinIcon />
       </button>
+      {dialogOpen ? <Dialog /> : null}
     </li>
   );
 };
