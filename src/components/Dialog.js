@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Dialog = () => (
+const Dialog = ({ onCancel, onDelete }) => (
   <div id="dialog">
     <div className="dialog__inner">
       <p id="dialog-content">Are you sure you want to delete this item?</p>
