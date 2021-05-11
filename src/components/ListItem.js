@@ -13,6 +13,12 @@ const ListItem = ({ item, shoppingList }) => {
   return (
     <li className="list__item">
       <Checkbox item={item} shoppingList={shoppingList} />
+      <button
+        aria-label={`delete ${item.name}`}
+        className="list__item__delete-btn"
+      >
+        <BinIcon />
+      </button>
     </li>
   );
 };
