@@ -7,25 +7,39 @@ const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
-  let purchaseIndex;
+
+  const [soonArr, setSoonArr] = useState([]);
+  const [kindOfSoonArr, setKindOfSoonArr] = useState([]);
+  const [notSoonArr, setNotSoonArr] = useState([]);
+  //const [inactiveArr, setInactiveArr] = useState([]);
 
   const handleChange = (e) => setValue(e.target.value);
 
-  const checkIndex = (nextPurchase) => {
-    if (nextPurchase < 7) {
-      purchaseIndex = 'soon';
-    } else if (nextPurchase < 30) {
-      purchaseIndex = 'kind-of-soon';
-    } else if (nextPurchase > 30) {
-      purchaseIndex = 'not-soon';
-    } else {
-      purchaseIndex = 'inactive';
-    }
-  };
-
   useEffect(() => {
+    const filterUrgency = () => {
+      const soonItems = shoppingList[0].items.filter(
+        (item) => item.daysLeftForNextPurchase < 7,
+      );
+      const kindOfSoonItems = shoppingList[0].items.filter(
+        (item) =>
+          item.daysLeftForNextPurchase >= 7 &&
+          item.daysLeftForNextPurchase < 30,
+      );
+      const notSoonItems = shoppingList[0].items.filter(
+        (item) => item.daysLeftForNextPurchase > 30,
+      );
+
+      setSoonArr(soonItems.sort((a, b) => a.name.localeCompare(b.name)));
+      setKindOfSoonArr(
+        kindOfSoonItems.sort((a, b) => a.name.localeCompare(b.name)),
+      );
+      setNotSoonArr(notSoonItems.sort((a, b) => a.name.localeCompare(b.name)));
+      console.log(shoppingList[0]);
+    };
+
     if (loading === false && shoppingList[0] !== undefined) {
       setLength(shoppingList[0].items.length);
+      filterUrgency();
     }
 
     if (length >= 1) {
@@ -52,7 +66,7 @@ const ListView = ({ shoppingList, loading, error }) => {
           <div></div>
         </div>
       )}
-      {!loading && (
+      {shoppingList && shoppingList[0] && (
         <main>
           <form className="search-box">
             <input
@@ -66,8 +80,73 @@ const ListView = ({ shoppingList, loading, error }) => {
           </form>
 
           <ul className="list">
-            {shoppingList &&
-              shoppingList[0] &&
+            {soonArr.length && (
+              <div className="container__soon">
+                {soonArr.map((item) => {
+                  const searchResult = item.name.includes(
+                    value.toLowerCase().trim(),
+                  );
+
+                  return (
+                    searchResult && (
+                      <ListItem
+                        key={item.id}
+                        item={item}
+                        index="soon"
+                        shoppingList={shoppingList}
+                      />
+                    )
+                  );
+                })}
+              </div>
+            )}
+
+            {kindOfSoonArr.length && (
+              <div className="container__kind-of-soon">
+                {kindOfSoonArr.map((item) => {
+                  const searchResult = item.name.includes(
+                    value.toLowerCase().trim(),
+                  );
+
+                  return (
+                    searchResult && (
+                      <ListItem
+                        key={item.id}
+                        item={item}
+                        index="kind-of-soon"
+                        shoppingList={shoppingList}
+                      />
+                    )
+                  );
+                })}
+              </div>
+            )}
+
+            {notSoonArr.length && (
+              <div className="container__not-soon">
+                {notSoonArr.map((item) => {
+                  const searchResult = item.name.includes(
+                    value.toLowerCase().trim(),
+                  );
+
+                  return (
+                    searchResult && (
+                      <ListItem
+                        key={item.id}
+                        item={item}
+                        index="not-soon"
+                        shoppingList={shoppingList}
+                      />
+                    )
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="container__inactive"></div>
+          </ul>
+          {/*
+              
               shoppingList[0].items.map((item) => {
                 const searchResult = item.name.includes(
                   value.toLowerCase().trim(),
@@ -85,8 +164,7 @@ const ListView = ({ shoppingList, loading, error }) => {
                     />
                   )
                 );
-              })}
-          </ul>
+              })} */}
         </main>
       )}
     </>
