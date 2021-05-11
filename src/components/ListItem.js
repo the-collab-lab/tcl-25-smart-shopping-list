@@ -18,6 +18,15 @@ const ListItem = ({ item, shoppingList }) => {
     setDialogOpen(false);
   };
 
+  const handleDeleteItem = async (listId, item) => {
+    return await db
+      .collection('lists')
+      .doc(listId)
+      .update({
+        items: firebase.firestore.FieldValue.arrayRemove(item),
+      });
+  };
+
   const handleRemove = async () => {
     console.log('handleRemove');
   };
