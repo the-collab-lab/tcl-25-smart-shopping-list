@@ -28,7 +28,8 @@ const ListItem = ({ item, shoppingList }) => {
   };
 
   const handleRemove = async () => {
-    console.log('handleRemove');
+    setDialogOpen(false);
+    await handleDeleteItem(shoppingList[0].id, item);
   };
 
   return (
