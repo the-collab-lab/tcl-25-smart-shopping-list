@@ -10,6 +10,10 @@ import firebase from 'firebase';
 const ListItem = ({ item, shoppingList }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
 
+  const handleDialogOpen = () => {
+    setDialogOpen(true);
+  };
+
   return (
     <li className="list__item">
       <Checkbox item={item} shoppingList={shoppingList} />
