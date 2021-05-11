@@ -22,6 +22,7 @@ const ListItem = ({ item, shoppingList }) => {
     <li className="list__item">
       <Checkbox item={item} shoppingList={shoppingList} />
       <button
+        onClick={handleDialogOpen}
         aria-label={`delete ${item.name}`}
         className="list__item__delete-btn"
       >
