@@ -8,15 +8,19 @@ const ListView = ({ shoppingList, loading, error }) => {
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
 
+  //arrays for items filtered according to urgency
   const [soonArr, setSoonArr] = useState([]);
   const [kindOfSoonArr, setKindOfSoonArr] = useState([]);
   const [notSoonArr, setNotSoonArr] = useState([]);
-  //const [inactiveArr, setInactiveArr] = useState([]);
+  const [inactiveArr, setInactiveArr] = useState([]);
 
   const handleChange = (e) => setValue(e.target.value);
 
   useEffect(() => {
     const filterUrgency = () => {
+      //filters items according to days left till next purchase
+      //still need to add number of purchases to criteria (for inactive items)
+      //Haven't filtered and sorted inactive items.
       const soonItems = shoppingList[0].items.filter(
         (item) => item.daysLeftForNextPurchase < 7,
       );
@@ -29,12 +33,15 @@ const ListView = ({ shoppingList, loading, error }) => {
         (item) => item.daysLeftForNextPurchase > 30,
       );
 
+      //sorted items alphabetically
+      //used localeCompare to sort without consideration for case
+      //The ACs say to sort according to date for next purchase though, and then
+      //items with same date should be sorted alphabetically. Need to fix.
       setSoonArr(soonItems.sort((a, b) => a.name.localeCompare(b.name)));
       setKindOfSoonArr(
         kindOfSoonItems.sort((a, b) => a.name.localeCompare(b.name)),
       );
       setNotSoonArr(notSoonItems.sort((a, b) => a.name.localeCompare(b.name)));
-      console.log(shoppingList[0]);
     };
 
     if (loading === false && shoppingList[0] !== undefined) {
@@ -81,6 +88,7 @@ const ListView = ({ shoppingList, loading, error }) => {
 
           <ul className="list">
             {soonArr.length && (
+              //maps items in each array into separate divs so they are displayed together
               <div className="container__soon">
                 {soonArr.map((item) => {
                   const searchResult = item.name.includes(
@@ -92,6 +100,8 @@ const ListView = ({ shoppingList, loading, error }) => {
                       <ListItem
                         key={item.id}
                         item={item}
+                        //passes the state of urgency to ListItem as a prop for className and aria-label
+                        //in CSS, added styling for class names (background colour)
                         index="soon"
                         shoppingList={shoppingList}
                       />
@@ -142,29 +152,27 @@ const ListView = ({ shoppingList, loading, error }) => {
                 })}
               </div>
             )}
+            {inactiveArr.length && (
+              <div className="container__inactive">
+                {inactiveArr.map((item) => {
+                  const searchResult = item.name.includes(
+                    value.toLowerCase().trim(),
+                  );
 
-            <div className="container__inactive"></div>
+                  return (
+                    searchResult && (
+                      <ListItem
+                        key={item.id}
+                        item={item}
+                        index="inactive"
+                        shoppingList={shoppingList}
+                      />
+                    )
+                  );
+                })}
+              </div>
+            )}
           </ul>
-          {/*
-              
-              shoppingList[0].items.map((item) => {
-                const searchResult = item.name.includes(
-                  value.toLowerCase().trim(),
-                );
-                const nextPurchase = item.daysLeftForNextPurchase;
-                checkIndex(nextPurchase);
-
-                return (
-                  searchResult && (
-                    <ListItem
-                      key={item.id}
-                      item={item}
-                      index={purchaseIndex}
-                      shoppingList={shoppingList}
-                    />
-                  )
-                );
-              })} */}
         </main>
       )}
     </>
