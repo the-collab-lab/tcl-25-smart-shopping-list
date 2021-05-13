@@ -302,7 +302,7 @@ nav {
   border-radius: none;
   background: none;
   border: none;
-  fill: var(--theme-color);
+  cursor: pointer;
 }
 
 .list__item__delete-btn svg {
@@ -330,7 +330,6 @@ nav {
 
 .dialog-content {
   flex: 2 1;
-  margin: 0;
   margin-left: 10px;
   padding: 0;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier;
