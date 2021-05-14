@@ -36,7 +36,7 @@ const ListView = ({ shoppingList, loading, error }) => {
     //sort items according to days left till next purchase
     //if items have same number of days left, filter alphabetically
     //used localeCompare to sort without consideration for case
-    const filterUrgency = () => {
+    const sortByUrgency = () => {
       setSortedList(
         shoppingList[0].items.sort(
           (a, b) =>
@@ -48,7 +48,7 @@ const ListView = ({ shoppingList, loading, error }) => {
 
     if (loading === false && shoppingList[0] !== undefined) {
       setLength(shoppingList[0].items.length);
-      filterUrgency();
+      sortByUrgency();
     }
 
     if (length >= 1) {
@@ -93,12 +93,12 @@ const ListView = ({ shoppingList, loading, error }) => {
               const searchResult = item.name.includes(
                 value.toLowerCase().trim(),
               );
-              //pass parameters to checkIndex function
-              const lastPurchase = item.LastPurchasedDate;
-              const nextPurchase = item.daysLeftForNextPurchase;
-              const timesPurchased = item.numberOfPurchases;
               //check urgency index of item
-              checkIndex(lastPurchase, nextPurchase, timesPurchased);
+              checkIndex(
+                item.lastPurchasedDate,
+                item.daysLeftForNextPurchase,
+                item.numberOfPurchases,
+              );
 
               return (
                 searchResult && (
