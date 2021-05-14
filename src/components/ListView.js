@@ -7,51 +7,32 @@ const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
-
-  //arrays for items filtered according to urgency
-  const [soonArr, setSoonArr] = useState([]);
-  const [kindOfSoonArr, setKindOfSoonArr] = useState([]);
-  const [notSoonArr, setNotSoonArr] = useState([]);
-  const [inactiveArr, setInactiveArr] = useState([]);
+  const [sortedList, setSortedList] = useState([]);
+  //indicator for urgency status of item
+  let purchaseIndex;
 
   const handleChange = (e) => setValue(e.target.value);
 
-  useEffect(() => {
-    const filterUrgency = () => {
-      //filters items according to days left till next purchase
-      const soonItems = shoppingList[0].items.filter(
-        (item) =>
-          item.daysLeftForNextPurchase < 7 && item.numberOfPurchases > 1,
-      );
-      const kindOfSoonItems = shoppingList[0].items.filter(
-        (item) =>
-          item.daysLeftForNextPurchase >= 7 &&
-          item.daysLeftForNextPurchase < 30 &&
-          item.numberOfPurchases > 1,
-      );
-      const notSoonItems = shoppingList[0].items.filter(
-        (item) =>
-          item.daysLeftForNextPurchase > 30 && item.numberOfPurchases > 1,
-      );
-      const inactiveItems = shoppingList[0].items.filter(
-        (item) =>
-          item.numberOfPurchases <= 1 ||
-          item.LastPurchasedDate >= 2 * item.daysLeftForNextPurchase,
-      );
+  //assign value to purchaseIndex based on these parameters
+  const checkIndex = (lastPurchase, nextPurchase, timesPurchased) => {
+    if (timesPurchased <= 1 || lastPurchase >= 2 * nextPurchase) {
+      purchaseIndex = 'inactive';
+    } else if (nextPurchase < 7) {
+      purchaseIndex = 'soon';
+    } else if (nextPurchase >= 7 && nextPurchase < 30) {
+      purchaseIndex = 'kind-of-soon';
+    } else if (nextPurchase > 30) {
+      purchaseIndex = 'not-soon';
+    }
+  };
 
-      //sort items according to date for next purchase or alphabetically
-      //used localeCompare to sort without consideration for case
-      setSoonArr(soonItems.sort((a, b) => a.name.localeCompare(b.name)));
-      setKindOfSoonArr(
-        kindOfSoonItems.sort(
-          (a, b) =>
-            a.daysLeftForNextPurchase - b.daysLeftForNextPurchase ||
-            a.name.localeCompare(b.name),
-        ),
-      );
-      setNotSoonArr(notSoonItems.sort((a, b) => a.name.localeCompare(b.name)));
-      setInactiveArr(
-        inactiveItems.sort(
+  useEffect(() => {
+    //sort items according to days left till next purchase
+    //if items have same number of days left, filter alphabetically
+    //used localeCompare to sort without consideration for case
+    const filterUrgency = () => {
+      setSortedList(
+        shoppingList[0].items.sort(
           (a, b) =>
             a.daysLeftForNextPurchase - b.daysLeftForNextPurchase ||
             a.name.localeCompare(b.name),
@@ -102,91 +83,34 @@ const ListView = ({ shoppingList, loading, error }) => {
           </form>
 
           <ul className="list">
-            {soonArr.length && (
-              //maps items in each array into separate divs so they are displayed together
-              <div className="container__soon">
-                {soonArr.map((item) => {
-                  const searchResult = item.name.includes(
-                    value.toLowerCase().trim(),
-                  );
+            {sortedList.map((item) => {
+              const searchResult = item.name.includes(
+                value.toLowerCase().trim(),
+              );
+              //pass parameters to checkIndex function
+              const lastPurchase = item.LastPurchasedDate;
+              const nextPurchase = item.daysLeftForNextPurchase;
+              const timesPurchased = item.numberOfPurchases;
+              //check urgency index of item
+              checkIndex(
+                lastPurchase,
+                nextPurchase,
+                timesPurchased,
+                purchaseIndex,
+              );
 
-                  return (
-                    searchResult && (
-                      <ListItem
-                        key={item.id}
-                        item={item}
-                        //passes the state of urgency to ListItem as a prop for className and aria-label
-                        //in CSS, added styling for class names (background colour)
-                        index="soon"
-                        shoppingList={shoppingList}
-                      />
-                    )
-                  );
-                })}
-              </div>
-            )}
-
-            {kindOfSoonArr.length && (
-              <div className="container__kind-of-soon">
-                {kindOfSoonArr.map((item) => {
-                  const searchResult = item.name.includes(
-                    value.toLowerCase().trim(),
-                  );
-
-                  return (
-                    searchResult && (
-                      <ListItem
-                        key={item.id}
-                        item={item}
-                        index="kind-of-soon"
-                        shoppingList={shoppingList}
-                      />
-                    )
-                  );
-                })}
-              </div>
-            )}
-
-            {notSoonArr.length && (
-              <div className="container__not-soon">
-                {notSoonArr.map((item) => {
-                  const searchResult = item.name.includes(
-                    value.toLowerCase().trim(),
-                  );
-
-                  return (
-                    searchResult && (
-                      <ListItem
-                        key={item.id}
-                        item={item}
-                        index="not-soon"
-                        shoppingList={shoppingList}
-                      />
-                    )
-                  );
-                })}
-              </div>
-            )}
-            {inactiveArr.length && (
-              <div className="container__inactive">
-                {inactiveArr.map((item) => {
-                  const searchResult = item.name.includes(
-                    value.toLowerCase().trim(),
-                  );
-
-                  return (
-                    searchResult && (
-                      <ListItem
-                        key={item.id}
-                        item={item}
-                        index="inactive"
-                        shoppingList={shoppingList}
-                      />
-                    )
-                  );
-                })}
-              </div>
-            )}
+              return (
+                searchResult && (
+                  <ListItem
+                    key={item.id}
+                    item={item}
+                    //index prop assigns className and aria-label to item
+                    index={purchaseIndex}
+                    shoppingList={shoppingList}
+                  />
+                )
+              );
+            })}
           </ul>
         </main>
       )}
