@@ -15,7 +15,11 @@ const ListView = ({ shoppingList, loading, error }) => {
 
   //assign value to purchaseIndex based on these parameters
   const checkIndex = (lastPurchase, nextPurchase, timesPurchased) => {
-    if (timesPurchased <= 1 || lastPurchase >= 2 * nextPurchase) {
+    //check interval between current date and date of last purchase
+    //set index as inactive if item has been purchased only once or less
+    //or if interval is >= 2 times the projected estimate
+    const interval = new Date().getTime() - lastPurchase;
+    if (timesPurchased <= 1 || interval >= 2 * nextPurchase * 86400000) {
       purchaseIndex = 'inactive';
     } else if (nextPurchase < 7) {
       purchaseIndex = 'soon';
@@ -25,6 +29,8 @@ const ListView = ({ shoppingList, loading, error }) => {
       purchaseIndex = 'not-soon';
     }
   };
+
+  //todays date - lastpurchase >= 2*nextpurchase
 
   useEffect(() => {
     //sort items according to days left till next purchase
@@ -92,12 +98,7 @@ const ListView = ({ shoppingList, loading, error }) => {
               const nextPurchase = item.daysLeftForNextPurchase;
               const timesPurchased = item.numberOfPurchases;
               //check urgency index of item
-              checkIndex(
-                lastPurchase,
-                nextPurchase,
-                timesPurchased,
-                purchaseIndex,
-              );
+              checkIndex(lastPurchase, nextPurchase, timesPurchased);
 
               return (
                 searchResult && (
