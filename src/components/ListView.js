@@ -19,29 +19,44 @@ const ListView = ({ shoppingList, loading, error }) => {
   useEffect(() => {
     const filterUrgency = () => {
       //filters items according to days left till next purchase
-      //still need to add number of purchases to criteria (for inactive items)
-      //Haven't filtered and sorted inactive items.
       const soonItems = shoppingList[0].items.filter(
-        (item) => item.daysLeftForNextPurchase < 7,
+        (item) =>
+          item.daysLeftForNextPurchase < 7 && item.numberOfPurchases > 1,
       );
       const kindOfSoonItems = shoppingList[0].items.filter(
         (item) =>
           item.daysLeftForNextPurchase >= 7 &&
-          item.daysLeftForNextPurchase < 30,
+          item.daysLeftForNextPurchase < 30 &&
+          item.numberOfPurchases > 1,
       );
       const notSoonItems = shoppingList[0].items.filter(
-        (item) => item.daysLeftForNextPurchase > 30,
+        (item) =>
+          item.daysLeftForNextPurchase > 30 && item.numberOfPurchases > 1,
+      );
+      const inactiveItems = shoppingList[0].items.filter(
+        (item) =>
+          item.numberOfPurchases <= 1 ||
+          item.LastPurchasedDate >= 2 * item.daysLeftForNextPurchase,
       );
 
-      //sorted items alphabetically
+      //sort items according to date for next purchase or alphabetically
       //used localeCompare to sort without consideration for case
-      //The ACs say to sort according to date for next purchase though, and then
-      //items with same date should be sorted alphabetically. Need to fix.
       setSoonArr(soonItems.sort((a, b) => a.name.localeCompare(b.name)));
       setKindOfSoonArr(
-        kindOfSoonItems.sort((a, b) => a.name.localeCompare(b.name)),
+        kindOfSoonItems.sort(
+          (a, b) =>
+            a.daysLeftForNextPurchase - b.daysLeftForNextPurchase ||
+            a.name.localeCompare(b.name),
+        ),
       );
       setNotSoonArr(notSoonItems.sort((a, b) => a.name.localeCompare(b.name)));
+      setInactiveArr(
+        inactiveItems.sort(
+          (a, b) =>
+            a.daysLeftForNextPurchase - b.daysLeftForNextPurchase ||
+            a.name.localeCompare(b.name),
+        ),
+      );
     };
 
     if (loading === false && shoppingList[0] !== undefined) {
