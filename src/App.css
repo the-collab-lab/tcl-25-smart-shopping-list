@@ -264,6 +264,7 @@ li {
   justify-content: center;
 }
 
+/*ITEM STATE*/
 .soon {
   background-color: red;
 }
@@ -278,4 +279,15 @@ li {
 
 .inactive {
   background-color: grey;
+}
+
+.flex-row {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.color-box {
+  height: 1rem;
+  width: 1rem;
+  margin-right: 1rem;
 }
