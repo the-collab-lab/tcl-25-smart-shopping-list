@@ -227,7 +227,7 @@ nav {
   grid-row-gap: 10px;
 }
 
-.list__item {
+li {
   position: relative;
   display: flex;
   gap: 8ch;
@@ -358,4 +358,32 @@ nav {
   font-size: 1rem;
   line-height: 1.375rem;
   text-align: left;
+}
+
+/*ITEM STATE*/
+.soon {
+  background-color: red;
+}
+
+.kind-of-soon {
+  background-color: pink;
+}
+
+.not-soon {
+  background-color: green;
+}
+
+.inactive {
+  background-color: grey;
+}
+
+.flex-row {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+
+.color-box {
+  height: 1rem;
+  min-width: 1rem;
+  margin-right: 1rem;
 }
