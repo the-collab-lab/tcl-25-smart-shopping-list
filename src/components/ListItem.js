@@ -7,9 +7,8 @@ import Dialog from '../components/Dialog';
 import { db } from '../lib/firebase';
 import firebase from 'firebase';
 
-const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
+const ListItem = ({ index, item, shoppingList }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
-
   const handleDialogOpen = () => {
     setDialogOpen(true);
   };
@@ -33,8 +32,8 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
   };
 
   return (
-    <li className={index}>
-      <Checkbox item={item} shoppingList={shoppingList} />
+    <li>
+      <Checkbox index={index} item={item} shoppingList={shoppingList} />
       <button
         onClick={handleDialogOpen}
         aria-label={`delete ${item.name}`}
