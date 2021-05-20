@@ -121,32 +121,6 @@ const ListView = ({ shoppingList, loading, error }) => {
               );
             })}
           </ul>
-
-          <div className="legend">
-            <h2>Legend</h2>
-            <div className="flex-row">
-              <div className="color-box soon" aria-label="soon"></div>
-              <p>Less than 7 days till next purchase</p>
-            </div>
-            <div className="flex-row">
-              <div
-                className="color-box kind-of-soon"
-                aria-label="kind of soon"
-              ></div>
-              <p>7-30 days till next purchase</p>
-            </div>
-            <div className="flex-row">
-              <div className="color-box not-soon" aria-label="not soon"></div>
-              <p>More than 30 days till next purchase</p>
-            </div>
-            <div className="flex-row">
-              <div className="color-box inactive" aria-label="inactive"></div>
-              <p>
-                Item has been purchased less than twice, or estimated purchase
-                time has elapsed significantly.
-              </p>
-            </div>
-          </div>
         </main>
       )}
     </>
