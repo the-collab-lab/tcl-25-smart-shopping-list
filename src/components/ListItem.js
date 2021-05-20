@@ -34,7 +34,7 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
 
   return (
     <li className={index}>
-      <Checkbox item={item} ariaLabel={ariaLabel} shoppingList={shoppingList} />
+      <Checkbox item={item} shoppingList={shoppingList} />
       <button
         onClick={handleDialogOpen}
         aria-label={`delete ${item.name}`}

@@ -54,7 +54,7 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
   };
 
   return (
-    <div aria-label={ariaLabel}>
+    <>
       <input
         type="checkbox"
         name={name}
@@ -68,7 +68,7 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
       <label htmlFor={name} className="list__item__label">
         {name}
       </label>
-    </div>
+    </>
   );
 };
 
