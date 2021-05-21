@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
+  const [soonCategory, setSoonCategory] = useState([]);
+  const [verySoonCategory, setVerySoonCategory] = useState([]);
+  const [notSoonCategory, setNotSoonCategory] = useState([]);
+  const [inactiveCategory, setInactiveCategory] = useState([]);
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
   const [sortedList, setSortedList] = useState([]);
   //indicator for urgency status of item
-  let purchaseIndex, ariaLabel;
-
+  let purchaseIndex;
   const handleChange = (e) => setValue(e.target.value);
 
   //assign value to purchaseIndex based on these parameters
@@ -26,16 +28,12 @@ const ListView = ({ shoppingList, loading, error }) => {
       interval >= 2 * nextPurchase * dayToMilliseconds
     ) {
       purchaseIndex = 'inactive';
-      ariaLabel = 'inactive';
     } else if (nextPurchase < 7) {
       purchaseIndex = 'soon';
-      ariaLabel = 'next purchase: soon';
     } else if (nextPurchase < 30) {
       purchaseIndex = 'kind-of-soon';
-      ariaLabel = 'next purchase: kind of soon';
     } else {
       purchaseIndex = 'not-soon';
-      ariaLabel = 'next purchase: not soon';
     }
   };
 
@@ -53,17 +51,20 @@ const ListView = ({ shoppingList, loading, error }) => {
       );
     };
 
+    setInactiveCategory([]);
+    setNotSoonCategory([]);
+    setVerySoonCategory([]);
+    setSoonCategory([]);
     if (loading === false && shoppingList[0] !== undefined) {
       setLength(shoppingList[0].items.length);
       sortByUrgency();
     }
-
     if (length >= 1) {
       setShoppingListEmpty(false);
     } else {
       setShoppingListEmpty(true);
     }
-  }, [length, loading, shoppingList]);
+  }, [length, loading, shoppingList, value]);
 
   return loading === false && shoppingListEmpty ? (
     <div className="prompt">
@@ -96,30 +97,99 @@ const ListView = ({ shoppingList, loading, error }) => {
           </form>
 
           <ul className="list">
-            {sortedList.map((item) => {
-              const searchResult = item.name.includes(
-                value.toLowerCase().trim(),
-              );
-              //check urgency index of item
-              checkIndex(
-                item.lastPurchasedDate,
-                item.daysLeftForNextPurchase,
-                item.numberOfPurchases,
-              );
+            <>
+              {sortedList.forEach((item) => {
+                const searchResult = item.name.includes(
+                  value.toLowerCase().trim(),
+                );
+                //check urgency index of item
+                checkIndex(
+                  item.lastPurchasedDate,
+                  item.daysLeftForNextPurchase,
+                  item.numberOfPurchases,
+                );
+                if (searchResult && purchaseIndex === 'soon') {
+                  if (!soonCategory.includes(item)) {
+                    soonCategory.push(item);
+                  }
+                } else if (searchResult && purchaseIndex === 'kind-of-soon') {
+                  if (!verySoonCategory.includes(item)) {
+                    verySoonCategory.push(item);
+                  }
+                } else if (searchResult && purchaseIndex === 'not-soon') {
+                  if (!notSoonCategory.includes(item)) {
+                    notSoonCategory.push(item);
+                  }
+                } else if (searchResult && purchaseIndex === 'inactive') {
+                  if (!inactiveCategory.includes(item)) {
+                    inactiveCategory.push(item);
+                  }
+                }
+              })}
 
-              return (
-                searchResult && (
-                  <ListItem
-                    key={item.id}
-                    item={item}
-                    shoppingList={shoppingList}
-                    //pass props for className and aria-label to item
-                    index={purchaseIndex}
-                    ariaLabel={ariaLabel}
-                  />
-                )
-              );
-            })}
+              <div className="soonCategory">
+                {soonCategory.length > 0 ? <h4>Soon</h4> : null}
+                {soonCategory.map((item) => {
+                  return (
+                    <ListItem
+                      key={item.id}
+                      item={item}
+                      shoppingList={shoppingList}
+                      //pass props for className and aria-label to item
+                      index="soon"
+                      ariaLabel="next purchase: soon"
+                    />
+                  );
+                })}
+              </div>
+
+              <div className="kindOfSoonCategory">
+                {verySoonCategory.length > 0 ? <h4>kind of soon</h4> : null}
+                {verySoonCategory.map((item) => {
+                  return (
+                    <ListItem
+                      key={item.id}
+                      item={item}
+                      shoppingList={shoppingList}
+                      //pass props for className and aria-label to item
+                      index="kind-of-soon"
+                      ariaLabel="next purchase: kind of soon"
+                    />
+                  );
+                })}
+              </div>
+              <div className="notSoonCategory">
+                {notSoonCategory.length > 0 ? <h4>Not soon</h4> : null}
+                {notSoonCategory.map((item) => {
+                  return (
+                    <ListItem
+                      key={item.id}
+                      item={item}
+                      shoppingList={shoppingList}
+                      //pass props for className and aria-label to item
+                      index="not-soon"
+                      ariaLabel="next purchase: not soon"
+                    />
+                  );
+                })}
+              </div>
+
+              <div className="inactiveCategory">
+                {inactiveCategory.length > 0 ? <h4>Inactive</h4> : null}
+                {inactiveCategory.map((item) => {
+                  return (
+                    <ListItem
+                      key={item.id}
+                      item={item}
+                      shoppingList={shoppingList}
+                      //pass props for className and aria-label to item
+                      index="inactive"
+                      ariaLabel="next purchase: inactive"
+                    />
+                  );
+                })}
+              </div>
+            </>
           </ul>
         </main>
       )}

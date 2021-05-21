@@ -384,3 +384,14 @@ li {
   min-width: 1rem;
   margin-right: 1rem;
 }
+
+h4 {
+  font-size: 20px;
+}
+h4::after {
+  content: '';
+  display: block;
+  height: 0.5em;
+  width: 100%;
+  border-top: 1px solid black;
+}
