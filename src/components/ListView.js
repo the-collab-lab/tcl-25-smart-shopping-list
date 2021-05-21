@@ -128,7 +128,7 @@ const ListView = ({ shoppingList, loading, error }) => {
               })}
 
               <div className="soonCategory">
-                {soonCategory.length > 0 ? <h4>Soon</h4> : null}
+                {soonCategory ? <h4>Soon</h4> : null}
                 {soonCategory.map((item) => {
                   return (
                     <ListItem
@@ -144,7 +144,7 @@ const ListView = ({ shoppingList, loading, error }) => {
               </div>
 
               <div className="kindOfSoonCategory">
-                {verySoonCategory.length > 0 ? <h4>kind of soon</h4> : null}
+                {verySoonCategory ? <h4>kind of soon</h4> : null}
                 {verySoonCategory.map((item) => {
                   return (
                     <ListItem
@@ -159,7 +159,7 @@ const ListView = ({ shoppingList, loading, error }) => {
                 })}
               </div>
               <div className="notSoonCategory">
-                {notSoonCategory.length > 0 ? <h4>Not soon</h4> : null}
+                {notSoonCategory ? <h4>Not soon</h4> : null}
                 {notSoonCategory.map((item) => {
                   return (
                     <ListItem
@@ -175,7 +175,7 @@ const ListView = ({ shoppingList, loading, error }) => {
               </div>
 
               <div className="inactiveCategory">
-                {inactiveCategory.length > 0 ? <h4>Inactive</h4> : null}
+                {inactiveCategory ? <h4>Inactive</h4> : null}
                 {inactiveCategory.map((item) => {
                   return (
                     <ListItem
