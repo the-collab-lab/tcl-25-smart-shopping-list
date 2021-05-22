@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import calculateEstimate from '../lib/estimates';
-
 import { db } from '../lib/firebase';
 
 const Checkbox = ({ item, index, shoppingList }) => {

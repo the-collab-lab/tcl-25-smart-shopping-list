@@ -110,21 +110,13 @@ const ListView = ({ shoppingList, loading, error }) => {
                   item.numberOfPurchases,
                 );
                 if (searchResult && purchaseIndex === 'soon') {
-                  if (!soonCategory.includes(item)) {
-                    soonCategory.push(item);
-                  }
+                  soonCategory.push(item);
                 } else if (searchResult && purchaseIndex === 'kind-of-soon') {
-                  if (!verySoonCategory.includes(item)) {
-                    verySoonCategory.push(item);
-                  }
+                  verySoonCategory.push(item);
                 } else if (searchResult && purchaseIndex === 'not-soon') {
-                  if (!notSoonCategory.includes(item)) {
-                    notSoonCategory.push(item);
-                  }
+                  notSoonCategory.push(item);
                 } else if (searchResult && purchaseIndex === 'inactive') {
-                  if (!inactiveCategory.includes(item)) {
-                    inactiveCategory.push(item);
-                  }
+                  inactiveCategory.push(item);
                 }
               })}
 
