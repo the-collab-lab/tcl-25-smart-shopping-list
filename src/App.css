@@ -632,13 +632,6 @@ input:focus::placeholder {
   height: 5rem;
 }
 
-@media (min-width: 48em) {
-  .list-view svg {
-    height: 9rem;
-    width: 9rem;
-  }
-}
-
 .list-view__header h1 {
   display: inline-flex;
   align-items: center;
