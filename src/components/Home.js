@@ -35,45 +35,45 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
     <div className="wrapper">
       <div className="app">
         <div className="app__dots-shadow panel">
-          <main className="flow">
+          <main className="align-center">
             <Header />
-            <button
-              onClick={handleTokenCreation}
-              className="app__create-button"
-            >
-              Create a New List
-              <span class="create-button__icon">
-                <ArrowIcon />
-              </span>
-            </button>
+            <div>
+              <button
+                onClick={handleTokenCreation}
+                className="app__create-button"
+              >
+                Create a New List
+                <span class="create-button__icon">
+                  <ArrowIcon />
+                </span>
+              </button>
 
-            <form className="app__token-form flow">
-              <label htmlFor="token" className="visually-hidden">
-                Join existing list with a token
-              </label>
-              <div className="token-form__field">
-                <input
-                  type="text"
-                  id="token"
-                  className="token-form__input"
-                  placeholder="Join with a token"
-                  value={value}
-                  onChange={handleChange}
-                />
-
-                <button
-                  type="submit"
-                  onClick={joinList}
-                  className="token-form__button"
-                  disabled={value.length < 1}
-                >
-                  <span class="icon">
-                    <SubmitIcon />
-                  </span>
-                </button>
-              </div>
-            </form>
-
+              <form className="app__token-form flow">
+                <label htmlFor="token" className="visually-hidden">
+                  Join existing list with a token
+                </label>
+                <div className="token-form__field">
+                  <input
+                    type="text"
+                    id="token"
+                    className="token-form__input"
+                    placeholder="Join with a token"
+                    value={value}
+                    onChange={handleChange}
+                  />
+                  <button
+                    type="submit"
+                    onClick={joinList}
+                    className="token-form__button"
+                    disabled={value.length < 1}
+                  >
+                    <span class="icon">
+                      <SubmitIcon />
+                    </span>
+                  </button>
+                </div>
+              </form>
+            </div>
             <p>{message}</p>
           </main>
         </div>
