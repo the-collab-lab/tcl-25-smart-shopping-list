@@ -25,7 +25,7 @@ const ListView = ({ shoppingList, loading, error }) => {
     //set index as inactive if item has been purchased only once or less
     //or if interval is >= 2 times the projected estimate
     if (
-      timesPurchased <= 1 ||
+      timesPurchased <= 1 &&
       interval >= 2 * nextPurchase * dayToMilliseconds
     ) {
       purchaseIndex = 'inactive';
@@ -110,13 +110,21 @@ const ListView = ({ shoppingList, loading, error }) => {
                   item.numberOfPurchases,
                 );
                 if (searchResult && purchaseIndex === 'soon') {
-                  soonCategory.push(item);
+                  if (!soonCategory.includes(item)) {
+                    soonCategory.push(item);
+                  }
                 } else if (searchResult && purchaseIndex === 'kind-of-soon') {
-                  verySoonCategory.push(item);
+                  if (!verySoonCategory.includes(item)) {
+                    verySoonCategory.push(item);
+                  }
                 } else if (searchResult && purchaseIndex === 'not-soon') {
-                  notSoonCategory.push(item);
+                  if (!notSoonCategory.includes(item)) {
+                    notSoonCategory.push(item);
+                  }
                 } else if (searchResult && purchaseIndex === 'inactive') {
-                  inactiveCategory.push(item);
+                  if (!inactiveCategory.includes(item)) {
+                    inactiveCategory.push(item);
+                  }
                 }
               })}
 
