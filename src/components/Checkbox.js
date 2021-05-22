@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import calculateEstimate from '../lib/estimates';
 import { db } from '../lib/firebase';
 
-const Checkbox = ({ item, index, shoppingList }) => {
+const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   const [checked, setChecked] = useState(false);
   const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
   const isExpired = useCallback((lastPurchasedDate) => {
@@ -58,6 +58,7 @@ const Checkbox = ({ item, index, shoppingList }) => {
         value={name}
         onChange={tickCheckBox}
         checked={checked}
+        aria-label={ariaLabel}
       />
 
       <label htmlFor={name} className={`list__item__label ${index}`}>
