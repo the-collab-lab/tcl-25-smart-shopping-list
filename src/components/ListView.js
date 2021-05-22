@@ -31,7 +31,7 @@ const ListView = ({ shoppingList, loading, error }) => {
       purchaseIndex = 'inactive';
     } else if (nextPurchase <= 7) {
       purchaseIndex = 'soon';
-    } else if (nextPurchase <= 30) {
+    } else if (nextPurchase < 30) {
       purchaseIndex = 'kind-of-soon';
     } else {
       purchaseIndex = 'not-soon';
