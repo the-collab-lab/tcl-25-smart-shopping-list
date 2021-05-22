@@ -353,6 +353,10 @@ main {
   background-color: white;
 }
 
+main p {
+  margin-top: 1.5rem;
+}
+
 .align-center {
   display: flex;
   flex-direction: column;
@@ -539,6 +543,10 @@ main {
     letter-spacing: 0.05ch;
     text-align: center;
   }
+}
+
+input:focus::placeholder {
+  color: transparent;
 }
 
 .token-form__button {
