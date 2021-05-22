@@ -5,6 +5,8 @@ import firebase from 'firebase';
 import transformUserInput from '../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
 
+import Navigation from '../components/Navigation';
+
 const DEFAULT_ITEM = {
   name: '',
   daysLeftForNextPurchase: '',
