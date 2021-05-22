@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Spinner from '../components/Spinner';
 import ListItem from '../components/ListItem';
+import SearchForm from '../components/SearchForm';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
@@ -71,16 +72,7 @@ const ListView = ({ shoppingList, loading, error }) => {
       {loading && <Spinner />}
       {shoppingList && shoppingList[0] && (
         <main>
-          <form className="search-box">
-            <input
-              type="search"
-              placeholder="Search list for item"
-              aria-label="search-box"
-              className="form-field search-box"
-              value={value}
-              onChange={handleChange}
-            />
-          </form>
+          <SearchForm value={value} handleChange={handleChange} />
 
           <ul className="list">
             {sortedList.map((item) => {
