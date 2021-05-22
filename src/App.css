@@ -138,9 +138,7 @@ select {
   display: flex;
   flex: 0 0 auto;
   align-items: center;
-  font-size: 1.25rem;
   margin-left: auto;
-  margin-right: 5px;
 }
 
 .add-btn-container {
@@ -419,7 +417,6 @@ main {
   position: relative;
   width: 100%;
   margin-top: 2rem;
-  font-family: atkinson_hyperlegible, Arial, sans-serif;
   font-size: 1.25rem;
 }
 
@@ -485,7 +482,7 @@ main {
 
 @media (min-width: 45em) {
   .token-form__input {
-    padding: 0.45rem 1rem;
+    padding: 0.85rem 1rem;
   }
 }
 
