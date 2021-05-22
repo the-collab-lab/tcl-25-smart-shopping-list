@@ -20,9 +20,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.empty) {
-          setMessage(
-            'Token does not exist. Please try entering another token or creating a new list.',
-          );
+          setMessage('Token does not exist');
         } else {
           setCollectionId(querySnapshot.docs[0].id);
           setToken(value.trim());
