@@ -106,10 +106,14 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </div>
             </div>
             {hasDuplicates ? (
-              <div className="field-error">Item is already on the list</div>
+              <div className="field-error">
+                <span>Item is already on the list</span>
+              </div>
             ) : null}
             {isNameFieldEmpty ? (
-              <div className="field-error">This field is required</div>
+              <div className="field-error">
+                <span>This field is required</span>
+              </div>
             ) : null}
             <div className="form-row">
               <div className="form-group">
@@ -132,7 +136,9 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </div>
             </div>
             {isFrequencyFieldEmpty ? (
-              <div className="field-error">This field is required</div>
+              <div className="field-error">
+                <span>This field is required</span>
+              </div>
             ) : null}
             <div className="form-row">
               <button type="submit" className="add-button">
