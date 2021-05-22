@@ -359,19 +359,19 @@ li {
 
 /*ITEM STATE*/
 .list__item__label.soon::before {
-  background-color: red;
+  background-color: #ff9692;
 }
 
 .list__item__label.kind-of-soon::before {
-  background-color: pink;
+  background-color: #ffd465;
 }
 
 .list__item__label.not-soon::before {
-  background-color: green;
+  background-color: #61e4c5;
 }
 
 .list__item__label.inactive::before {
-  background-color: grey;
+  background-color: #fff3f8;
 }
 
 .flex-row {
