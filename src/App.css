@@ -701,6 +701,8 @@ input:focus::placeholder {
 
 .form-group label {
   font-family: code-saver, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 .form-field {
@@ -716,7 +718,10 @@ input:focus::placeholder {
   color: #18191f;
   font-family: code-saver, monospace;
   font-size: 1rem;
-  line-height: 1;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: left;
+  text-transform: capitalize;
 }
 
 .form-field:focus {
@@ -724,14 +729,31 @@ input:focus::placeholder {
   outline: 2px solid transparent;
 }
 
+.form-field::placeholder {
+  color: #18191f;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: code-saver, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: left;
+  text-transform: uppercase;
+}
+
 .field-error {
   display: block;
   padding: 0.25rem;
   border: 0 solid;
-  font-family: inherit;
+  border-radius: 16px;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: code-saver, monospace;
+  font-size: 0.8rem;
   font-weight: 400;
-  font-style: italic;
   line-height: 1.375rem;
+  text-transform: capitalize;
+}
+
+.field-error span {
+  background: rgba(255, 189, 18, 0.4);
 }
 
 input:-webkit-autofill,
@@ -817,9 +839,11 @@ li {
 .list__item__label {
   flex: 2;
   margin-left: 10px;
+  color: #18191f;
+  font-family: code-saver, monospace;
+  font-weight: 700;
+  text-transform: capitalize;
   text-align: left;
-  font-family: inherit;
-  font-size: inherit;
   cursor: pointer;
 }
 
@@ -864,17 +888,18 @@ li {
   right: 0;
   max-width: 80vw;
   border: 2px solid #18191f;
-  background: #fff4cc;
-  border: 2px solid #18191f;
   border-radius: 16px;
+  box-shadow: 2px 2px 0 #404040;
+  background: #fff4cc;
 }
 
 .dialog__inner {
-  color: #404040;
   color: #18191f;
   padding: 1.75rem;
 }
+
 .dialog__inner p {
+  margin-top: 0;
   font-family: code-saver, monospace;
 }
 
