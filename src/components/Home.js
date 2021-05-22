@@ -43,7 +43,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                 className="app__create-button"
               >
                 Create a New List
-                <span class="create-button__icon">
+                <span className="create-button__icon">
                   <ArrowIcon />
                 </span>
               </button>
@@ -67,7 +67,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                     className="token-form__button"
                     disabled={value.length < 1}
                   >
-                    <span class="icon">
+                    <span className="icon">
                       <SubmitIcon />
                     </span>
                   </button>
