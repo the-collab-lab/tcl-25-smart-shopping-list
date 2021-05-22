@@ -8,19 +8,12 @@ const ListView = ({ shoppingList, loading, error }) => {
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
   const [sortedList, setSortedList] = useState([]);
-  //indicator for urgency status of item
+
   let purchaseIndex, ariaLabel;
 
-  const handleChange = (e) => setValue(e.target.value);
-
-  //assign value to purchaseIndex based on these parameters
   const checkIndex = (lastPurchase, nextPurchase, timesPurchased) => {
-    //check interval between current date and date of last purchase
     const interval = new Date().getTime() - lastPurchase;
-    //one day converted to milliseconds
     const dayToMilliseconds = 86400000;
-    //set index as inactive if item has been purchased only once or less
-    //or if interval is >= 2 times the projected estimate
     if (
       timesPurchased <= 1 ||
       interval >= 2 * nextPurchase * dayToMilliseconds
@@ -40,9 +33,6 @@ const ListView = ({ shoppingList, loading, error }) => {
   };
 
   useEffect(() => {
-    //sort items according to days left till next purchase
-    //if items have same number of days left, filter alphabetically
-    //used localeCompare to sort without consideration for case
     const sortByUrgency = () => {
       setSortedList(
         shoppingList[0].items.sort(
@@ -64,6 +54,8 @@ const ListView = ({ shoppingList, loading, error }) => {
       setShoppingListEmpty(true);
     }
   }, [length, loading, shoppingList]);
+
+  const handleChange = (e) => setValue(e.target.value);
 
   return loading === false && shoppingListEmpty ? (
     <div className="prompt">
