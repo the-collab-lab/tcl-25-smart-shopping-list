@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+import Spinner from '../components/Spinner';
 import ListItem from '../components/ListItem';
 
 const ListView = ({ shoppingList, loading, error }) => {
@@ -67,13 +68,7 @@ const ListView = ({ shoppingList, loading, error }) => {
   ) : (
     <>
       {error && <strong>Error: {JSON.stringify(error)}</strong>}
-      {loading && (
-        <div className="bouncing-loader">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      )}
+      {loading && <Spinner />}
       {shoppingList && shoppingList[0] && (
         <main>
           <form className="search-box">
