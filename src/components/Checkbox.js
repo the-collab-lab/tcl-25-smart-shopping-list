@@ -3,7 +3,7 @@ import calculateEstimate from '../lib/estimates';
 
 import { db } from '../lib/firebase';
 
-const Checkbox = ({ item, ariaLabel, shoppingList }) => {
+const Checkbox = ({ item, shoppingList }) => {
   const [checked, setChecked] = useState(false);
 
   const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
@@ -54,7 +54,7 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
   };
 
   return (
-    <div aria-label={ariaLabel}>
+    <>
       <input
         type="checkbox"
         name={name}
@@ -68,7 +68,7 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
       <label htmlFor={name} className="list__item__label">
         {name}
       </label>
-    </div>
+    </>
   );
 };
 
