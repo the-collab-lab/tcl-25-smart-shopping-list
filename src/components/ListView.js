@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ListItem from '../components/ListItem';
+import capitalizeFirstLetter from '../lib/capitalize';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [soonCategory, setSoonCategory] = useState([]);
@@ -128,7 +129,9 @@ const ListView = ({ shoppingList, loading, error }) => {
               })}
 
               <div className="soonCategory">
-                {soonCategory.length > 0 ? <h4>Soon</h4> : null}
+                {soonCategory.length > 0 ? (
+                  <h4>{capitalizeFirstLetter('soon')}</h4>
+                ) : null}
                 {soonCategory.map((item) => {
                   return (
                     <ListItem
@@ -144,7 +147,9 @@ const ListView = ({ shoppingList, loading, error }) => {
               </div>
 
               <div className="kindOfSoonCategory">
-                {verySoonCategory.length > 0 ? <h4>kind of soon</h4> : null}
+                {verySoonCategory.length > 0 ? (
+                  <h4>{capitalizeFirstLetter('kind of soon')}</h4>
+                ) : null}
                 {verySoonCategory.map((item) => {
                   return (
                     <ListItem
@@ -159,7 +164,9 @@ const ListView = ({ shoppingList, loading, error }) => {
                 })}
               </div>
               <div className="notSoonCategory">
-                {notSoonCategory.length > 0 ? <h4>Not soon</h4> : null}
+                {notSoonCategory.length > 0 ? (
+                  <h4>{capitalizeFirstLetter('not soon')}</h4>
+                ) : null}
                 {notSoonCategory.map((item) => {
                   return (
                     <ListItem
@@ -175,7 +182,9 @@ const ListView = ({ shoppingList, loading, error }) => {
               </div>
 
               <div className="inactiveCategory">
-                {inactiveCategory.length > 0 ? <h4>Inactive</h4> : null}
+                {inactiveCategory.length > 0 ? (
+                  <h4>{capitalizeFirstLetter('inactive')}</h4>
+                ) : null}
                 {inactiveCategory.map((item) => {
                   return (
                     <ListItem
