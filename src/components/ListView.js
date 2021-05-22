@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import Spinner from '../components/Spinner';
+import EmptyList from './EmptyList';
 import ListItem from '../components/ListItem';
 import SearchForm from '../components/SearchForm';
 
