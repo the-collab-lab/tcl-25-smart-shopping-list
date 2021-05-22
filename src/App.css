@@ -503,7 +503,7 @@ main {
 @media (min-width: 37em) {
   .token-form__input::placeholder {
     letter-spacing: 0.05ch;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -511,7 +511,7 @@ main {
   .token-form__input::placeholder {
     font-size: 1rem;
     letter-spacing: 0.05ch;
-    text-align: left;
+    text-align: center;
   }
 }
 
@@ -524,6 +524,21 @@ main {
   line-height: 1.5;
   text-align: left;
   text-transform: uppercase;
+}
+
+@media (min-width: 37em) {
+  .token-form__input:-ms-input-placeholder {
+    letter-spacing: 0.05ch;
+    text-align: center;
+  }
+}
+
+@media (min-width: 64em) {
+  .token-form__input:-ms-input-placeholder {
+    font-size: 1rem;
+    letter-spacing: 0.05ch;
+    text-align: center;
+  }
 }
 
 .token-form__button {
