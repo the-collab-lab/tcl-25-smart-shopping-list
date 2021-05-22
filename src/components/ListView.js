@@ -5,6 +5,7 @@ import Spinner from '../components/Spinner';
 import EmptyList from './EmptyList';
 import ListItem from '../components/ListItem';
 import SearchForm from '../components/SearchForm';
+import Navigation from '../components/Navigation';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
