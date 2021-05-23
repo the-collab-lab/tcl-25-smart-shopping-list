@@ -512,8 +512,6 @@ main p {
   outline-color: #404040;
   color: #002f3c;
   background: none;
-  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
-    monospace;
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;

@@ -6,7 +6,6 @@ import { db } from '../lib/firebase';
 
 const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   const [checked, setChecked] = useState(false);
-
   const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
 
   const isExpired = useCallback((lastPurchasedDate) => {

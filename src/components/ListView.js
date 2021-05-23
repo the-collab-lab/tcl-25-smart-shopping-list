@@ -31,12 +31,10 @@ const ListView = ({ shoppingList, loading, error }) => {
     setNotSoonCategory([]);
     setVerySoonCategory([]);
     setSoonCategory([]);
-
     if (loading === false && shoppingList[0] !== undefined) {
       setLength(shoppingList[0].items.length);
       sortByUrgency();
     }
-
     if (length >= 1) {
       setShoppingListEmpty(false);
     } else {
