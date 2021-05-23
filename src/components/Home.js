@@ -66,8 +66,9 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                     onClick={joinList}
                     className="token-form__button"
                     disabled={value.length < 1}
+                    aria-label="Submit token"
                   >
-                    <span className="icon">
+                    <span className="icon" aria-hidden="true">
                       <SubmitIcon />
                     </span>
                   </button>
