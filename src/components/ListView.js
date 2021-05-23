@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
-import Spinner from '../components/Spinner';
 import EmptyList from './EmptyList';
 import SearchForm from '../components/SearchForm';
 import ShoppingList from '../components/ShoppingList';
 import Navigation from '../components/Navigation';
+import Spinner from '../components/Spinner';
 
 const ListView = ({ shoppingList, loading, error }) => {
+  const [soonCategory, setSoonCategory] = useState([]);
+  const [verySoonCategory, setVerySoonCategory] = useState([]);
+  const [notSoonCategory, setNotSoonCategory] = useState([]);
+  const [inactiveCategory, setInactiveCategory] = useState([]);
   const [shoppingListEmpty, setShoppingListEmpty] = useState(true);
   const [length, setLength] = useState(0);
   const [value, setValue] = useState('');
@@ -23,6 +27,11 @@ const ListView = ({ shoppingList, loading, error }) => {
       );
     };
 
+    setInactiveCategory([]);
+    setNotSoonCategory([]);
+    setVerySoonCategory([]);
+    setSoonCategory([]);
+
     if (loading === false && shoppingList[0] !== undefined) {
       setLength(shoppingList[0].items.length);
       sortByUrgency();
@@ -33,7 +42,7 @@ const ListView = ({ shoppingList, loading, error }) => {
     } else {
       setShoppingListEmpty(true);
     }
-  }, [length, loading, shoppingList]);
+  }, [length, loading, shoppingList, value]);
 
   const handleChange = (e) => setValue(e.target.value);
 
@@ -52,8 +61,11 @@ const ListView = ({ shoppingList, loading, error }) => {
                 sortedList={sortedList}
                 shoppingList={shoppingList}
                 value={value}
+                soonCategory={soonCategory}
+                verySoonCategory={verySoonCategory}
+                notSoonCategory={notSoonCategory}
+                inactiveCategory={inactiveCategory}
               />
-
               <Navigation />
             </main>
           </div>
