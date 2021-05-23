@@ -235,6 +235,7 @@ select {
   align-items: center;
   gap: 0 0.75rem;
   margin: 0;
+  padding: 0;
   font-size: 1rem;
   font-weight: 700;
 }
@@ -878,9 +879,7 @@ h4 span {
 }
 
 .list {
-  display: grid;
-  justify-content: center;
-  grid-row-gap: 10px;
+  padding: 0;
 }
 
 .list > * > * {
@@ -890,19 +889,21 @@ h4 span {
 .list__item {
   position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 8px 0px 8px 50px;
   overflow-wrap: anywhere;
 }
 
 @media screen and (min-width: 37em) {
   .list__item {
-    width: 13rem;
+    width: 100%;
   }
 }
 
 @media screen and (min-width: 64em) {
   .list__item {
-    width: 19rem;
+    width: 100%;
   }
 }
 
@@ -986,7 +987,7 @@ h4 span {
 }
 
 .bin-icon {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   fill: rgba(0, 0, 0, 0.9);
   stroke: #d6fcf7;
   stroke-width: 2;
