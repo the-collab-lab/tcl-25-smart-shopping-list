@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
 import calculateEstimate from '../lib/estimates';
 
 import { db } from '../lib/firebase';
 
-const Checkbox = ({ item, ariaLabel, shoppingList }) => {
+const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   const [checked, setChecked] = useState(false);
 
   const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
@@ -54,7 +55,7 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
   };
 
   return (
-    <div aria-label={ariaLabel}>
+    <>
       <input
         type="checkbox"
         name={name}
@@ -63,12 +64,12 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
         value={name}
         onChange={tickCheckBox}
         checked={checked}
+        aria-label={ariaLabel}
       />
-
-      <label htmlFor={name} className="list__item__label">
+      <label htmlFor={name} className={`list__item__label ${index}`}>
         {name}
       </label>
-    </div>
+    </>
   );
 };
 
