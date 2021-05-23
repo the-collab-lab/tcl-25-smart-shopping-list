@@ -1,19 +1,15 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import calculateEstimate from '../lib/estimates';
-
 import { db } from '../lib/firebase';
 
-const Checkbox = ({ item, ariaLabel, shoppingList }) => {
+const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   const [checked, setChecked] = useState(false);
-
   const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
-
   const isExpired = useCallback((lastPurchasedDate) => {
     const expiryDate = lastPurchasedDate + 60 * 60 * 24 * 1000;
     const now = new Date().getTime();
     return expiryDate < now;
   }, []);
-
   useEffect(() => {
     if (lastPurchasedDate === null || isExpired(lastPurchasedDate)) {
       setChecked(false);
@@ -52,9 +48,8 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
     );
     return estimatedInterval;
   };
-
   return (
-    <div aria-label={ariaLabel}>
+    <>
       <input
         type="checkbox"
         name={name}
@@ -63,12 +58,13 @@ const Checkbox = ({ item, ariaLabel, shoppingList }) => {
         value={name}
         onChange={tickCheckBox}
         checked={checked}
+        aria-label={ariaLabel}
       />
 
-      <label htmlFor={name} className="list__item__label">
+      <label htmlFor={name} className={`list__item__label ${index}`}>
         {name}
       </label>
-    </div>
+    </>
   );
 };
 

@@ -9,7 +9,6 @@ import firebase from 'firebase';
 
 const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
-
   const handleDialogOpen = () => {
     setDialogOpen(true);
   };
@@ -33,8 +32,13 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
   };
 
   return (
-    <li className={index}>
-      <Checkbox item={item} ariaLabel={ariaLabel} shoppingList={shoppingList} />
+    <li>
+      <Checkbox
+        index={index}
+        ariaLabel={ariaLabel}
+        item={item}
+        shoppingList={shoppingList}
+      />
       <button
         onClick={handleDialogOpen}
         aria-label={`delete ${item.name}`}
