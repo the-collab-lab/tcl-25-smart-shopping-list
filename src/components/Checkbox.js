@@ -7,6 +7,8 @@ import { db } from '../lib/firebase';
 const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   const [checked, setChecked] = useState(false);
 
+  const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
+
   const isExpired = useCallback((lastPurchasedDate) => {
     const expiryDate = lastPurchasedDate + 60 * 60 * 24 * 1000;
     const now = new Date().getTime();
@@ -20,8 +22,6 @@ const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
       setChecked(true);
     }
   }, [lastPurchasedDate, isExpired]);
-
-  const { name, id, daysLeftForNextPurchase, lastPurchasedDate } = item;
 
   const tickCheckBox = async (e) => {
     if (e.target.checked) {
