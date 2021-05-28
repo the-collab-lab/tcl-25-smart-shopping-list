@@ -6,10 +6,10 @@ import getToken from './lib/tokens';
 import { db } from './lib/firebase';
 import useLocalStorageState from './hooks/useLocalStorageState';
 
-import Home from './components/Home';
+import Home from './components/homeView/Home';
 import AddView from './components/AddView';
-import ListView from './components/ListView';
-import './App.css';
+import ListView from './components/listView/List';
+import './App.scss';
 
 const App = () => {
   const [token, setToken] = useLocalStorageState('token', '');

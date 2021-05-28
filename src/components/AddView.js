@@ -4,8 +4,7 @@ import { db } from '../lib/firebase';
 import firebase from 'firebase';
 import transformUserInput from '../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
-
-import Navigation from '../components/Navigation';
+import Navigation from './Navigation';
 
 const DEFAULT_ITEM = {
   name: '',

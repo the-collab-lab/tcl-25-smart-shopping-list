@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
-import Checkbox from '../components/Checkbox';
-import BinIcon from '../components/BinIcon';
-import Dialog from '../components/Dialog';
-
-import { db } from '../lib/firebase';
+import Checkbox from '../listView/Checkbox';
+import BinIcon from '../icons/BinIcon';
+import Dialog from '../listView/Dialog';
+import { db } from '../../lib/firebase';
 import firebase from 'firebase';
 
 const ListItem = ({ index, ariaLabel, item, shoppingList }) => {

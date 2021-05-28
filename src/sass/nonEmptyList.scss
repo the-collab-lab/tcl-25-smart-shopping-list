@@ -1,0 +1,160 @@
+input[type='search'] {
+    -webkit-appearance: none;
+  }
+  input[type='search'] {
+    -webkit-appearance: textfield;
+  }
+  
+  .search-box {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: $color-navLinkAndSearchBox;
+  }
+  
+  @media screen and (min-width: 48em) {
+    .search-box {
+      max-width: 18rem;
+    }
+  }
+  
+  h4 {
+    font-family: $font-codeSaver;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 0.05ch;
+    color: $color-primary;
+  
+    &::after {
+      content: '';
+      display: block;
+      height: 0.5em;
+      width: 100%;
+      border-top: 1px dotted $color-listView-header;
+    }
+  
+    span {
+      background: $bg-listView-header;
+    }
+    
+  }
+  
+   
+  .list {
+    padding: 0;
+
+    & > * > *{
+      margin-top: 1.8rem;
+    }
+  }
+  
+   
+  
+  .list__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0px 8px 50px;
+    overflow-wrap: anywhere;
+  }
+  
+  @media screen and (min-width: 37em) {
+    .list__item {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (min-width: 64em) {
+    .list__item {
+      width: 100%;
+    }
+  }
+  
+  .list__item__input {
+    position: absolute;
+    z-index: -1;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+  }
+  
+  .list__item__input:checked + .list__item__label::after {
+    display: block;
+    position: absolute;
+    content: '';
+    height: 3.2ch;
+    width: 3.2ch;
+    left: 7px;
+    top: 7px;
+    background-image: url(../tick.svg);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  
+  .list__item__label {
+    flex: 2;
+    margin-left: 10px;
+    text-align: left;
+    cursor: pointer;
+    color: $color-primary;
+    font-family: $font-codeSaver;
+    font-weight: 700;
+    text-transform: capitalize;
+  
+    &::before{
+      display: inline-block;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      content: '';
+      margin-right: 10px;
+      height: 4.2ch;
+      width: 4.2ch;
+      border-radius: 50%;
+      border: 2px solid $color-checkBox-boxShadow;
+    }
+  
+    &.soon::before{
+      background-color: $bg-checkBox-soon;
+      box-shadow: 2px 2px 0 $color-checkBox-boxShadow
+    }
+  
+    &.kind-of-soon::before {
+      background-color: $bg-checkBox-kindOfSoon;
+      box-shadow: 2px 2px 0 $color-checkBox-boxShadow;
+    }
+  
+    &.not-soon::before {
+      background-color: $bg-checkBox-notSoon;
+      box-shadow: 2px 2px 0 $color-checkBox-boxShadow;
+    }
+  
+    &.inactive::before {
+      background-color: $bg-checkBox-inactive;
+      box-shadow: 2px 2px 0 $color-checkBox-boxShadow;
+    }
+  }
+  
+  
+  .list__item__delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 4.5ch;
+    height: 4.5ch;
+    border-radius: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .bin-icon {
+    margin-bottom: 8px;
+    fill: $color-binIcon-fill;
+    stroke: $color-binIcon-stroke;
+    stroke-width: 2;
+  }
+  

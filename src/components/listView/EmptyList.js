@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-
-import HelloIcon from './HelloIcon';
-import Navigation from './Navigation';
+import HelloIcon from '../icons/HelloIcon';
+import Navigation from '../Navigation';
 
 const EmptyList = () => (
   <div className="wrapper">

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { db } from '../lib/firebase';
+import { db } from '../../lib/firebase';
 
 import Header from './Header';
-import SubmitIcon from './SubmitIcon';
-import ArrowIcon from './ArrowIcon';
+import SubmitIcon from '../icons/SubmitIcon';
+import ArrowIcon from '../icons/ArrowIcon';
 
 const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
   const [value, setValue] = useState('');
