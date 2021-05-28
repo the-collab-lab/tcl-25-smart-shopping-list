@@ -64,9 +64,9 @@ const ShoppingList = ({
 
       <li className="soonCategory">
         {soonCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('soon')}</span>
-          </h4>
+          </h2>
         ) : null}
         {soonCategory.map((item) => {
           return (
@@ -83,9 +83,9 @@ const ShoppingList = ({
 
       <li className="kindOfSoonCategory">
         {verySoonCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('kind of soon')}</span>
-          </h4>
+          </h2>
         ) : null}
         {verySoonCategory.map((item) => {
           return (
@@ -101,9 +101,9 @@ const ShoppingList = ({
       </li>
       <li className="notSoonCategory">
         {notSoonCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('not soon')}</span>
-          </h4>
+          </h2>
         ) : null}
         {notSoonCategory.map((item) => {
           return (
@@ -120,9 +120,9 @@ const ShoppingList = ({
 
       <li className="inactiveCategory">
         {inactiveCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('inactive')}</span>
-          </h4>
+          </h2>
         ) : null}
         {inactiveCategory.map((item) => {
           return (
