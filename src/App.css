@@ -914,15 +914,16 @@ input[type='search'] {
   }
 }
 
-h4 {
+h2 {
   font-family: code-saver, monospace;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
   letter-spacing: 0.05ch;
   color: #18191f;
 }
 
-h4::after {
+h2::after {
   content: '';
   display: block;
   height: 0.5em;
@@ -930,7 +931,7 @@ h4::after {
   border-top: 1px dotted rgba(24, 25, 31, 0.4);
 }
 
-h4 span {
+h2 span {
   background: rgba(97, 228, 197, 0.1);
 }
 
