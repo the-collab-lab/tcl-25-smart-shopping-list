@@ -402,6 +402,12 @@ main p {
 
 .app__header {
   padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
   background: rgba(255, 189, 18, 0.4);
 }
 
@@ -435,7 +441,9 @@ main p {
 .app__header svg {
   width: 7rem;
   height: 7rem;
-  margin-left: -14px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
   transform: rotate(-3deg);
 }
 
