@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import Checkbox from '../components/Checkbox';
-import BinIcon from '../components/BinIcon';
-import Dialog from '../components/Dialog';
+import Checkbox from './Checkbox';
+import BinIcon from './BinIcon';
+import Dialog from './Dialog';
 
-import { db } from '../lib/firebase';
+import { db } from '../../lib/firebase';
 import firebase from 'firebase';
 
 const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
@@ -33,7 +33,7 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
   };
 
   return (
-    <li className="list__item">
+    <div className="list__item">
       <Checkbox
         index={index}
         item={item}
@@ -50,7 +50,7 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
       {dialogOpen ? (
         <Dialog onCancel={handleCancel} onDelete={handleRemove} />
       ) : null}
-    </li>
+    </div>
   );
 };
 

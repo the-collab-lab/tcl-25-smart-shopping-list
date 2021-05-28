@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import EmptyList from './EmptyList';
-import SearchForm from '../components/SearchForm';
-import ShoppingList from '../components/ShoppingList';
-import Navigation from '../components/Navigation';
-import Spinner from '../components/Spinner';
+import SearchForm from './SearchForm';
+import ShoppingList from './ShoppingList';
+import Navigation from '../Navigation';
+import Spinner from './Spinner';
 
 const ListView = ({ shoppingList, loading, error }) => {
   const [soonCategory, setSoonCategory] = useState([]);

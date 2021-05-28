@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ListItem from '../components/ListItem';
-import capitalizeFirstLetter from '../lib/capitalize';
+import ListItem from './ListItem';
+import capitalizeFirstLetter from '../../lib/capitalize';
 
 const ShoppingList = ({
   sortedList,
@@ -62,7 +62,7 @@ const ShoppingList = ({
         }
       })}
 
-      <div className="soonCategory">
+      <li className="soonCategory">
         {soonCategory.length > 0 ? (
           <h4>
             <span>{capitalizeFirstLetter('soon')}</span>
@@ -79,9 +79,9 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
+      </li>
 
-      <div className="kindOfSoonCategory">
+      <li className="kindOfSoonCategory">
         {verySoonCategory.length > 0 ? (
           <h4>
             <span>{capitalizeFirstLetter('kind of soon')}</span>
@@ -98,8 +98,8 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
-      <div className="notSoonCategory">
+      </li>
+      <li className="notSoonCategory">
         {notSoonCategory.length > 0 ? (
           <h4>
             <span>{capitalizeFirstLetter('not soon')}</span>
@@ -116,9 +116,9 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
+      </li>
 
-      <div className="inactiveCategory">
+      <li className="inactiveCategory">
         {inactiveCategory.length > 0 ? (
           <h4>
             <span>{capitalizeFirstLetter('inactive')}</span>
@@ -135,7 +135,7 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
+      </li>
     </ul>
   );
 };

@@ -6,9 +6,9 @@ import getToken from './lib/tokens';
 import { db } from './lib/firebase';
 import useLocalStorageState from './hooks/useLocalStorageState';
 
-import Home from './components/Home';
-import AddView from './components/AddView';
-import ListView from './components/ListView';
+import Home from './components/HomeView/Home';
+import AddView from './components/AddView/AddView';
+import ListView from './components/ListiView/ListView';
 import './App.css';
 
 const App = () => {

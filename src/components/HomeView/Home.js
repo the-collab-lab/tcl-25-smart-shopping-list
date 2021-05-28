@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { db } from '../lib/firebase';
+import { db } from '../../lib/firebase';
 
 import Header from './Header';
 import SubmitIcon from './SubmitIcon';
@@ -60,6 +60,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                     placeholder="Join with a token"
                     value={value}
                     onChange={handleChange}
+                    aria-label="Join list with a token"
                   />
                   <button
                     type="submit"

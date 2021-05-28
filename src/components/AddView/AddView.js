@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-import { db } from '../lib/firebase';
-import firebase from 'firebase';
-import transformUserInput from '../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
 
-import Navigation from '../components/Navigation';
+import { db } from '../../lib/firebase';
+import firebase from 'firebase';
+import transformUserInput from '../../lib/utils';
+
+import Navigation from '../Navigation';
 
 const DEFAULT_ITEM = {
   name: '',
@@ -18,6 +19,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
   const [hasDuplicates, setHasDuplicates] = useState(false);
   const [isNameFieldEmpty, setIsNameFieldEmpty] = useState(false);
   const [isFrequencyFieldEmpty, setIsFrequencyFieldEmpty] = useState(false);
+
   const handleChange = (e) => {
     setHasDuplicates(false);
     setIsNameFieldEmpty(false);
@@ -116,23 +118,27 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </div>
             ) : null}
             <div className="form-row">
-              <div className="form-group">
+              <div className="form-group select">
                 <label htmlFor="howSoon">
                   How soon are you likely to buy it again?
                 </label>
-                <select
-                  className="form-field"
-                  id="howSoon"
-                  name="daysLeftForNextPurchase"
-                  value={item.daysLeftForNextPurchase}
-                  onBlur={handleChange}
-                  onChange={handleChange}
-                >
-                  <option value=""></option>
-                  <option value="7">Soon (in the next 7 days)</option>
-                  <option value="14">Kind of soon (in the next 14 days)</option>
-                  <option value="30">Not soon (in the next 30 days)</option>
-                </select>
+                <div className="select">
+                  <select
+                    className="form-field"
+                    id="howSoon"
+                    name="daysLeftForNextPurchase"
+                    value={item.daysLeftForNextPurchase}
+                    onBlur={handleChange}
+                    onChange={handleChange}
+                  >
+                    <option value=""></option>
+                    <option value="7">Soon (in the next 7 days)</option>
+                    <option value="14">
+                      Kind of soon (in the next 14 days)
+                    </option>
+                    <option value="30">Not soon (in the next 30 days)</option>
+                  </select>
+                </div>
               </div>
             </div>
             {isFrequencyFieldEmpty ? (
@@ -146,7 +152,6 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </button>
             </div>
           </form>
-
           <Navigation />
         </main>
       </div>
