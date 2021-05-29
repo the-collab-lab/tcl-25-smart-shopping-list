@@ -27,7 +27,7 @@
   max-width: none;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     width: calc(100% + calc(var(--dot-shadow-size) * 2));
     height: calc(100% + calc(var(--dot-shadow-size) * 2));
@@ -259,7 +259,6 @@ input:focus::placeholder {
     height: 1rem;
     margin-left: 9px;
     transform: translate3d(-50%, -50%, 0);
-
     @include break(20em) {
       margin-left: -1px;
     }

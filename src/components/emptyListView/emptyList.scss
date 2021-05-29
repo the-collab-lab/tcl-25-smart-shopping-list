@@ -28,7 +28,6 @@
 .list-view__header {
   padding: 1rem;
   background: $beige;
-
   @include break(37em) {
     padding: 3rem;
   }
@@ -49,7 +48,6 @@
     text-align: center;
     text-transform: uppercase;
     transform: rotate(-3deg);
-
     @include break(48em) {
       font-size: 1.6875rem;
     }
