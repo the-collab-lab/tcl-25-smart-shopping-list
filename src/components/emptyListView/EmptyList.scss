@@ -1,75 +1,70 @@
 .dot-shadow {
-    --dot-shadow-size: 0.75rem;
-    position: relative;
-  
-    &::before{
-      content: '';
-      display: block;
-      width: calc(100% + calc(var(--dot-shadow-size) * 2));
-      height: calc(100% + calc(var(--dot-shadow-size) * 2));
-      background-image: url("data:image/svg+xml,%3Csvg width='6px' height='6px' viewBox='0 0 6 6' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%23CAC6B8' cx='1' cy='5' r='1'%3E%3C/circle%3E%3Ccircle fill='%23CAC6B8' cx='4' cy='2' r='1'%3E%3C/circle%3E%3C/svg%3E%0A");
-      position: absolute;
-      top: calc(var(--dot-shadow-size) * -1);
-      left: calc(var(--dot-shadow-size) * -1);
-      z-index: -1;
-    }
-  }
-  
-  
-  .list-view {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  
-    svg{
-      width: 5rem;
-  
-    }
-  }
-  
-  .list-view__header {
-    padding: 1rem;
-    background: $beige;
+  --dot-shadow-size: 0.75rem;
+  position: relative;
 
-    @include break(37em){
-      padding: 3rem;
-    }
-  
-    h1 {
-      display: inline-flex;
-      align-items: center;
-      max-width: 23ch;
-      margin: 0;
-      padding: 0;
-      border-radius: 0.2em;
-      color: $color-primary;
-      font-family: $font-base;
-      font-size: 1.2875rem;
-      font-weight: 800;
-      font-style: normal;
-      line-height: 2;
-      text-align: center;
-      text-transform: uppercase;
-      transform: rotate(-3deg);
-
-      @include break(48em){
-        font-size: 1.6875rem;
-      }
-    }
-
-
-  }
-  
-
-  .list-view__body {
+  &::before {
+    content: '';
     display: block;
-    max-width: none;
-    margin-left: 0;
-    margin-right: 0;
+    width: calc(100% + calc(var(--dot-shadow-size) * 2));
+    height: calc(100% + calc(var(--dot-shadow-size) * 2));
+    background-image: url("data:image/svg+xml,%3Csvg width='6px' height='6px' viewBox='0 0 6 6' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%23CAC6B8' cx='1' cy='5' r='1'%3E%3C/circle%3E%3Ccircle fill='%23CAC6B8' cx='4' cy='2' r='1'%3E%3C/circle%3E%3C/svg%3E%0A");
+    position: absolute;
+    top: calc(var(--dot-shadow-size) * -1);
+    left: calc(var(--dot-shadow-size) * -1);
+    z-index: -1;
   }
-  
-  .body__inner {
-    display: flex;
-    flex-direction: column;
-    padding: var(--s2);
+}
+
+.list-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  svg {
+    width: 5rem;
   }
+}
+
+.list-view__header {
+  padding: 1rem;
+  background: $beige;
+
+  @include break(37em) {
+    padding: 3rem;
+  }
+
+  h1 {
+    display: inline-flex;
+    align-items: center;
+    max-width: 23ch;
+    margin: 0;
+    padding: 0;
+    border-radius: 0.2em;
+    color: $color-primary;
+    font-family: $font-base;
+    font-size: 1.2875rem;
+    font-weight: 800;
+    font-style: normal;
+    line-height: 2;
+    text-align: center;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+
+    @include break(48em) {
+      font-size: 1.6875rem;
+    }
+  }
+}
+
+.list-view__body {
+  display: block;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.body__inner {
+  display: flex;
+  flex-direction: column;
+  padding: var(--s2);
+}

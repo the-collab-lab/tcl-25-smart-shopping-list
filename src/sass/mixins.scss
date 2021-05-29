@@ -1,1 +1,5 @@
-@mixin break($length) { @media (min-width: $length) { @content; } }
+@mixin break($length) {
+  @media (min-width: $length) {
+    @content;
+  }
+}
