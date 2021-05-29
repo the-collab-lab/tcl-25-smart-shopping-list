@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ListItem from '../listView/ListItem';
+import ListItem from './ListItem';
 import capitalizeFirstLetter from '../../lib/capitalize';
 
 const ShoppingList = ({

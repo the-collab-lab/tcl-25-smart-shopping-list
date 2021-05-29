@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { db } from '../lib/firebase';
+import { db } from '../../lib/firebase';
 import firebase from 'firebase';
-import transformUserInput from '../lib/utils';
+import transformUserInput from '../../lib/utils';
 import { v4 as uuidv4 } from 'uuid';
-import Navigation from './Navigation';
+import Navigation from '../navigation/Navigation';
 
 const DEFAULT_ITEM = {
   name: '',

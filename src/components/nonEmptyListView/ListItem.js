@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-import Checkbox from '../listView/Checkbox';
+import Checkbox from './Checkbox';
 import BinIcon from '../icons/BinIcon';
-import Dialog from '../listView/Dialog';
+import Dialog from './dialog/Dialog';
 import { db } from '../../lib/firebase';
 import firebase from 'firebase';
 
