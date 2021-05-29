@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import InfoIcon from './InfoIcon';
-import Navigation from '../Navigation';
+import Navigation from './Navigation';
 
 const EmptyList = () => (
   <div className="wrapper">

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 
-import calculateEstimate from '../../lib/estimates';
+import calculateEstimate from '../lib/estimates';
 
-import { db } from '../../lib/firebase';
+import { db } from '../lib/firebase';
 
 const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   const [checked, setChecked] = useState(false);

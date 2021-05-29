@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
-import { db } from '../../lib/firebase';
+import { db } from '../lib/firebase';
 import firebase from 'firebase';
-import transformUserInput from '../../lib/utils';
+import transformUserInput from '../lib/utils';
 
-import Navigation from '../Navigation';
+import Navigation from '../components/Navigation';
 
 const DEFAULT_ITEM = {
   name: '',

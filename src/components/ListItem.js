@@ -4,7 +4,7 @@ import Checkbox from './Checkbox';
 import BinIcon from './BinIcon';
 import Dialog from './Dialog';
 
-import { db } from '../../lib/firebase';
+import { db } from '../lib/firebase';
 import firebase from 'firebase';
 
 const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
