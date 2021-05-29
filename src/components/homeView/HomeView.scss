@@ -27,7 +27,7 @@
   max-width: none;
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     width: calc(100% + calc(var(--dot-shadow-size) * 2));
     height: calc(100% + calc(var(--dot-shadow-size) * 2));
@@ -173,6 +173,9 @@ main {
   font-size: 1rem;
   line-height: 1;
   cursor: pointer;
+  @include break(45em) {
+    padding: 0.85rem 1rem;
+  }
 
   &:focus {
     outline: 2px solid transparent;
@@ -219,10 +222,6 @@ main {
       letter-spacing: 0.05ch;
       text-align: center;
     }
-  }
-
-  @include break(45em) {
-    padding: 0.85rem 1rem;
   }
 }
 
