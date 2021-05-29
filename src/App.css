@@ -471,9 +471,11 @@ main p {
 }
 
 .app__header svg {
+  max-width: 60ch;
   width: 7rem;
   height: 7rem;
-  margin-left: -14px;
+  margin: 0 auto;
+  padding-left: 10px;
   transform: rotate(-3deg);
 }
 
@@ -481,6 +483,14 @@ main p {
   .app__header svg {
     height: 14rem;
     width: 14rem;
+  }
+}
+
+@media (min-width: 48em) {
+  .app__header svg {
+    max-width: 60ch;
+    margin: 0 auto;
+    padding-left: 20px;
   }
 }
 
