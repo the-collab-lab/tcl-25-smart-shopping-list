@@ -58,11 +58,11 @@
   main {
     padding: 1rem;
     text-align: center;
-    background-color:$bg-secondary;
+    background-color:$white;
   
     p{
       margin-top: 1.5rem;
-      font-family: $font-codeSaver;
+      font-family: $font-base;
     }
   }
   
@@ -81,7 +81,7 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
-    background: $bg-primary;
+    background: $white;
   
     h1{
       display: block;
@@ -89,7 +89,7 @@
       margin-top: 0.5rem;
       padding: 0.5em;
       border-radius: 0.2em;
-      font-family: $font-codeSaver;
+      font-family: $font-base;
       font-size: 1.6875rem;
       font-weight: 800;
       line-height: 2;
@@ -174,7 +174,7 @@
     border-radius: 0.375rem;
     border-width: 2px;
     box-shadow: 6px 6px 0 $color-secondary;
-    background: $bg-tokenFormField ;
+    background:  $red;
     color: $color-secondary;
     font-size: 1.25rem;
     line-height: 1.5;
@@ -189,10 +189,10 @@
     min-width: 60%;
     margin-top: 0.125rem;
     padding: 0.25rem 1rem;
-    border: 2px solid $color-border-tokenFormInput ;
+    border: 2px solid $border-dark-grey;
     border-radius: 0.375rem;
     outline-color: $color-secondary;
-    color: $bg-tokenForm;
+    color: $dark-grey;
     background: none;
     font-size: 1rem;
     line-height: 1;
@@ -204,7 +204,7 @@
   
     &::placeholder{
       color: $color-primary;
-      font-family: $font-codeSaver;
+      font-family: $font-base;
       font-size: 0.8rem;
       font-weight: 900;
       line-height: 1.5;
@@ -273,7 +273,7 @@
     flex-grow: 1;
     border: none;
     background: transparent;
-    color: $bg-tokenForm;
+    color: $dark-grey;
     font-weight: 700;
     cursor: pointer;
   

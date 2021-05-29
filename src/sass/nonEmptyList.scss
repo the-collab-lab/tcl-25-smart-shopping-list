@@ -9,7 +9,7 @@ input[type='search'] {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    color: $color-navLinkAndSearchBox;
+    color: $color-font;
   }
   
   @media screen and (min-width: 48em) {
@@ -19,7 +19,7 @@ input[type='search'] {
   }
   
   h4 {
-    font-family: $font-codeSaver;
+    font-family: $font-base;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.05ch;
@@ -30,11 +30,11 @@ input[type='search'] {
       display: block;
       height: 0.5em;
       width: 100%;
-      border-top: 1px dotted $color-listView-header;
+      border-top: 1px dotted $border-dotted-grey;
     }
   
     span {
-      background: $bg-listView-header;
+      background: $pale-blue;
     }
     
   }
@@ -99,7 +99,7 @@ input[type='search'] {
     text-align: left;
     cursor: pointer;
     color: $color-primary;
-    font-family: $font-codeSaver;
+    font-family: $font-base;
     font-weight: 700;
     text-transform: capitalize;
   
@@ -113,27 +113,27 @@ input[type='search'] {
       height: 4.2ch;
       width: 4.2ch;
       border-radius: 50%;
-      border: 2px solid $color-checkBox-boxShadow;
+      border: 2px solid $color-box-shadow;
     }
   
     &.soon::before{
-      background-color: $bg-checkBox-soon;
-      box-shadow: 2px 2px 0 $color-checkBox-boxShadow
+      background-color: $light-red;
+      box-shadow: 2px 2px 0 $color-box-shadow;
     }
   
     &.kind-of-soon::before {
-      background-color: $bg-checkBox-kindOfSoon;
-      box-shadow: 2px 2px 0 $color-checkBox-boxShadow;
+      background-color: $light-yellow;
+      box-shadow: 2px 2px 0  $color-box-shadow;
     }
   
     &.not-soon::before {
-      background-color: $bg-checkBox-notSoon;
-      box-shadow: 2px 2px 0 $color-checkBox-boxShadow;
+      background-color: $light-green;
+      box-shadow: 2px 2px 0  $color-box-shadow;
     }
   
     &.inactive::before {
-      background-color: $bg-checkBox-inactive;
-      box-shadow: 2px 2px 0 $color-checkBox-boxShadow;
+      background-color: $light-pink;
+      box-shadow: 2px 2px 0  $color-box-shadow;
     }
   }
   
@@ -153,8 +153,8 @@ input[type='search'] {
   
   .bin-icon {
     margin-bottom: 8px;
-    fill: $color-binIcon-fill;
-    stroke: $color-binIcon-stroke;
+    fill: $color-bin-icon-secondary;
+    stroke: $color-bin-icon-primary;
     stroke-width: 2;
   }
   

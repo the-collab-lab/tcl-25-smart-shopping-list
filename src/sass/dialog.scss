@@ -7,7 +7,7 @@
     border: 2px solid $color-primary;
     border-radius: 16px;
     box-shadow: 6px 6px 0 $color-secondary;
-    background:$bg-secondary;
+    background:$white;
   }
   
   .dialog__inner {
@@ -17,7 +17,7 @@
   
   .dialog__inner p {
     margin-top: 0;
-    font-family: $font-codeSaver;
+    font-family: $font-base;
   }
   
   .dialog-content {

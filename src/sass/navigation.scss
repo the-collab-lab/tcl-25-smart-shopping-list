@@ -48,11 +48,11 @@
     display: inline-block;
     margin: 0.15rem 0.5rem;
     padding: 0.3rem 0.4rem 0.2rem;
-    border: 2px solid $color-navLink-borderColor;
+    border: 2px solid $color-link-border;
     border-radius: 8px;
-    background: $bg-navLinks;
-    color: $color-navLinkAndSearchBox;
-    font-family: $font-codeSaver;
+    background:$light-grey;
+    color: $color-font;
+    font-family: $font-base;
     font-size: 0.8rem;
     font-weight: 900;
     line-height: 1.5;
@@ -60,7 +60,7 @@
   
     &:focus, &:hover{
       color: $color-primary;
-      background: $bg-primary;
+      background: $beige;
       ;
     }
   
@@ -77,5 +77,5 @@
    
   
   .active {
-    background: $bg-primary;
+    background: $beige;
   }
