@@ -47,21 +47,19 @@
       text-align: center;
       text-transform: uppercase;
       transform: rotate(-3deg);
+
+      @include break(48em){
+        font-size: 1.6875rem;
+      }
     }
-  }
-  
-  @media screen and (min-width: 37em) {
-    .list-view__header {
+
+    @include break(37em){
       padding: 3rem;
     }
+
   }
   
-  @media screen and (min-width: 48em) {
-    .list-view__header h1 {
-      font-size: 1.6875rem;
-    }
-  }
-  
+
   .list-view__body {
     display: block;
     max-width: none;

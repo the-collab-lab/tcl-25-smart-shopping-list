@@ -12,14 +12,12 @@
     margin-right: auto;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
-  }
-  
-  @media (min-width: 37em) {
-    .wrapper {
+
+    @include break(37em){
       width: 40vw;
     }
   }
-  
+ 
   .app__dots-shadow {
     --dot-shadow-size: 0.75rem;
     position: relative;
@@ -46,14 +44,13 @@
   .panel {
     margin: 2.36rem 0;
     padding: 2.36rem 0;
-  }
-  
-  @media (min-width: 37em) {
-    .panel {
+
+    @include break(37em){
       margin: 3.15rem 0;
       padding: 3.15rem 0;
     }
   }
+  
   
   main {
     padding: 1rem;
@@ -81,7 +78,7 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
-    background: $white;
+    background: $beige;
   
     h1{
       display: block;
@@ -96,6 +93,15 @@
       text-transform: uppercase;
       transform: rotate(-3deg);
       color: $color-primary;
+
+      @include break(48em){
+        font-size: 2.075rem;
+      }
+
+      @include break(64em){
+        font-size: 1.65rem;
+
+      }
     }
   
     svg{
@@ -105,34 +111,20 @@
       margin: 0 auto;
       text-align: center;
       transform: rotate(-3deg);
+
+      @include break(36em){
+        height: 14rem;
+        width: 14rem;
+      }
+
+      @include break(64em){
+        height: 17rem;
+        width: 17rem;
+      }
+
     }
-  }
-  
-   
-  
-  @media (min-width: 48em) {
-    .app__header h1 {
-      font-size: 2.075rem;
-    }
-  }
-  
-  @media (min-width: 64em) {
-    .app__header h1 {
-      font-size: 1.65rem;
-    }
-  }
-  @media (min-width: 36em) {
-    .app__header svg {
-      height: 14rem;
-      width: 14rem;
-    }
-  }
-  
-  @media (min-width: 64em) {
-    .app__header svg {
-      height: 17rem;
-      width: 17rem;
-    }
+
+
   }
   
   .app__token-form {
@@ -140,17 +132,13 @@
     width: 100%;
     margin-top: 2rem;
     font-size: 1.25rem;
-  }
-  
-  @media (min-width: 48em) {
-    .app__token-form {
+
+    @include break(48em){
       margin: 0 auto;
       font-size: 0.8rem;
     }
-  }
-  
-  @media (min-width: 64em) {
-    .app__token-form {
+
+    @include break(64em){
       width: 17rem;
     }
   }
@@ -210,6 +198,17 @@
       line-height: 1.5;
       text-align: left;
       text-transform: uppercase;
+
+      @include break(37em){
+        letter-spacing: 0.05ch;
+        text-align: center;
+      }
+
+      @include break(64em){
+        font-size: 1rem;
+        letter-spacing: 0.05ch;
+        text-align: center;
+      }
     }
   
     &:-ms-input-placeholder{
@@ -221,44 +220,24 @@
       line-height: 1.5;
       text-align: left;
       text-transform: uppercase;
+
+      @include break(37em){
+        letter-spacing: 0.05ch;
+        text-align: center;
+      }
+
+      @include break(64em){
+        font-size: 1rem;
+        letter-spacing: 0.05ch;
+        text-align: center;
+      }
     }
-  }
-  
-  @media (min-width: 45em) {
-    .token-form__input {
+
+    @include break(45em){
       padding: 0.85rem 1rem;
     }
   }
   
-  @media (min-width: 37em) {
-    .token-form__input::placeholder {
-      letter-spacing: 0.05ch;
-      text-align: center;
-    }
-  }
-  
-  @media (min-width: 64em) {
-    .token-form__input::placeholder {
-      font-size: 1rem;
-      letter-spacing: 0.05ch;
-      text-align: center;
-    }
-  }
-  
-  @media (min-width: 37em) {
-    .token-form__input:-ms-input-placeholder {
-      letter-spacing: 0.05ch;
-      text-align: center;
-    }
-  }
-  
-  @media (min-width: 64em) {
-    .token-form__input:-ms-input-placeholder {
-      font-size: 1rem;
-      letter-spacing: 0.05ch;
-      text-align: center;
-    }
-  }
   
   input:focus::placeholder {
     color: transparent;
@@ -283,7 +262,6 @@
   }
   
    
-  
   .icon {
     display: inline-block;
     vertical-align: baseline;
@@ -296,11 +274,12 @@
       height: 1rem;
       margin-left: 9px;
       transform: translate3d(-50%, -50%, 0);
+
+      @include break(20em){
+        margin-left: -1px;
+
+      }
   }
 }
    
-  @media (min-width: 20em) {
-    .icon svg {
-      margin-left: -1px;
-    }
-  }
+  

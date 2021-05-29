@@ -13,11 +13,11 @@
   .dialog__inner {
     color: $color-primary;
     padding: 1.75rem;
-  }
-  
-  .dialog__inner p {
-    margin-top: 0;
-    font-family: $font-base;
+
+    p {
+      margin-top: 0;
+      font-family: $font-base;
+    }
   }
   
   .dialog-content {

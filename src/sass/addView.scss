@@ -59,10 +59,10 @@ select {
     font-size: 1rem;
     line-height: 1.375rem;
     text-align: left;
-  }
-  
-  .form-row + .form-row {
-    margin-top: 1.5rem;
+
+    & + .form-row {
+      margin-top: 1.5rem;
+    }
   }
   
   .form-group label {

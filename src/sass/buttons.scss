@@ -25,18 +25,14 @@
   align-items: center;
   width: 100%;
   padding: 0.3125rem 0.3125rem 0.3125rem 0.9rem;
-}
 
-@media (min-width: 48em) {
-  .app__create-button {
+  @include break(48em){
     width: 15rem;
     padding: 0.8rem 2.5rem;
     letter-spacing: 0.05ch;
   }
-}
 
-@media (min-width: 64em) {
-  .app__create-button {
+  @include break(64em){
     width: 17rem;
     font-size: 1rem;
   }
@@ -68,23 +64,22 @@
 .add-button {
   width: 100%;
   margin: 0 auto;
-}
 
-@media (min-width: 48em) {
-  .add-button {
+  @include break(48em){
     width: 15rem;
     padding: 0.8rem 2.5rem;
     letter-spacing: 0.05ch;
   }
-}
-
-@media (min-width: 64em) {
-  .add-button {
-    width: 17rem;
-    font-size: 1rem;
+ 
+  @include break(64em){
+    .add-button {
+      width: 17rem;
+      font-size: 1rem;
+    }
   }
-}
 
+}
+ 
 .btn-container {
   display: flex;
   justify-content: center;

@@ -1,22 +1,23 @@
 input[type='search'] {
     -webkit-appearance: none;
-  }
-  input[type='search'] {
+   }
+
+ input[type='search'] {
     -webkit-appearance: textfield;
-  }
+}
   
   .search-box {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     color: $color-font;
-  }
-  
-  @media screen and (min-width: 48em) {
-    .search-box {
+
+    @include break(48em){
       max-width: 18rem;
+
     }
   }
+  
   
   h4 {
     font-family: $font-base;
