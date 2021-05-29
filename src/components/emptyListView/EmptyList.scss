@@ -30,6 +30,10 @@
   .list-view__header {
     padding: 1rem;
     background: $beige;
+
+    @include break(37em){
+      padding: 3rem;
+    }
   
     h1 {
       display: inline-flex;
@@ -53,9 +57,6 @@
       }
     }
 
-    @include break(37em){
-      padding: 3rem;
-    }
 
   }
   
