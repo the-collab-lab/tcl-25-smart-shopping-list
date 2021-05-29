@@ -44,6 +44,7 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
         onClick={handleDialogOpen}
         aria-label={`delete ${item.name}`}
         className="list__item__delete-btn"
+        id="bin-icon"
       >
         <BinIcon />
       </button>

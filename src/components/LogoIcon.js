@@ -10,7 +10,7 @@ const LogoIcon = () => {
       viewBox="0.0 -1.5 412.3 501.5"
       width="412.3"
       zoomAndPan="magnify"
-      aria-labelledby="App logo icon"
+      aria-labelledby="logo-icon"
     >
       <g>
         <g id="change1_1">
