@@ -180,12 +180,10 @@ button:focus {
 
 .btn-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 1rem;
-
-  display: flex;
-  flex-direction: column;
-  margin-top: 0.75rem;
+  margin-top: 1.95rem;
   font-size: 125%;
   line-height: 1.5;
 }
