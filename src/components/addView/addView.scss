@@ -36,6 +36,23 @@ select {
   option {
     font-weight: normal;
   }
+
+  &:focus + .focus {
+    border: 2px solid $pink;
+  }
+}
+
+.select {
+  position: relative;
+}
+.focus {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: inherit;
+  border: 2px solid transparent;
 }
 
 .form {
@@ -86,6 +103,8 @@ select {
 
   &:focus {
     border-radius: 16px;
+    border-color: var(--field-focus, $pink);
+    box-shadow: 0 0 0.35em -0.1em var(--field-focus, $pink);
     outline: 2px solid transparent;
   }
 

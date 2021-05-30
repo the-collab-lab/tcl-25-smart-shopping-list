@@ -54,7 +54,6 @@
   line-height: 1.5;
   cursor: pointer;
 
-  &:focus,
   &:hover {
     color: $color-primary;
     background: $beige;
@@ -62,7 +61,7 @@
 
   &:focus {
     outline: none;
-    border-color: $color-primary;
+    border-color: $pink;
   }
 
   &:active {

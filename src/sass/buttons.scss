@@ -1,3 +1,14 @@
+button {
+  border-radius: none;
+  background: none;
+  border: none;
+}
+
+button:focus {
+  border-color: $pink;
+  outline-color: $pink;
+}
+
 .app__create-button,
 .add-button,
 .yes-button,
@@ -40,8 +51,6 @@
 .app__create-button__icon svg {
   width: 0.75em;
   height: 0.75em;
-  stroke: currentColor;
-  stroke-width: 4;
   margin-left: 3px;
 }
 
@@ -50,14 +59,6 @@
   flex: 0 0 auto;
   align-items: center;
   margin-left: auto;
-}
-
-.add-btn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
 .add-button {
@@ -74,12 +75,24 @@
     width: 17rem;
     font-size: 1rem;
   }
+
+  &:focus {
+    outline-color: $pink;
+  }
 }
 
 .btn-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   gap: 1rem;
+  margin-top: 1.95rem;
+  font-size: 125%;
+  line-height: 1.5;
+
+  @include break(48em) {
+    flex-direction: row;
+  }
 }
 
 .btn {
