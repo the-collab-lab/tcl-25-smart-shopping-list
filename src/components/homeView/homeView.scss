@@ -1,0 +1,274 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.wrapper {
+  position: relative;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+
+  @include break(37em) {
+    width: 40vw;
+  }
+}
+
+.app__dots-shadow {
+  --dot-shadow-size: 0.75rem;
+  position: relative;
+  display: block;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+
+  &::before {
+    content: "";
+    display: block;
+    width: calc(100% + calc(var(--dot-shadow-size) * 2));
+    height: calc(100% + calc(var(--dot-shadow-size) * 2));
+    background-image: url("data:image/svg+xml,%3Csvg width='6px' height='6px' viewBox='0 0 6 6' version='1.1' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle fill='%23CAC6B8' cx='1' cy='5' r='1'%3E%3C/circle%3E%3Ccircle fill='%23CAC6B8' cx='4' cy='2' r='1'%3E%3C/circle%3E%3C/svg%3E%0A");
+    position: absolute;
+    top: calc(var(--dot-shadow-size) * -1);
+    left: calc(var(--dot-shadow-size) * -1);
+    z-index: -1;
+    border-radius: 0.25rem;
+  }
+}
+
+.panel {
+  margin: 2.36rem 0;
+  padding: 2.36rem 0;
+
+  @include break(37em) {
+    margin: 3.15rem 0;
+    padding: 3.15rem 0;
+  }
+}
+
+main {
+  padding: 1rem;
+  text-align: center;
+  background-color: $white;
+
+  p {
+    margin-top: 1.5rem;
+    font-family: $font-base;
+  }
+}
+
+.align-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.app__header {
+  padding: 20px;
+  background: $beige;
+
+  h1 {
+    display: block;
+    max-width: 23ch;
+    margin-top: 0.5rem;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    font-family: $font-base;
+    font-size: 1.6875rem;
+    font-weight: 800;
+    line-height: 2;
+    text-transform: uppercase;
+    transform: rotate(-3deg);
+    color: $color-primary;
+
+    @include break(48em) {
+      font-size: 2.075rem;
+    }
+
+    @include break(64em) {
+      font-size: 1.65rem;
+    }
+  }
+
+  svg {
+    max-width: 60ch;
+    width: 7rem;
+    height: 7rem;
+    display: block;
+    margin: 0 auto;
+    padding-left: 10px;
+    transform: rotate(-3deg);
+
+    @include break(36em) {
+      height: 14rem;
+      width: 14rem;
+    }
+
+    @include break(64em) {
+      height: 17rem;
+      width: 17rem;
+    }
+
+    @include break(48em) {
+      max-width: 60ch;
+      margin: 0 auto;
+      padding-left: 20px;
+    }
+  }
+}
+
+.app__token-form {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+
+  @include break(48em) {
+    margin: 0 auto;
+    font-size: 0.8rem;
+  }
+
+  @include break(64em) {
+    width: 17rem;
+  }
+}
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.token-form__field {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.375rem;
+  border-width: 2px;
+  box-shadow: 6px 6px 0 $color-secondary;
+  background: $red;
+  color: $color-secondary;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.token-form__input {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 999;
+  width: 100%;
+  min-width: 60%;
+  margin-top: 0.125rem;
+  padding: 0.25rem 1rem;
+  border: 2px solid $border-dark-grey;
+  border-radius: 0.375rem;
+  outline-color: $color-secondary;
+  color: $dark-grey;
+  background: none;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  @include break(45em) {
+    padding: 0.85rem 1rem;
+  }
+
+  &:focus {
+    outline: 2px solid transparent;
+    box-shadow: 0 0 0 2pt $pink;
+  }
+
+  &::placeholder {
+    color: $color-primary;
+    font-family: $font-base;
+    font-size: 0.8rem;
+    font-weight: 900;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: uppercase;
+
+    @include break(37em) {
+      letter-spacing: 0.05ch;
+      text-align: center;
+    }
+
+    @include break(64em) {
+      font-size: 1rem;
+      letter-spacing: 0.05ch;
+      text-align: center;
+    }
+  }
+
+  &:-ms-input-placeholder {
+    color: $color-primary;
+    opacity: 0.5;
+    font-family: code-saver, monospace;
+    font-size: 0.8rem;
+    font-weight: 900;
+    line-height: 1.5;
+    text-align: left;
+    text-transform: uppercase;
+
+    @include break(37em) {
+      letter-spacing: 0.05ch;
+      text-align: center;
+    }
+
+    @include break(64em) {
+      font-size: 1rem;
+      letter-spacing: 0.05ch;
+      text-align: center;
+    }
+  }
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+.token-form__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  padding: 0 1.5rem;
+  flex-grow: 1;
+  border: none;
+  background: transparent;
+  color: $dark-grey;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: baseline;
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    margin-left: 9px;
+    transform: translate3d(-50%, -50%, 0);
+    @include break(20em) {
+      margin-left: -1px;
+    }
+  }
+}

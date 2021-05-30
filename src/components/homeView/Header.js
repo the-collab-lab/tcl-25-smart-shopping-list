@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LogoIcon from './LogoIcon';
+import LogoIcon from '../icons/LogoIcon';
 
 const Header = () => (
   <header className="app__header">
