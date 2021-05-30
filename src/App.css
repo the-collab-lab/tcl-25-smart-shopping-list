@@ -146,14 +146,6 @@ button:focus {
   margin-left: auto;
 }
 
-.add-btn-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-
 .add-button {
   width: 100%;
   margin: 0 auto;
