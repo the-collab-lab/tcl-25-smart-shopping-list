@@ -1,8 +1,8 @@
-input[type='search'] {
+input[type="search"] {
   -webkit-appearance: none;
 }
 
-input[type='search'] {
+input[type="search"] {
   -webkit-appearance: textfield;
 }
 
@@ -24,7 +24,7 @@ h4 {
   color: $color-primary;
 
   &::after {
-    content: '';
+    content: "";
     display: block;
     height: 0.5em;
     width: 100%;
@@ -70,7 +70,7 @@ h4 {
 .list__item__input:checked + .list__item__label::after {
   display: block;
   position: absolute;
-  content: '';
+  content: "";
   height: 3.2ch;
   width: 3.2ch;
   left: 7px;
@@ -96,32 +96,29 @@ h4 {
     position: absolute;
     left: 0px;
     top: 0px;
-    content: '';
+    content: "";
     margin-right: 10px;
     height: 4.2ch;
     width: 4.2ch;
     border-radius: 50%;
     border: 2px solid $color-box-shadow;
+    box-shadow: 2px 2px 0 $color-box-shadow;
   }
 
   &.soon::before {
     background-color: $light-red;
-    box-shadow: 2px 2px 0 $color-box-shadow;
   }
 
   &.kind-of-soon::before {
     background-color: $light-yellow;
-    box-shadow: 2px 2px 0 $color-box-shadow;
   }
 
   &.not-soon::before {
     background-color: $light-green;
-    box-shadow: 2px 2px 0 $color-box-shadow;
   }
 
   &.inactive::before {
     background-color: $light-pink;
-    box-shadow: 2px 2px 0 $color-box-shadow;
   }
 }
 
