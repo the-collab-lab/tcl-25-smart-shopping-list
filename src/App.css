@@ -1041,10 +1041,11 @@ input[type='checkbox']:focus + .list__item__svg {
   flex-shrink: 0;
   width: 4.5ch;
   height: 4.5ch;
-
   cursor: pointer;
 }
 
 .bin-icon {
   margin-bottom: 8px;
+  width: 4.5ch;
+  height: 4.5ch;
 }
