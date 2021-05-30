@@ -42,6 +42,9 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                 onClick={handleTokenCreation}
                 className="app__create-button"
               >
+                <span className="visually-hidden">
+                  Create a new shopping list
+                </span>
                 Create a New List
                 <span className="create-button__icon">
                   <ArrowIcon />
