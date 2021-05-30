@@ -43,7 +43,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                 className="app__create-button"
               >
                 Create a New List
-                <span className="create-button__icon" id="arrow-icon">
+                <span className="create-button__icon">
                   <ArrowIcon />
                 </span>
               </button>
@@ -69,7 +69,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                     disabled={value.length < 1}
                     aria-label="Submit token"
                   >
-                    <span className="icon" aria-hidden="true" id="submit-icon">
+                    <span className="icon" aria-hidden="true">
                       <SubmitIcon />
                     </span>
                   </button>

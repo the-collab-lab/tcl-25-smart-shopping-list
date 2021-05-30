@@ -12,6 +12,7 @@ const LogoIcon = () => {
       zoomAndPan="magnify"
       aria-labelledby="logo-icon"
     >
+      <title id="logo-icon">Logo Icon</title>
       <g>
         <g id="change1_1">
           <path

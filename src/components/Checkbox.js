@@ -64,13 +64,14 @@ const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
         checked={checked}
         onChange={tickCheckBox}
       />
-      <span className={`list__item__svg ${index}`} id="tick-icon">
+      <span className={`list__item__svg ${index}`}>
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
           focusable="false"
           aria-labelledby="tick-icon"
         >
+          <title id="tick-icon">Tick Icon</title>
           <path
             fill="none"
             stroke="rgba(0,0,0,0.7)"
