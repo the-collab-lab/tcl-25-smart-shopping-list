@@ -81,6 +81,13 @@ select {
 /*--------------------------------------------------------------------------*\
    BUTTONS
 \*--------------------------------------------------------------------------*/
+
+button {
+  border-radius: none;
+  background: none;
+  border: none;
+}
+
 button:focus {
   border-color: #f586ae;
   outline-color: #f586ae;
@@ -1034,9 +1041,7 @@ input[type='checkbox']:focus + .list__item__svg {
   flex-shrink: 0;
   width: 4.5ch;
   height: 4.5ch;
-  border-radius: none;
-  background: none;
-  border: none;
+
   cursor: pointer;
 }
 
