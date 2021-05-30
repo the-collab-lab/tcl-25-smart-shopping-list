@@ -17,6 +17,7 @@ const AddView = ({ shoppingList, token, collectionId }) => {
   const [hasDuplicates, setHasDuplicates] = useState(false);
   const [isNameFieldEmpty, setIsNameFieldEmpty] = useState(false);
   const [isFrequencyFieldEmpty, setIsFrequencyFieldEmpty] = useState(false);
+
   const handleChange = (e) => {
     setHasDuplicates(false);
     setIsNameFieldEmpty(false);
@@ -115,23 +116,27 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </div>
             ) : null}
             <div className="form-row">
-              <div className="form-group">
+              <div className="form-group select">
                 <label htmlFor="howSoon">
                   How soon are you likely to buy it again?
                 </label>
-                <select
-                  className="form-field"
-                  id="howSoon"
-                  name="daysLeftForNextPurchase"
-                  value={item.daysLeftForNextPurchase}
-                  onBlur={handleChange}
-                  onChange={handleChange}
-                >
-                  <option value=""></option>
-                  <option value="7">Soon (in the next 7 days)</option>
-                  <option value="14">Kind of soon (in the next 14 days)</option>
-                  <option value="30">Not soon (in the next 30 days)</option>
-                </select>
+                <div className="select">
+                  <select
+                    className="form-field"
+                    id="howSoon"
+                    name="daysLeftForNextPurchase"
+                    value={item.daysLeftForNextPurchase}
+                    onBlur={handleChange}
+                    onChange={handleChange}
+                  >
+                    <option value=""></option>
+                    <option value="7">Soon (in the next 7 days)</option>
+                    <option value="14">
+                      Kind of soon (in the next 14 days)
+                    </option>
+                    <option value="30">Not soon (in the next 30 days)</option>
+                  </select>
+                </div>
               </div>
             </div>
             {isFrequencyFieldEmpty ? (
@@ -140,12 +145,13 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </div>
             ) : null}
             <div className="form-row">
-              <button type="submit" className="add-button">
-                Add
-              </button>
+              <div className="btn-container">
+                <button type="submit" className="add-button">
+                  Add
+                </button>
+              </div>
             </div>
           </form>
-
           <Navigation />
         </main>
       </div>

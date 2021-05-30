@@ -32,7 +32,7 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
   };
 
   return (
-    <li className="list__item">
+    <div className="list__item">
       <Checkbox
         index={index}
         item={item}
@@ -49,7 +49,7 @@ const ListItem = ({ index, ariaLabel, item, shoppingList }) => {
       {dialogOpen ? (
         <Dialog onCancel={handleCancel} onDelete={handleRemove} />
       ) : null}
-    </li>
+    </div>
   );
 };
 

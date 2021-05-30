@@ -42,6 +42,9 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                 onClick={handleTokenCreation}
                 className="app__create-button"
               >
+                <span className="visually-hidden">
+                  Create a new shopping list
+                </span>
                 Create a New List
                 <span className="create-button__icon">
                   <ArrowIcon />
@@ -60,6 +63,7 @@ const Home = ({ handleTokenCreation, setToken, setCollectionId }) => {
                     placeholder="Join with a token"
                     value={value}
                     onChange={handleChange}
+                    aria-label="Join list with a token"
                   />
                   <button
                     type="submit"

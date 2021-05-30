@@ -54,21 +54,34 @@ const Checkbox = ({ item, ariaLabel, index, shoppingList }) => {
   };
 
   return (
-    <>
+    <label htmlFor={name} className={`list__item__label`}>
       <input
         type="checkbox"
-        name={name}
-        id={name}
         className="list__item__input"
+        id={name}
+        name={name}
         value={name}
-        onChange={tickCheckBox}
         checked={checked}
-        aria-label={ariaLabel}
+        onChange={tickCheckBox}
       />
-      <label htmlFor={name} className={`list__item__label ${index}`}>
-        {name}
-      </label>
-    </>
+      <span className={`list__item__svg ${index}`}>
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+          aria-labelledby="tick-icon"
+        >
+          <title id="tick-icon">Tick Icon</title>
+          <path
+            fill="none"
+            stroke="rgba(0,0,0,0.7)"
+            strokeWidth="2"
+            d="M1.73 12.91l6.37 6.37L22.79 4.59"
+          ></path>
+        </svg>
+      </span>
+      {name}
+    </label>
   );
 };
 

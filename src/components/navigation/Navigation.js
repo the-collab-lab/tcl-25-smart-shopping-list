@@ -7,20 +7,24 @@ const Navigation = () => (
       <div className="flow-space-700">
         <nav>
           <ul className="nav">
-            <NavLink
-              activeClassName="active"
-              to="/add-view"
-              className="nav__link"
-            >
-              Add Item
-            </NavLink>
-            <NavLink
-              activeClassName="active"
-              to="/list-view"
-              className="nav__link"
-            >
-              View List
-            </NavLink>
+            <li>
+              <NavLink
+                activeClassName="active"
+                to="/add-view"
+                className="nav__link"
+              >
+                Add Item
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                activeClassName="active"
+                to="/list-view"
+                className="nav__link"
+              >
+                View List
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </div>
