@@ -147,9 +147,11 @@ const AddView = ({ shoppingList, token, collectionId }) => {
               </div>
             ) : null}
             <div className="form-row">
-              <button type="submit" className="add-button">
-                Add
-              </button>
+              <div className="btn-container">
+                <button type="submit" className="add-button">
+                  Add
+                </button>
+              </div>
             </div>
           </form>
           <Navigation />
