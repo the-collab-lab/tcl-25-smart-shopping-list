@@ -9,6 +9,7 @@ import useLocalStorageState from './hooks/useLocalStorageState';
 import Home from './components/Home';
 import AddView from './components/AddView';
 import ListView from './components/ListView';
+
 import './App.css';
 
 const App = () => {

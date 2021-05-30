@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ListItem from '../components/ListItem';
+import ListItem from './ListItem';
 import capitalizeFirstLetter from '../lib/capitalize';
 
 const ShoppingList = ({
@@ -62,11 +62,11 @@ const ShoppingList = ({
         }
       })}
 
-      <div className="soonCategory">
+      <li className="soonCategory">
         {soonCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('soon')}</span>
-          </h4>
+          </h2>
         ) : null}
         {soonCategory.map((item) => {
           return (
@@ -79,13 +79,13 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
+      </li>
 
-      <div className="kindOfSoonCategory">
+      <li className="kindOfSoonCategory">
         {verySoonCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('kind of soon')}</span>
-          </h4>
+          </h2>
         ) : null}
         {verySoonCategory.map((item) => {
           return (
@@ -98,12 +98,12 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
-      <div className="notSoonCategory">
+      </li>
+      <li className="notSoonCategory">
         {notSoonCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('not soon')}</span>
-          </h4>
+          </h2>
         ) : null}
         {notSoonCategory.map((item) => {
           return (
@@ -116,13 +116,13 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
+      </li>
 
-      <div className="inactiveCategory">
+      <li className="inactiveCategory">
         {inactiveCategory.length > 0 ? (
-          <h4>
+          <h2>
             <span>{capitalizeFirstLetter('inactive')}</span>
-          </h4>
+          </h2>
         ) : null}
         {inactiveCategory.map((item) => {
           return (
@@ -135,7 +135,7 @@ const ShoppingList = ({
             />
           );
         })}
-      </div>
+      </li>
     </ul>
   );
 };

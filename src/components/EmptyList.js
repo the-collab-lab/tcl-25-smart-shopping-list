@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import HelloIcon from './HelloIcon';
+import InfoIcon from './InfoIcon';
 import Navigation from './Navigation';
 
 const EmptyList = () => (
@@ -11,13 +11,13 @@ const EmptyList = () => (
       <main className="list-view flow">
         <div>
           <header className="list-view__header">
-            <HelloIcon />
+            <InfoIcon />
             <h1>To Get Started, Add an Item</h1>
           </header>
         </div>
         <div className="list-view__body">
           <div className="body__inner">
-            <div className="add-btn-container">
+            <div className="btn-container">
               <Link to="/add-view" className="add-button">
                 Add Item
               </Link>
