@@ -17,7 +17,7 @@ const EmptyList = () => (
         </div>
         <div className="list-view__body">
           <div className="body__inner">
-            <div className="add-btn-container">
+            <div className="btn-container">
               <Link to="/add-view" className="add-button">
                 Add Item
               </Link>
