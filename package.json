@@ -9,7 +9,7 @@
     "react-firebase-hooks": "^3.0.3",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.1",
+    "react-scripts": "^5.0.1",
     "sass": "^1.34.0",
     "uuid": "^8.3.2"
   },
@@ -58,5 +58,8 @@
       "prettier --write"
     ],
     "*.{css,md}": "prettier --write"
+  },
+  "overrides": {
+    "@svgr/webpack": "^6.2.1"
   }
 }
