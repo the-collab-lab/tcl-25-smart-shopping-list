@@ -5,6 +5,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import getToken from './lib/tokens';
 import { db } from './lib/firebase';
 import useLocalStorageState from './hooks/useLocalStorageState';
+import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
 
 import Home from './components/homeView/HomeView';
 import AddView from './components/addView/AddView';
@@ -63,11 +64,14 @@ const App = () => {
           </Switch>
         </>
       ) : (
-        <Home
-          handleTokenCreation={handleTokenCreation}
-          setToken={setToken}
-          setCollectionId={setCollectionId}
-        />
+        <>
+          <ArchivalNoticeModal />
+          <Home
+            handleTokenCreation={handleTokenCreation}
+            setToken={setToken}
+            setCollectionId={setCollectionId}
+          />
+        </>
       )}
     </BrowserRouter>
   );
