@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-import getToken from './lib/tokens';
 import { db } from './lib/firebase';
 import useLocalStorageState from './hooks/useLocalStorageState';
 import { ArchivalNoticeModal } from '@the-collab-lab/shopping-list-utils';
@@ -19,18 +18,19 @@ const App = () => {
     '',
   );
 
-  const createList = async (token) => {
-    return await db.collection('lists').add({
-      items: [],
-      token,
-    });
-  };
+  // const createList = async (token) => {
+  //   return await db.collection('lists').add({
+  //     items: [],
+  //     token,
+  //   });
+  // };
 
   const handleTokenCreation = async () => {
-    const token = getToken();
-    setToken(token);
-    const { id } = await createList(token);
-    setCollectionId(id);
+    // const token = getToken();
+    // setToken(token);
+    // const { id } = await createList(token);
+    // setCollectionId(id);
+    console.log('Creating new lists is no longer supported.');
   };
 
   const [shoppingList, loading, error] = useCollectionData(
